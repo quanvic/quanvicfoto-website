@@ -16,7 +16,7 @@ export default function Footer({
 
   return (
     <footer className="border-t border-line bg-paper px-6 py-10 md:px-10">
-      <div className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
+      <div className="mx-auto flex max-w-[1440px] flex-col gap-8 md:flex-row md:items-center md:justify-between">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6">
           <p className="text-xs uppercase tracking-[0.2em] text-mist">
             &copy; {new Date().getFullYear()} Quân Vic Foto. {t.footer.rights}

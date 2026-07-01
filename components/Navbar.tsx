@@ -16,7 +16,7 @@ export default function Navbar({
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 mix-blend-difference">
-      <div className="flex items-center justify-between px-5 py-5 sm:px-6 sm:py-6 md:px-10 md:py-8">
+      <div className="mx-auto flex max-w-[1440px] items-center justify-between px-5 py-5 sm:px-6 sm:py-6 md:px-10 md:py-8">
         <Link
           href="/"
           className="cursor-hover -m-2 truncate p-2 font-serif text-base tracking-[0.06em] text-paper sm:text-lg sm:tracking-[0.08em]"

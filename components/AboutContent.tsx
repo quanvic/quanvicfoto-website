@@ -9,7 +9,7 @@ export default function AboutContent() {
   const page = t.aboutPage;
 
   return (
-    <div className="px-6 pb-24 pt-36 md:px-10 md:pt-44">
+    <div className="mx-auto max-w-[1440px] px-6 pb-24 pt-36 md:px-10 md:pt-44">
       <div className="grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-16">
         <div>
           <span className="mb-4 block text-xs uppercase tracking-[0.3em] text-mist">

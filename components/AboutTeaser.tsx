@@ -11,7 +11,7 @@ export default function AboutTeaser() {
   const about = t.home.about;
 
   return (
-    <section className="grid grid-cols-1 gap-10 px-6 py-24 md:grid-cols-2 md:gap-16 md:px-10 md:py-32">
+    <section className="mx-auto grid max-w-[1440px] grid-cols-1 gap-10 px-6 py-24 md:grid-cols-2 md:gap-16 md:px-10 md:py-32">
       <motion.div
         initial={{ opacity: 0, scale: 1.05 }}
         whileInView={{ opacity: 1, scale: 1 }}
