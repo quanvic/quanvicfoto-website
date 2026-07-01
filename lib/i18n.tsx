@@ -168,7 +168,7 @@ const dictionaries: Record<Lang, Dictionary> = {
           "With more than 11 years of professional photography experience, Quân Vic Foto has become synonymous with striking, aesthetically refined Beauty & Fashion imagery. My strength lies in the art of close-up portraiture — where precise lighting, vivid skin texture, and the model's presence converge in their sharpest, most compelling form.",
         ],
         cta: "Learn more about my process",
-        imageAlt: "Beauty portrait by Quân Vic Foto — soft glam styling",
+        imageAlt: "Quân Vic Foto photographing a shoot with a Fujifilm camera",
       },
     },
     gallery: {
@@ -195,7 +195,7 @@ const dictionaries: Record<Lang, Dictionary> = {
         "My career is proven not only through collaborations with major cosmetics brands and professional Makeup Artist teams on Editorial & Advertising projects, but also affirmed through my role as a Speaker at Fujifilm Vietnam.",
         "I consistently pursue a minimal, modern photographic style — striving for perfection while preserving the natural, authentic beauty of the subject.",
       ],
-      imageAlt: "Beauty portrait by Quân Vic Foto — soft glam styling",
+      imageAlt: "Quân Vic Foto photographing a shoot with a Fujifilm camera",
       approachKicker: "Approach",
       approach: [
         {
@@ -308,7 +308,7 @@ const dictionaries: Record<Lang, Dictionary> = {
           "Với hơn 11 năm kinh nghiệm trong ngành nhiếp ảnh chuyên nghiệp, Quân Vic Foto là cái tên gắn liền với những khung hình Beauty & Fashion đầy tính thẩm mỹ. Thế mạnh của tôi nằm ở nghệ thuật chụp chân dung cận cảnh — nơi sự giao thoa giữa ánh sáng chuẩn xác, kết cấu làn da sống động và thần thái người mẫu được tôn vinh một cách sắc nét nhất.",
         ],
         cta: "Tìm hiểu thêm về quy trình làm việc",
-        imageAlt: "Chân dung beauty bởi Quân Vic Foto — phong cách glam nhẹ nhàng",
+        imageAlt: "Quân Vic Foto đang tác nghiệp với máy ảnh Fujifilm",
       },
     },
     gallery: {
@@ -335,7 +335,7 @@ const dictionaries: Record<Lang, Dictionary> = {
         "Hành trình nghề nghiệp của tôi không chỉ được minh chứng qua việc hợp tác cùng các thương hiệu mỹ phẩm lớn và đội ngũ Makeup Artist chuyên nghiệp trong các dự án Editorial & Advertising, mà còn được khẳng định qua vai trò Diễn giả tại Fujifilm Việt Nam.",
         "Tôi luôn theo đuổi phong cách nhiếp ảnh tối giản, hiện đại, hướng tới sự hoàn mỹ nhưng vẫn giữ trọn vẹn vẻ đẹp tự nhiên và nguyên bản của chủ thể.",
       ],
-      imageAlt: "Chân dung beauty bởi Quân Vic Foto — phong cách glam nhẹ nhàng",
+      imageAlt: "Quân Vic Foto đang tác nghiệp với máy ảnh Fujifilm",
       approachKicker: "Quy trình làm việc",
       approach: [
         {

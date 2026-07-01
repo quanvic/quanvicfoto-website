@@ -16,7 +16,7 @@ export default function GalleryGrid({ items }: { items: PortfolioItem[] }) {
   const { t, lang } = useLanguage();
 
   return (
-    <div className="grid grid-cols-2 gap-3 md:auto-rows-[260px] md:grid-cols-4 md:gap-4">
+    <div className="grid grid-cols-2 gap-3 md:auto-rows-[260px] md:grid-cols-4 md:grid-flow-dense md:gap-4">
       {items.map((item, i) => (
         <motion.article
           key={item.slug}
