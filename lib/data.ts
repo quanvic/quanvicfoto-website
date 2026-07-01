@@ -56,6 +56,8 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     image: "/images/noir.jpg",
     year: "2024",
     span: "regular",
+    story:
+      "Đôi mắt khép lại, không phải để trốn tránh mà để lắng nghe chính mình. Giữa nền đen tuyệt đối, chiếc nơ voan trắng nổi bật như một hơi thở nhẹ — sự tương phản làm nên vẻ đẹp tĩnh lặng và đầy nội lực.",
   },
   {
     slug: "bloom",
@@ -64,6 +66,8 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     image: "/images/bloom.webp",
     year: "2024",
     span: "wide",
+    story:
+      "Một cánh hoa Thiên điểu rực rỡ băng ngang gương mặt, nhưng ánh nhìn vẫn thẳng thắn không giấu diếm. Bloom là khoảnh khắc vẻ đẹp tự nhiên bung nở giữa sắc màu, chẳng cần phô trương mà vẫn cuốn hút.",
   },
   {
     slug: "editorial-no-4",
@@ -72,6 +76,8 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     image: "/images/editorial-no-4.webp",
     year: "2024",
     span: "regular",
+    story:
+      "Một đóa hoa nâng niu bên gò má, ánh mắt hướng thẳng ống kính đầy tự tin. Trên nền xanh đêm sâu thẳm, đây là chân dung của một tuyên ngôn thời trang không cần lời.",
   },
   {
     slug: "gaze",
@@ -80,6 +86,8 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     image: "/images/gaze.webp",
     year: "2023",
     span: "tall",
+    story:
+      "Vòng hoa khô trên mái tóc bồng bềnh, bàn tay khẽ nâng cằm như đang chờ đợi một câu chuyện được kể. Gaze là ánh nhìn chân thật nhất — nơi vẻ đẹp mộc mạc và cảm xúc hòa làm một.",
   },
   {
     slug: "structure",
@@ -88,6 +96,8 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     image: "/images/structure.webp",
     year: "2023",
     span: "large",
+    story:
+      "Một hình khối voan trắng tưởng như chỉ thuộc về kiến trúc lại ôm trọn gương mặt, cùng ánh nhìn nghiêng đầy thách thức. Structure là nơi kỹ thuật ánh sáng và sự sáng tạo hình khối gặp nhau trong từng đường nét.",
   },
   {
     slug: "muse",
@@ -96,6 +106,8 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     image: "/images/muse.jpg",
     year: "2023",
     span: "regular",
+    story:
+      "Búi tóc cao, đôi tay đan chéo đầy kiêu hãnh trên nền hồng phấn mộng mơ. Muse là lời tôn vinh dành cho người phụ nữ hiện đại — vừa dịu dàng trong từng lớp ren, vừa mạnh mẽ trong ánh nhìn.",
   },
 ];
 
