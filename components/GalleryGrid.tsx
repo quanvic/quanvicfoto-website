@@ -13,7 +13,7 @@ const SPAN_CLASSES: Record<PortfolioItem["span"], string> = {
 };
 
 export default function GalleryGrid({ items }: { items: PortfolioItem[] }) {
-  const { t, lang } = useLanguage();
+  const { lang } = useLanguage();
 
   return (
     <div className="grid grid-cols-2 gap-3 md:auto-rows-[260px] md:grid-cols-4 md:grid-flow-dense md:gap-4">
@@ -33,7 +33,7 @@ export default function GalleryGrid({ items }: { items: PortfolioItem[] }) {
           <div className="cursor-hover absolute inset-0">
             <Image
               src={item.image}
-              alt={`${item.concept} — beauty editorial, model ${item.model}`}
+              alt={`${item.concept} — beauty editorial photography by Quân Vic Foto`}
               fill
               sizes="(min-width: 768px) 50vw, 100vw"
               className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]"
@@ -48,14 +48,6 @@ export default function GalleryGrid({ items }: { items: PortfolioItem[] }) {
                 <p className="font-serif text-xl italic text-paper md:text-2xl">
                   {item.concept}
                 </p>
-              </div>
-              <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1 font-mono text-[11px] uppercase tracking-[0.15em] text-paper/80">
-                <span>
-                  {t.gallery.muaLabel} &mdash; {item.mua}
-                </span>
-                <span>
-                  {t.gallery.modelLabel} &mdash; {item.model}
-                </span>
               </div>
             </div>
 
