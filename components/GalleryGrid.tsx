@@ -60,6 +60,11 @@ export default function GalleryGrid({ items }: { items: PortfolioItem[] }) {
               <span className="mt-1 block pl-[2.1rem] font-mono text-[11px] uppercase tracking-[0.2em] text-paper/70">
                 {CATEGORY_LABELS[item.category]?.[lang] ?? item.category}
               </span>
+              {item.story && (
+                <p className="mt-2 max-w-xs pl-[2.1rem] font-serif text-sm italic leading-relaxed text-paper/85">
+                  {item.story}
+                </p>
+              )}
             </div>
           </button>
         </motion.article>

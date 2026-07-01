@@ -25,24 +25,29 @@ export type PortfolioItem = {
   image: string;
   year: string;
   span: "tall" | "wide" | "large" | "regular";
+  story?: string;
 };
 
 export const PORTFOLIO_ITEMS: PortfolioItem[] = [
   {
     slug: "porcelain",
-    concept: "Porcelain",
+    concept: "Tinh Khôi",
     category: "Skin Study",
     image: "/images/porcelain.webp",
     year: "2025",
     span: "large",
+    story:
+      "Có những vẻ đẹp không cần tô vẽ — chỉ cần ánh sáng biết nâng niu. Từng thớ vải ren, từng làn da thật được giữ nguyên vẹn, như một lời thì thầm về sự tinh khôi chưa từng phai.",
   },
   {
     slug: "vermillion",
-    concept: "Vermillion",
+    concept: "Sắc Sảo",
     category: "Colour Story",
     image: "/images/vermillion.webp",
     year: "2025",
     span: "tall",
+    story:
+      "Sắc đỏ rực rỡ ôm lấy gương mặt như một lời tuyên ngôn — bản lĩnh, quyến rũ và không hề do dự. Đây là khoảnh khắc một người phụ nữ chọn tỏa sáng theo cách của riêng mình.",
   },
   {
     slug: "noir",

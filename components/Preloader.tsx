@@ -12,30 +12,25 @@ export default function Preloader({
   const [done, setDone] = useState(false);
 
   useEffect(() => {
-    document.documentElement.style.overflow = "hidden";
-
-    const start = performance.now();
+    // Uses setInterval instead of requestAnimationFrame: rAF can be
+    // throttled or fully suspended by the browser when the tab is
+    // backgrounded/inactive, which would leave `done` stuck at false and
+    // the page unscrollable (SmoothScroll stays paused while `loading` is
+    // true). setInterval keeps firing regardless of tab visibility.
     const duration = 1800;
+    const start = Date.now();
 
-    let frame: number;
-    const tick = (now: number) => {
-      const progress = Math.min(1, (now - start) / duration);
+    const interval = setInterval(() => {
+      const progress = Math.min(1, (Date.now() - start) / duration);
       setCount(Math.floor(progress * 100));
-      if (progress < 1) {
-        frame = requestAnimationFrame(tick);
-      } else {
+      if (progress >= 1) {
+        clearInterval(interval);
         setTimeout(() => setDone(true), 250);
       }
-    };
-    frame = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(frame);
-  }, []);
+    }, 30);
 
-  useEffect(() => {
-    if (done) {
-      document.documentElement.style.overflow = "";
-    }
-  }, [done]);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <AnimatePresence onExitComplete={onDone}>

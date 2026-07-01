@@ -9,6 +9,7 @@ import CustomCursor from "@/components/CustomCursor";
 import SmoothScroll from "@/components/SmoothScroll";
 import Footer from "@/components/Footer";
 import EditorialFrame from "@/components/EditorialFrame";
+import ZaloButton from "@/components/ZaloButton";
 
 export default function SiteChrome({
   children,
@@ -32,6 +33,7 @@ export default function SiteChrome({
         onBookingOpen={() => setBookingOpen(true)}
       />
       <BookingModal open={bookingOpen} onClose={() => setBookingOpen(false)} />
+      <ZaloButton />
 
       <SmoothScroll paused={loading || menuOpen || bookingOpen}>
         <div className="flex min-h-screen flex-col">

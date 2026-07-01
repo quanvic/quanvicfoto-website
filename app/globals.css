@@ -35,7 +35,7 @@ html.lenis {
   scroll-behavior: auto;
 }
 
-.lenis.lenis-stopped {
+.scroll-locked {
   overflow: hidden;
 }
 

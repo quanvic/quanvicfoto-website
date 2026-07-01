@@ -45,6 +45,12 @@ export default function SmoothScroll({
     } else {
       lenisRef.current.start();
     }
+    // Lenis toggles its own `lenis-stopped` class, but that can get stuck
+    // if `stop()` is called immediately after construction (before Lenis's
+    // own init cycle runs) — e.g. on mount, while the preloader is up. We
+    // drive the actual overflow lock from our own class instead, so it's
+    // never dependent on Lenis's internal state syncing correctly.
+    document.documentElement.classList.toggle("scroll-locked", paused);
   }, [paused]);
 
   return <>{children}</>;

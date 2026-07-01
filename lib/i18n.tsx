@@ -145,18 +145,18 @@ const dictionaries: Record<Lang, Dictionary> = {
     },
     hero: {
       kicker: "Editorial Beauty Photography",
-      titleTop: "The Art of",
-      titleItalic: "Close",
-      titleRest: "Attention",
+      titleTop: "Where Singular",
+      titleItalic: "Beauty",
+      titleRest: "Shines",
       subtitle:
-        "Skin, light, and the architecture of a face — photographed with precision by Quân Vic Foto.",
+        "Every face is a work of art. Quân Vic Foto helps you preserve your most radiant moments with dedication, refinement, and frames that touch the heart.",
       scroll: "Scroll",
     },
     marquee: ["Skin", "Light", "Detail", "Structure", "Editorial", "Beauty"],
     home: {
       selectedWork: {
         kicker: "02 — Selected Work",
-        heading: "A study in skin, light, and expression.",
+        heading: "Moments Worth Treasuring",
         cta: "View full portfolio",
       },
       about: {
@@ -175,7 +175,7 @@ const dictionaries: Record<Lang, Dictionary> = {
       kicker: "Enquiries & Bookings",
       heading: "Let's create something",
       headingItalic: "unforgettable",
-      cta: "Start a project",
+      cta: "Let's create together",
     },
     footer: {
       rights: "All rights reserved.",
@@ -283,18 +283,18 @@ const dictionaries: Record<Lang, Dictionary> = {
     },
     hero: {
       kicker: "Nhiếp Ảnh Beauty Editorial",
-      titleTop: "Vẻ Đẹp",
-      titleItalic: "Cận",
-      titleRest: "Cảnh",
+      titleTop: "Nơi Vẻ Đẹp",
+      titleItalic: "Độc Bản",
+      titleRest: "Tỏa Sáng",
       subtitle:
-        "Làn da, ánh sáng và cấu trúc gương mặt — được ghi lại chính xác đến từng chi tiết bởi Quân Vic Foto.",
+        "Mỗi gương mặt là một tác phẩm nghệ thuật. Quân Vic Foto giúp bạn lưu giữ những khoảnh khắc rực rỡ nhất bằng sự tâm huyết, tinh tế và những khung hình chạm đến cảm xúc.",
       scroll: "Cuộn",
     },
     marquee: ["Da", "Ánh Sáng", "Chi Tiết", "Cấu Trúc", "Editorial", "Beauty"],
     home: {
       selectedWork: {
         kicker: "02 — Tác Phẩm Chọn Lọc",
-        heading: "Một hành trình khám phá làn da, ánh sáng và cảm xúc.",
+        heading: "Những Khoảnh Khắc Đáng Giá",
         cta: "Xem toàn bộ portfolio",
       },
       about: {
@@ -313,7 +313,7 @@ const dictionaries: Record<Lang, Dictionary> = {
       kicker: "Liên Hệ & Đặt Lịch",
       heading: "Cùng nhau tạo nên điều",
       headingItalic: "khó quên",
-      cta: "Bắt đầu dự án",
+      cta: "Cùng tạo nên điều đặc biệt",
     },
     footer: {
       rights: "Tất cả quyền được bảo lưu.",

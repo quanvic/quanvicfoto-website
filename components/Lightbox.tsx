@@ -133,16 +133,23 @@ export default function Lightbox({
                 className="object-contain"
               />
             </div>
-            <div className="flex items-baseline gap-3 text-paper">
-              <span className="font-mono text-xs text-paper/50">
-                {String((index as number) + 1).padStart(2, "0")}
-              </span>
-              <p className="font-serif text-xl font-bold uppercase tracking-wide">
-                {item.concept}
-              </p>
-              <span className="font-mono text-[11px] uppercase tracking-[0.15em] text-paper/60">
-                {CATEGORY_LABELS[item.category]?.[lang] ?? item.category}
-              </span>
+            <div className="flex max-w-xl flex-col items-center gap-2 text-center text-paper">
+              <div className="flex items-baseline gap-3">
+                <span className="font-mono text-xs text-paper/50">
+                  {String((index as number) + 1).padStart(2, "0")}
+                </span>
+                <p className="font-serif text-xl font-bold uppercase tracking-wide">
+                  {item.concept}
+                </p>
+                <span className="font-mono text-[11px] uppercase tracking-[0.15em] text-paper/60">
+                  {CATEGORY_LABELS[item.category]?.[lang] ?? item.category}
+                </span>
+              </div>
+              {item.story && (
+                <p className="font-serif text-sm italic leading-relaxed text-paper/75">
+                  {item.story}
+                </p>
+              )}
             </div>
           </motion.div>
         </motion.div>
