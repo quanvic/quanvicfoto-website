@@ -28,9 +28,13 @@ const itemVariants = {
   },
 };
 
-const NAV_KEY_BY_HREF: Record<string, "home" | "portfolio" | "about" | "contact"> = {
+const NAV_KEY_BY_HREF: Record<
+  string,
+  "home" | "portfolio" | "courses" | "about" | "contact"
+> = {
   "/": "home",
   "/portfolio": "portfolio",
+  "/courses": "courses",
   "/about": "about",
   "/contact": "contact",
 };

@@ -5,6 +5,7 @@ export type MenuItem =
 export const MENU_ITEMS: MenuItem[] = [
   { type: "link", label: "Home", href: "/" },
   { type: "link", label: "Portfolio", href: "/portfolio" },
+  { type: "link", label: "Courses", href: "/courses" },
   { type: "action", label: "Booking", action: "booking" },
   { type: "link", label: "About", href: "/about" },
   { type: "link", label: "Contact", href: "/contact" },
@@ -134,3 +135,9 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
 export const ABOUT_IMAGE = "/images/about.webp";
 
 export const HERO_IMAGE = "/images/hero.webp";
+
+export const COURSE_IMAGES: Record<string, string> = {
+  basic: "/images/course-basic.webp",
+  advanced: "/images/course-advanced.webp",
+  mentorship: "/images/course-mentorship.webp",
+};

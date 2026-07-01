@@ -24,6 +24,7 @@ export interface Dictionary {
   nav: {
     home: string;
     portfolio: string;
+    courses: string;
     booking: string;
     about: string;
     contact: string;
@@ -86,6 +87,23 @@ export interface Dictionary {
     heading: string;
     body: string;
   };
+  coursesPage: {
+    metaTitle: string;
+    kicker: string;
+    heading: string;
+    body: string;
+    ctaLabel: string;
+    courses: {
+      slug: string;
+      title: string;
+      level: string;
+      format: string;
+      duration: string;
+      price: string;
+      description: string;
+      highlights: string[];
+    }[];
+  };
   contactPage: {
     kicker: string;
     heading: string;
@@ -133,6 +151,7 @@ const dictionaries: Record<Lang, Dictionary> = {
     nav: {
       home: "Home",
       portfolio: "Portfolio",
+      courses: "Courses",
       booking: "Booking",
       about: "About",
       contact: "Contact",
@@ -220,6 +239,60 @@ const dictionaries: Record<Lang, Dictionary> = {
       heading: "Editorial & campaign work, 2023–2025.",
       body: "A selection of beauty stories shot for magazines, agencies, and independent makeup artists. Each frame is built around a single idea — a texture, a colour, a gesture.",
     },
+    coursesPage: {
+      metaTitle: "Courses — Quân Vic Foto",
+      kicker: "Photography Courses",
+      heading: "Learn to see light the way I do.",
+      body: "Over 11 years of shooting beauty and fashion, distilled into hands-on courses — for anyone who wants to move from taking pictures to making images that hold a story.",
+      ctaLabel: "Enquire about this course",
+      courses: [
+        {
+          slug: "basic",
+          title: "Beauty Photography Fundamentals",
+          level: "Beginner",
+          format: "In-studio, small group",
+          duration: "4 sessions · 8 hours",
+          price: "Contact for pricing",
+          description:
+            "Camera fundamentals, working with a single light source, and directing a model with confidence — everything you need to shoot your first real beauty portrait.",
+          highlights: [
+            "Light shaping: hard, soft, and split light",
+            "Posing and directing a first-time model",
+            "Composition and framing for close-up beauty",
+          ],
+        },
+        {
+          slug: "advanced",
+          title: "Advanced Lighting & Editorial Craft",
+          level: "Advanced",
+          format: "In-studio, small group",
+          duration: "6 sessions · 14 hours",
+          price: "Contact for pricing",
+          description:
+            "For photographers who already shoot but want editorial-grade results — multi-light setups, working alongside a M.U.A., and building a portfolio brands actually notice.",
+          highlights: [
+            "Multi-light studio setups for editorial work",
+            "Collaborating with makeup artists and stylists",
+            "Retouching that preserves real skin texture",
+          ],
+        },
+        {
+          slug: "mentorship",
+          title: "1:1 Mentorship",
+          level: "All levels",
+          format: "Private, remote or in-person",
+          duration: "Ongoing, monthly",
+          price: "Contact for pricing",
+          description:
+            "Direct, ongoing guidance on your own work — portfolio reviews, shoot planning, and honest feedback from someone who's built a career doing exactly what you want to do.",
+          highlights: [
+            "Personal portfolio review and direction",
+            "Shoot planning and concept development",
+            "Direct access for questions between sessions",
+          ],
+        },
+      ],
+    },
     contactPage: {
       kicker: "Contact",
       heading: "Tell me about your project.",
@@ -271,6 +344,7 @@ const dictionaries: Record<Lang, Dictionary> = {
     nav: {
       home: "Trang chủ",
       portfolio: "Portfolio",
+      courses: "Khoá học",
       booking: "Đặt lịch",
       about: "Giới thiệu",
       contact: "Liên hệ",
@@ -357,6 +431,60 @@ const dictionaries: Record<Lang, Dictionary> = {
       kicker: "Portfolio",
       heading: "Các dự án editorial & chiến dịch, 2023–2025.",
       body: "Tuyển tập những câu chuyện làm đẹp được thực hiện cho tạp chí, agency và các Makeup Artist độc lập. Mỗi khung hình được xây dựng quanh một ý tưởng — một kết cấu, một màu sắc, một cử chỉ.",
+    },
+    coursesPage: {
+      metaTitle: "Khoá học — Quân Vic Foto",
+      kicker: "Khoá Học Nhiếp Ảnh",
+      heading: "Học cách nhìn ánh sáng theo cách của tôi.",
+      body: "Hơn 11 năm chụp Beauty & Fashion, được chắt lọc thành những khoá học thực hành — dành cho bất kỳ ai muốn đi từ việc \"chụp ảnh\" đến việc tạo ra những khung hình biết kể chuyện.",
+      ctaLabel: "Đăng ký / Hỏi thêm về khoá học",
+      courses: [
+        {
+          slug: "basic",
+          title: "Beauty Photography Cơ Bản",
+          level: "Người mới bắt đầu",
+          format: "Học trực tiếp tại studio, nhóm nhỏ",
+          duration: "4 buổi · 8 giờ",
+          price: "Liên hệ để nhận báo giá",
+          description:
+            "Nắm vững máy ảnh, làm việc với một nguồn sáng duy nhất và tự tin chỉ đạo người mẫu — đủ hành trang để bạn chụp bức chân dung beauty đầu tiên thật sự chỉn chu.",
+          highlights: [
+            "Tạo hình ánh sáng: cứng, mềm và xẻ đôi",
+            "Tư thế và cách chỉ đạo người mẫu lần đầu",
+            "Bố cục và khung hình cho beauty cận cảnh",
+          ],
+        },
+        {
+          slug: "advanced",
+          title: "Ánh Sáng & Tạo Hình Nâng Cao",
+          level: "Nâng cao",
+          format: "Học trực tiếp tại studio, nhóm nhỏ",
+          duration: "6 buổi · 14 giờ",
+          price: "Liên hệ để nhận báo giá",
+          description:
+            "Dành cho người đã chụp ảnh nhưng muốn đạt chất lượng editorial thực thụ — thiết lập đa nguồn sáng, phối hợp cùng M.U.A và xây dựng một portfolio thật sự được các nhãn hàng chú ý.",
+          highlights: [
+            "Thiết lập đa nguồn sáng cho editorial",
+            "Phối hợp cùng Makeup Artist và Stylist",
+            "Hậu kỳ giữ trọn kết cấu da thật",
+          ],
+        },
+        {
+          slug: "mentorship",
+          title: "Mentorship 1:1",
+          level: "Mọi trình độ",
+          format: "Riêng tư, online hoặc trực tiếp",
+          duration: "Đồng hành hàng tháng",
+          price: "Liên hệ để nhận báo giá",
+          description:
+            "Đồng hành trực tiếp và liên tục trên chính tác phẩm của bạn — review portfolio, lên kế hoạch buổi chụp và những góp ý thẳng thắn từ người đã xây dựng sự nghiệp từ chính con đường bạn đang đi.",
+          highlights: [
+            "Review và định hướng portfolio cá nhân",
+            "Lên kế hoạch buổi chụp và phát triển ý tưởng",
+            "Hỗ trợ trực tiếp giữa các buổi học",
+          ],
+        },
+      ],
     },
     contactPage: {
       kicker: "Liên hệ",
