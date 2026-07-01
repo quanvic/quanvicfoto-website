@@ -7,7 +7,7 @@ export default function ZaloButton() {
       target="_blank"
       rel="noreferrer"
       aria-label="Chat qua Zalo"
-      className="cursor-hover fixed bottom-6 right-6 z-[35] flex h-14 w-14 items-center justify-center rounded-full bg-[#0068FF] text-paper shadow-[0_8px_24px_rgba(0,104,255,0.35)] transition-transform duration-300 hover:scale-105 active:scale-95 md:bottom-8 md:right-8"
+      className="cursor-hover fixed bottom-6 right-6 z-[35] flex h-14 w-14 items-center justify-center rounded-full border border-ink bg-ink text-paper shadow-[0_8px_24px_rgba(0,0,0,0.25)] transition-colors duration-300 hover:bg-paper hover:text-ink active:scale-95 md:bottom-8 md:right-8"
     >
       <svg width="27" height="27" viewBox="0 0 24 24" fill="none" aria-hidden="true">
         <path

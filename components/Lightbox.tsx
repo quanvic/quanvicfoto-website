@@ -8,19 +8,26 @@ import { CATEGORY_LABELS, useLanguage } from "@/lib/i18n";
 
 const SWIPE_OFFSET_THRESHOLD = 60;
 const SWIPE_VELOCITY_THRESHOLD = 500;
+const SLIDE_DISTANCE = 320;
 
 const slideVariants = {
   enter: (direction: number) => ({
     opacity: 0,
-    x: direction * 60,
-    scale: 0.97,
+    x: direction * SLIDE_DISTANCE,
+    scale: 0.94,
   }),
   center: { opacity: 1, x: 0, scale: 1 },
   exit: (direction: number) => ({
     opacity: 0,
-    x: direction * -60,
-    scale: 0.97,
+    x: direction * -SLIDE_DISTANCE,
+    scale: 0.94,
   }),
+};
+
+const slideTransition = {
+  x: { type: "spring" as const, stiffness: 340, damping: 32 },
+  opacity: { duration: 0.2 },
+  scale: { duration: 0.25 },
 };
 
 export default function Lightbox({
@@ -166,10 +173,10 @@ export default function Lightbox({
                 initial="enter"
                 animate="center"
                 exit="exit"
-                transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                transition={slideTransition}
                 drag={items.length > 1 ? "x" : false}
                 dragConstraints={{ left: 0, right: 0 }}
-                dragElastic={0.7}
+                dragElastic={1}
                 onDragEnd={handleDragEnd}
                 className="flex h-full w-full cursor-grab flex-col items-center justify-center gap-4 active:cursor-grabbing"
               >
