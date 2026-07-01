@@ -40,7 +40,7 @@ export default function ContactPage() {
     <div className="mx-auto max-w-[1440px] px-6 pb-24 pt-36 md:px-10 md:pt-44">
       <div className="grid grid-cols-1 gap-16 md:grid-cols-2 md:gap-24">
         <div>
-          <span className="mb-4 block text-xs uppercase tracking-[0.3em] text-mist">
+          <span className="mb-4 block font-mono text-xs uppercase tracking-[0.3em] text-mist">
             {page.kicker}
           </span>
           <h1 className="font-serif text-[clamp(2.25rem,5.5vw,4.5rem)] font-medium leading-[1.05] tracking-tight">
@@ -59,7 +59,7 @@ export default function ContactPage() {
             </a>
             <a
               href={`tel:${PHONE_TEL}`}
-              className="cursor-hover w-fit text-sm text-mist transition-colors hover:text-ink"
+              className="cursor-hover w-fit font-mono text-sm text-mist transition-colors hover:text-ink"
             >
               {PHONE_DISPLAY}
             </a>
@@ -72,7 +72,7 @@ export default function ContactPage() {
                 href={s.href}
                 target="_blank"
                 rel="noreferrer"
-                className="cursor-hover text-xs uppercase tracking-[0.2em] text-ink transition-colors hover:text-mist"
+                className="cursor-hover font-mono text-xs uppercase tracking-[0.2em] text-ink transition-colors hover:text-mist"
               >
                 {s.label}
               </a>
@@ -84,7 +84,7 @@ export default function ContactPage() {
           <div className="flex flex-col gap-2">
             <label
               htmlFor="name"
-              className="text-xs uppercase tracking-[0.2em] text-mist"
+              className="font-mono text-xs uppercase tracking-[0.2em] text-mist"
             >
               {page.nameLabel}
             </label>
@@ -101,7 +101,7 @@ export default function ContactPage() {
           <div className="flex flex-col gap-2">
             <label
               htmlFor="email"
-              className="text-xs uppercase tracking-[0.2em] text-mist"
+              className="font-mono text-xs uppercase tracking-[0.2em] text-mist"
             >
               {page.emailLabel}
             </label>
@@ -118,7 +118,7 @@ export default function ContactPage() {
           <div className="flex flex-col gap-2">
             <label
               htmlFor="project"
-              className="text-xs uppercase tracking-[0.2em] text-mist"
+              className="font-mono text-xs uppercase tracking-[0.2em] text-mist"
             >
               {page.projectLabel}
             </label>
@@ -139,7 +139,7 @@ export default function ContactPage() {
           <div className="flex flex-col gap-2">
             <label
               htmlFor="message"
-              className="text-xs uppercase tracking-[0.2em] text-mist"
+              className="font-mono text-xs uppercase tracking-[0.2em] text-mist"
             >
               {page.messageLabel}
             </label>
@@ -161,7 +161,7 @@ export default function ContactPage() {
           <button
             type="submit"
             disabled={status === "sending" || status === "sent"}
-            className="cursor-hover mt-4 inline-flex w-fit items-center gap-4 rounded-full bg-ink px-8 py-4 text-sm uppercase tracking-[0.2em] text-paper transition-opacity hover:opacity-80 disabled:opacity-50"
+            className="cursor-hover mt-4 inline-flex w-fit items-center gap-4 border border-ink bg-ink px-8 py-4 font-mono text-sm uppercase tracking-[0.2em] text-paper transition-colors duration-300 hover:bg-paper hover:text-ink disabled:opacity-50"
           >
             {status === "idle" && page.submitIdle}
             {status === "sending" && page.submitSending}

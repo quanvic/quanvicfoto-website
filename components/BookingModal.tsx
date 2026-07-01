@@ -7,7 +7,7 @@ import { useLanguage } from "@/lib/i18n";
 
 const fieldClass =
   "border-b border-line bg-transparent py-3 text-base outline-none transition-colors focus:border-ink";
-const labelClass = "text-xs uppercase tracking-[0.2em] text-mist";
+const labelClass = "font-mono text-xs uppercase tracking-[0.2em] text-mist";
 
 const MAX_IMAGES = 10;
 const MAX_FILE_BYTES = 4 * 1024 * 1024;
@@ -183,14 +183,14 @@ export default function BookingModal({
               type="button"
               onClick={onClose}
               aria-label={b.closeAria}
-              className="cursor-hover absolute right-5 top-5 flex h-11 w-11 items-center justify-center text-xs uppercase tracking-[0.2em] text-mist transition-colors hover:text-ink"
+              className="cursor-hover absolute right-5 top-5 flex h-11 w-11 items-center justify-center font-mono text-xs uppercase tracking-[0.2em] text-mist transition-colors hover:text-ink"
             >
               {b.close}
             </button>
 
             {status !== "sent" ? (
               <>
-                <span className="mb-3 block text-xs uppercase tracking-[0.3em] text-mist">
+                <span className="mb-3 block font-mono text-xs uppercase tracking-[0.3em] text-mist">
                   {b.kicker}
                 </span>
                 <h2
@@ -270,7 +270,7 @@ export default function BookingModal({
                   <div className="flex flex-col gap-3">
                     <div className="flex items-baseline justify-between">
                       <span className={labelClass}>{b.imagesLabel}</span>
-                      <span className="text-[11px] text-mist">
+                      <span className="font-mono text-[11px] text-mist">
                         {images.length}/{MAX_IMAGES}
                       </span>
                     </div>
@@ -360,7 +360,7 @@ export default function BookingModal({
                       )}
                     </div>
 
-                    <p className="text-[11px] leading-relaxed text-mist">
+                    <p className="font-mono text-[11px] leading-relaxed text-mist">
                       {imageError ?? b.imagesHint}
                     </p>
                   </div>
@@ -374,7 +374,7 @@ export default function BookingModal({
                   <button
                     type="submit"
                     disabled={status === "sending"}
-                    className="cursor-hover mt-2 inline-flex w-full items-center justify-center border border-ink bg-ink px-8 py-4 text-sm uppercase tracking-[0.25em] text-paper transition-colors duration-300 hover:bg-paper hover:text-ink disabled:opacity-50 sm:w-fit"
+                    className="cursor-hover mt-2 inline-flex w-full items-center justify-center border border-ink bg-ink px-8 py-4 font-mono text-sm uppercase tracking-[0.25em] text-paper transition-colors duration-300 hover:bg-paper hover:text-ink disabled:opacity-50 sm:w-fit"
                   >
                     {status === "sending" ? b.submitSending : b.submitIdle}
                   </button>
@@ -389,7 +389,7 @@ export default function BookingModal({
                 aria-live="polite"
                 className="flex min-h-[320px] flex-col justify-center"
               >
-                <span className="mb-3 block text-xs uppercase tracking-[0.3em] text-mist">
+                <span className="mb-3 block font-mono text-xs uppercase tracking-[0.3em] text-mist">
                   {b.successKicker}
                 </span>
                 <p className="font-serif text-2xl italic leading-snug md:text-3xl">
@@ -398,7 +398,7 @@ export default function BookingModal({
                 <button
                   type="button"
                   onClick={onClose}
-                  className="cursor-hover mt-10 inline-flex w-fit items-center border-b border-ink pb-1 text-sm uppercase tracking-[0.2em] transition-colors hover:border-mist hover:text-mist"
+                  className="cursor-hover mt-10 inline-flex w-fit items-center border-b border-ink pb-1 font-mono text-sm uppercase tracking-[0.2em] transition-colors hover:border-mist hover:text-mist"
                 >
                   {b.close}
                 </button>

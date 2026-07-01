@@ -34,7 +34,7 @@ export default function Navbar({
             aria-controls="site-menu"
             className="cursor-hover group -m-2 flex items-center gap-2 p-2 text-paper sm:gap-3"
           >
-            <span className="text-xs uppercase tracking-[0.3em]">
+            <span className="font-mono text-xs uppercase tracking-[0.3em]">
               {menuOpen ? t.menu.toggleClose : t.menu.toggleOpen}
             </span>
             <span className="relative flex h-4 w-6 flex-col justify-between">

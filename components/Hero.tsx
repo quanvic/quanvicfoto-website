@@ -70,7 +70,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 2.05, duration: 0.8, ease: "easeOut" }}
-            className="mb-6 font-sans text-xs uppercase tracking-[0.4em] text-paper/80"
+            className="mb-6 font-mono text-xs uppercase tracking-[0.4em] text-paper/80"
           >
             {t.hero.kicker}
           </motion.p>
@@ -101,7 +101,7 @@ export default function Hero() {
           ref={cueRef}
           className="absolute inset-x-0 bottom-8 z-10 flex flex-col items-center gap-3 text-paper/70"
         >
-          <span className="text-[10px] uppercase tracking-[0.3em]">
+          <span className="font-mono text-[10px] uppercase tracking-[0.3em]">
             {t.hero.scroll}
           </span>
           <span className="h-10 w-px overflow-hidden bg-paper/30">

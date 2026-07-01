@@ -35,7 +35,7 @@ export default function AboutTeaser() {
         transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
         className="flex flex-col justify-center"
       >
-        <span className="mb-6 text-xs uppercase tracking-[0.3em] text-mist">
+        <span className="mb-6 font-mono text-xs uppercase tracking-[0.3em] text-mist">
           {about.kicker}
         </span>
         <h2 className="font-serif text-[clamp(2rem,4.5vw,3.5rem)] font-medium leading-[1.05] tracking-tight">
@@ -51,7 +51,7 @@ export default function AboutTeaser() {
         ))}
         <Link
           href="/about"
-          className="cursor-hover group mt-10 inline-flex w-fit items-center gap-3 border-b border-ink pb-1 text-sm uppercase tracking-[0.2em] transition-colors hover:border-mist hover:text-mist"
+          className="cursor-hover group mt-10 inline-flex w-fit items-center gap-3 border border-ink px-5 py-2.5 font-mono text-xs uppercase tracking-[0.2em] text-ink transition-colors duration-300 hover:bg-ink hover:text-paper"
         >
           {about.cta}
           <span className="transition-transform duration-300 group-hover:translate-x-1">

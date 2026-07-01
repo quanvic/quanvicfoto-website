@@ -5,8 +5,13 @@ import { AnimatePresence, motion } from "framer-motion";
 import { MENU_ITEMS, SOCIAL_LINKS } from "@/lib/data";
 import { useLanguage } from "@/lib/i18n";
 
-const itemClass =
-  "cursor-hover group flex items-baseline gap-4 font-serif text-[clamp(2.5rem,8vw,5.5rem)] leading-[1.05] text-paper transition-colors hover:text-paper/50";
+const rowClass = "group relative -mx-6 md:-mx-10";
+const sweepClass =
+  "pointer-events-none absolute inset-0 origin-left scale-x-0 bg-paper transition-transform duration-300 ease-out group-hover:scale-x-100";
+const linkClass =
+  "cursor-hover relative z-10 flex items-baseline gap-4 px-6 font-serif text-[clamp(2.5rem,8vw,5.5rem)] leading-[1.05] text-paper transition-colors duration-300 group-hover:text-ink md:px-10";
+const numberClass =
+  "font-mono text-sm text-paper/40 transition-colors duration-300 group-hover:text-ink/40";
 
 const listVariants = {
   hidden: {},
@@ -69,32 +74,31 @@ export default function MenuOverlay({
                   className="overflow-hidden"
                 >
                   <motion.div variants={itemVariants}>
-                    {item.type === "link" ? (
-                      <Link
-                        href={item.href}
-                        onClick={onClose}
-                        className={itemClass}
-                      >
-                        <span className="font-sans text-sm text-paper/40">
-                          0{i + 1}
-                        </span>
-                        {label}
-                      </Link>
-                    ) : (
-                      <button
-                        type="button"
-                        onClick={() => {
-                          onClose();
-                          onBookingOpen();
-                        }}
-                        className={itemClass}
-                      >
-                        <span className="font-sans text-sm text-paper/40">
-                          0{i + 1}
-                        </span>
-                        {label}
-                      </button>
-                    )}
+                    <div className={rowClass}>
+                      <span className={sweepClass} />
+                      {item.type === "link" ? (
+                        <Link
+                          href={item.href}
+                          onClick={onClose}
+                          className={linkClass}
+                        >
+                          <span className={numberClass}>0{i + 1}</span>
+                          {label}
+                        </Link>
+                      ) : (
+                        <button
+                          type="button"
+                          onClick={() => {
+                            onClose();
+                            onBookingOpen();
+                          }}
+                          className={linkClass}
+                        >
+                          <span className={numberClass}>0{i + 1}</span>
+                          {label}
+                        </button>
+                      )}
+                    </div>
                   </motion.div>
                 </div>
               );
@@ -118,7 +122,7 @@ export default function MenuOverlay({
                   href={social.href}
                   target="_blank"
                   rel="noreferrer"
-                  className="cursor-hover text-sm uppercase tracking-[0.2em] text-paper/60 transition-colors hover:text-paper"
+                  className="cursor-hover font-mono text-sm uppercase tracking-[0.2em] text-paper/60 transition-colors hover:text-paper"
                 >
                   {social.label}
                 </a>

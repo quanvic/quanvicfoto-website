@@ -11,7 +11,7 @@ export default function LanguageSwitcher({
 
   return (
     <div
-      className={`flex items-center text-xs font-medium tracking-[0.15em] ${className}`}
+      className={`flex items-center font-mono text-xs font-medium tracking-[0.15em] ${className}`}
       role="group"
       aria-label="Language"
     >

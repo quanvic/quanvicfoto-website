@@ -41,10 +41,15 @@ export default function GalleryGrid({ items }: { items: PortfolioItem[] }) {
             <div className="absolute inset-0 bg-ink/0 transition-colors duration-500 group-hover:bg-ink/35" />
 
             <div className="absolute inset-x-0 bottom-0 translate-y-4 p-5 opacity-0 transition-all duration-500 ease-out group-hover:translate-y-0 group-hover:opacity-100 md:p-6">
-              <p className="font-serif text-xl italic text-paper md:text-2xl">
-                {item.concept}
-              </p>
-              <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-[11px] uppercase tracking-[0.15em] text-paper/80">
+              <div className="flex items-baseline gap-3">
+                <span className="font-mono text-xs text-paper/50">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <p className="font-serif text-xl italic text-paper md:text-2xl">
+                  {item.concept}
+                </p>
+              </div>
+              <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1 font-mono text-[11px] uppercase tracking-[0.15em] text-paper/80">
                 <span>
                   {t.gallery.muaLabel} &mdash; {item.mua}
                 </span>
@@ -54,7 +59,7 @@ export default function GalleryGrid({ items }: { items: PortfolioItem[] }) {
               </div>
             </div>
 
-            <span className="absolute left-5 top-5 text-[11px] uppercase tracking-[0.2em] text-paper opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+            <span className="absolute left-5 top-5 font-mono text-[11px] uppercase tracking-[0.2em] text-paper opacity-0 transition-opacity duration-500 group-hover:opacity-100">
               {CATEGORY_LABELS[item.category]?.[lang] ?? item.category}
             </span>
           </div>

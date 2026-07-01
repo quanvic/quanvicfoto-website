@@ -5,7 +5,7 @@ import { PHONE_DISPLAY, PHONE_TEL, SOCIAL_LINKS } from "@/lib/data";
 import { useLanguage } from "@/lib/i18n";
 
 const underlineLinkClass =
-  "cursor-hover relative -my-2 w-fit py-2 text-xs uppercase tracking-[0.2em] text-ink after:absolute after:-bottom-1 after:left-0 after:h-px after:w-0 after:bg-ink after:transition-all after:duration-300 after:content-[''] hover:after:w-full";
+  "cursor-hover relative -my-2 w-fit py-2 font-mono text-xs uppercase tracking-[0.2em] text-ink after:absolute after:-bottom-1 after:left-0 after:h-px after:w-0 after:bg-ink after:transition-all after:duration-300 after:content-[''] hover:after:w-full";
 
 export default function Footer({
   onBookingOpen,
@@ -18,13 +18,13 @@ export default function Footer({
     <footer className="border-t border-line bg-paper px-6 py-10 md:px-10">
       <div className="mx-auto flex max-w-[1440px] flex-col gap-8 md:flex-row md:items-center md:justify-between">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6">
-          <p className="text-xs uppercase tracking-[0.2em] text-mist">
+          <p className="font-mono text-xs uppercase tracking-[0.2em] text-mist">
             &copy; {new Date().getFullYear()} Quân Vic Foto. {t.footer.rights}
           </p>
 
           <a
             href={`tel:${PHONE_TEL}`}
-            className="cursor-hover inline-flex w-fit items-center gap-2 rounded-full border border-ink px-4 py-2.5 text-xs uppercase tracking-[0.2em] text-ink transition-colors duration-300 hover:bg-ink hover:text-paper"
+            className="cursor-hover inline-flex w-fit items-center gap-2 border border-ink px-4 py-2.5 font-mono text-xs uppercase tracking-[0.2em] text-ink transition-colors duration-300 hover:bg-ink hover:text-paper"
           >
             <svg
               width="13"

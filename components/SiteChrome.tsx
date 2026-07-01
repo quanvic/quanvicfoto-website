@@ -8,6 +8,7 @@ import BookingModal from "@/components/BookingModal";
 import CustomCursor from "@/components/CustomCursor";
 import SmoothScroll from "@/components/SmoothScroll";
 import Footer from "@/components/Footer";
+import EditorialFrame from "@/components/EditorialFrame";
 
 export default function SiteChrome({
   children,
@@ -22,6 +23,7 @@ export default function SiteChrome({
     <>
       {loading && <Preloader onDone={() => setLoading(false)} />}
 
+      <EditorialFrame />
       <CustomCursor />
       <Navbar menuOpen={menuOpen} onToggle={() => setMenuOpen((v) => !v)} />
       <MenuOverlay

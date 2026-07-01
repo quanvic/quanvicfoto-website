@@ -12,7 +12,7 @@ export default function AboutContent() {
     <div className="mx-auto max-w-[1440px] px-6 pb-24 pt-36 md:px-10 md:pt-44">
       <div className="grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-16">
         <div>
-          <span className="mb-4 block text-xs uppercase tracking-[0.3em] text-mist">
+          <span className="mb-4 block font-mono text-xs uppercase tracking-[0.3em] text-mist">
             {page.kicker}
           </span>
           <h1 className="font-serif text-[clamp(2.25rem,5.5vw,4.5rem)] font-medium leading-[1.05] tracking-tight">
@@ -33,7 +33,7 @@ export default function AboutContent() {
                 <p className="font-serif text-3xl md:text-4xl">
                   {stat.value}
                 </p>
-                <p className="mt-2 text-xs uppercase tracking-[0.15em] text-mist">
+                <p className="mt-2 font-mono text-xs uppercase tracking-[0.15em] text-mist">
                   {stat.label}
                 </p>
               </div>
@@ -53,13 +53,13 @@ export default function AboutContent() {
       </div>
 
       <div className="mt-24 md:mt-32">
-        <span className="mb-8 block text-xs uppercase tracking-[0.3em] text-mist">
+        <span className="mb-8 block font-mono text-xs uppercase tracking-[0.3em] text-mist">
           {page.approachKicker}
         </span>
         <div className="grid grid-cols-1 gap-x-10 gap-y-12 border-t border-line pt-10 md:grid-cols-3">
           {page.approach.map((item, i) => (
             <div key={item.title}>
-              <span className="font-sans text-xs text-mist">0{i + 1}</span>
+              <span className="font-mono text-xs text-mist">0{i + 1}</span>
               <h3 className="mt-3 font-serif text-2xl italic">
                 {item.title}
               </h3>

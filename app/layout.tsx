@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Inter } from "next/font/google";
+import { Playfair_Display, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import SiteChrome from "@/components/SiteChrome";
 import { LanguageProvider } from "@/lib/i18n";
@@ -17,6 +17,12 @@ const inter = Inter({
   weight: ["300", "400", "500", "600"],
 });
 
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-jetbrains-mono",
+  subsets: ["latin", "vietnamese"],
+  weight: ["400", "500", "700"],
+});
+
 export const metadata: Metadata = {
   title: "Quân Vic Foto — Beauty Photographer",
   description:
@@ -29,7 +35,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
+    <html
+      lang="en"
+      className={`${playfair.variable} ${inter.variable} ${jetbrainsMono.variable}`}
+    >
       <body className="bg-paper text-ink antialiased">
         <LanguageProvider>
           <SiteChrome>{children}</SiteChrome>
