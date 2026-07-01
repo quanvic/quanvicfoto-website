@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
+import { autoReplyHtml, escapeHtml, isValidEmail } from "@/lib/email";
 
 export const runtime = "nodejs";
 
@@ -81,7 +82,7 @@ export async function POST(req: Request) {
     const { error } = await resend.emails.send({
       from: `Quân Vic Foto Booking <${FROM_EMAIL}>`,
       to: TO_EMAIL,
-      replyTo: contact.includes("@") ? contact : undefined,
+      replyTo: isValidEmail(contact) ? contact : undefined,
       subject: `New booking request — ${name}`,
       html,
       attachments,
@@ -96,13 +97,25 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "send_failed" }, { status: 502 });
   }
 
-  return NextResponse.json({ ok: true });
-}
+  // Best-effort auto-reply to the customer, only when the "contact" field
+  // they entered is actually an email (it's a free-text phone-or-email
+  // field, so we can't always reach them this way) — failure here
+  // shouldn't fail the request, since the studio already received it.
+  if (isValidEmail(contact)) {
+    try {
+      const { error } = await resend.emails.send({
+        from: `Quân Vic Foto <${FROM_EMAIL}>`,
+        to: contact,
+        subject: "[Quân Vic Foto] Cảm ơn bạn đã gửi gắm ý tưởng",
+        html: autoReplyHtml(name, "booking"),
+      });
+      if (error) {
+        console.error("Auto-reply Resend error:", error);
+      }
+    } catch (err) {
+      console.error("Auto-reply email failed:", err);
+    }
+  }
 
-function escapeHtml(value: string) {
-  return value
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;");
+  return NextResponse.json({ ok: true });
 }
