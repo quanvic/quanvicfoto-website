@@ -12,12 +12,14 @@ export function isValidEmail(value: string): boolean {
 
 export function autoReplyHtml(
   name: string,
-  kind: "contact" | "booking" = "contact",
+  kind: "contact" | "booking" | "shop" = "contact",
 ): string {
   const intro =
     kind === "booking"
       ? "Quân Vic Foto đã nhận được yêu cầu đặt lịch chụp của bạn từ website. Cảm ơn bạn đã tin tưởng chọn tôi làm người đồng hành để ghi lại những khoảnh khắc đáng giá của mình."
-      : "Quân Vic Foto đã nhận được thông tin liên hệ của bạn từ website. Cảm ơn bạn đã tin tưởng chọn tôi làm người đồng hành để ghi lại những khoảnh khắc đáng giá của mình.";
+      : kind === "shop"
+        ? "Quân Vic Foto đã nhận được yêu cầu mua bản quyền ảnh của bạn từ website. Cảm ơn bạn đã quan tâm và muốn sở hữu một phần trong những tác phẩm tôi đã thực hiện."
+        : "Quân Vic Foto đã nhận được thông tin liên hệ của bạn từ website. Cảm ơn bạn đã tin tưởng chọn tôi làm người đồng hành để ghi lại những khoảnh khắc đáng giá của mình.";
 
   return `
     <div style="font-family: Georgia, 'Times New Roman', serif; color: #111; max-width: 560px; margin: 0 auto; padding: 32px 24px;">

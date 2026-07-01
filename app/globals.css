@@ -51,6 +51,15 @@ body {
   color: var(--color-paper);
 }
 
+/* Deterrents against casual image saving. Not foolproof — a screenshot
+   can never be blocked by CSS/JS — but this raises the bar past "right
+   click -> Save Image" and the iOS long-press share sheet. */
+img {
+  -webkit-user-drag: none;
+  user-drag: none;
+  -webkit-touch-callout: none;
+}
+
 /* Editorial marquee */
 @keyframes marquee {
   from {

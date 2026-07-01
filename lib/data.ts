@@ -5,6 +5,7 @@ export type MenuItem =
 export const MENU_ITEMS: MenuItem[] = [
   { type: "link", label: "Home", href: "/" },
   { type: "link", label: "Portfolio", href: "/portfolio" },
+  { type: "link", label: "Shop", href: "/shop" },
   { type: "link", label: "Courses", href: "/courses" },
   { type: "action", label: "Booking", action: "booking" },
   { type: "link", label: "About", href: "/about" },
@@ -141,3 +142,14 @@ export const COURSE_IMAGES: Record<string, string> = {
   advanced: "/images/course-advanced.webp",
   mentorship: "/images/course-mentorship.webp",
 };
+
+// Portfolio pieces available for licensing in the Shop — references
+// PORTFOLIO_ITEMS by slug rather than duplicating image/story data.
+export const SHOP_SLUGS = [
+  "porcelain",
+  "vermillion",
+  "noir",
+  "bloom",
+  "structure",
+  "muse",
+];

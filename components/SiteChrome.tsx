@@ -10,6 +10,7 @@ import SmoothScroll from "@/components/SmoothScroll";
 import Footer from "@/components/Footer";
 import EditorialFrame from "@/components/EditorialFrame";
 import ZaloButton from "@/components/ZaloButton";
+import ImageProtection from "@/components/ImageProtection";
 
 export default function SiteChrome({
   children,
@@ -26,6 +27,7 @@ export default function SiteChrome({
 
       <EditorialFrame />
       <CustomCursor />
+      <ImageProtection />
       <Navbar menuOpen={menuOpen} onToggle={() => setMenuOpen(!menuOpen)} />
       <MenuOverlay
         open={menuOpen}

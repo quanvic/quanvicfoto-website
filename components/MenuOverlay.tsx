@@ -30,10 +30,11 @@ const itemVariants = {
 
 const NAV_KEY_BY_HREF: Record<
   string,
-  "home" | "portfolio" | "courses" | "about" | "contact"
+  "home" | "portfolio" | "shop" | "courses" | "about" | "contact"
 > = {
   "/": "home",
   "/portfolio": "portfolio",
+  "/shop": "shop",
   "/courses": "courses",
   "/about": "about",
   "/contact": "contact",

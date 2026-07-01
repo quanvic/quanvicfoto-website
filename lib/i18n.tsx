@@ -24,6 +24,7 @@ export interface Dictionary {
   nav: {
     home: string;
     portfolio: string;
+    shop: string;
     courses: string;
     booking: string;
     about: string;
@@ -86,6 +87,34 @@ export interface Dictionary {
     kicker: string;
     heading: string;
     body: string;
+  };
+  shopPage: {
+    metaTitle: string;
+    kicker: string;
+    heading: string;
+    body: string;
+    protectedNote: string;
+    licenseLabel: string;
+    licenseOptions: { value: string; label: string; description: string }[];
+    ctaLabel: string;
+    modal: {
+      kicker: string;
+      heading: string;
+      intro: string;
+      productLabel: string;
+      nameLabel: string;
+      contactLabel: string;
+      licenseFieldLabel: string;
+      licensePlaceholder: string;
+      messageLabel: string;
+      submitIdle: string;
+      submitSending: string;
+      submitError: string;
+      close: string;
+      closeAria: string;
+      successKicker: string;
+      successMessage: string;
+    };
   };
   coursesPage: {
     metaTitle: string;
@@ -151,6 +180,7 @@ const dictionaries: Record<Lang, Dictionary> = {
     nav: {
       home: "Home",
       portfolio: "Portfolio",
+      shop: "Shop",
       courses: "Courses",
       booking: "Booking",
       about: "About",
@@ -238,6 +268,52 @@ const dictionaries: Record<Lang, Dictionary> = {
       kicker: "Portfolio",
       heading: "Editorial & campaign work, 2023–2025.",
       body: "A selection of beauty stories shot for magazines, agencies, and independent makeup artists. Each frame is built around a single idea — a texture, a colour, a gesture.",
+    },
+    shopPage: {
+      metaTitle: "Shop — Quân Vic Foto",
+      kicker: "Print & Licensing Shop",
+      heading: "Own a piece of the story.",
+      body: "Selected pieces from the portfolio, available to license for personal or commercial use, or as large-format prints. Every preview here is watermarked — the piece you receive is not.",
+      protectedNote:
+        "Previews are protected and watermarked. Full-resolution, unwatermarked files are delivered only after your request is confirmed.",
+      licenseLabel: "Licensing options",
+      licenseOptions: [
+        {
+          value: "personal",
+          label: "Personal",
+          description: "Personal printing and private use — not for commercial use.",
+        },
+        {
+          value: "commercial",
+          label: "Commercial",
+          description: "Use in advertising, products, or commercial publications.",
+        },
+        {
+          value: "print",
+          label: "Large-format print",
+          description: "High-resolution file prepared for gallery-quality large prints.",
+        },
+      ],
+      ctaLabel: "Request to license this piece",
+      modal: {
+        kicker: "Shop Enquiry",
+        heading: "Request this piece",
+        intro:
+          "Tell me which licence you need and I'll follow up with pricing and delivery.",
+        productLabel: "Piece",
+        nameLabel: "Full Name",
+        contactLabel: "Phone / Email",
+        licenseFieldLabel: "Licence needed",
+        licensePlaceholder: "Choose a licence",
+        messageLabel: "Additional Notes",
+        submitIdle: "Send Request",
+        submitSending: "Sending…",
+        submitError: "Something went wrong. Please try again or call directly.",
+        close: "Close",
+        closeAria: "Close shop enquiry form",
+        successKicker: "Thank You",
+        successMessage: "Your request has been received. We'll be in touch shortly.",
+      },
     },
     coursesPage: {
       metaTitle: "Courses — Quân Vic Foto",
@@ -344,6 +420,7 @@ const dictionaries: Record<Lang, Dictionary> = {
     nav: {
       home: "Trang chủ",
       portfolio: "Portfolio",
+      shop: "Mua ảnh",
       courses: "Khoá học",
       booking: "Đặt lịch",
       about: "Giới thiệu",
@@ -431,6 +508,53 @@ const dictionaries: Record<Lang, Dictionary> = {
       kicker: "Portfolio",
       heading: "Các dự án editorial & chiến dịch, 2023–2025.",
       body: "Tuyển tập những câu chuyện làm đẹp được thực hiện cho tạp chí, agency và các Makeup Artist độc lập. Mỗi khung hình được xây dựng quanh một ý tưởng — một kết cấu, một màu sắc, một cử chỉ.",
+    },
+    shopPage: {
+      metaTitle: "Mua ảnh — Quân Vic Foto",
+      kicker: "Mua Bản Quyền & In Ấn",
+      heading: "Sở hữu một phần của câu chuyện.",
+      body: "Những tác phẩm chọn lọc từ portfolio, sẵn sàng để mua bản quyền sử dụng cá nhân, thương mại hoặc in ấn khổ lớn. Mọi ảnh xem trước tại đây đều có watermark bảo vệ — bản bạn nhận được thì không.",
+      protectedNote:
+        "Ảnh xem trước đã được bảo vệ và đóng watermark. File gốc độ phân giải đầy đủ, không watermark chỉ được gửi sau khi yêu cầu của bạn được xác nhận.",
+      licenseLabel: "Các gói bản quyền",
+      licenseOptions: [
+        {
+          value: "personal",
+          label: "Cá nhân",
+          description: "In ấn, sử dụng riêng tư — không dùng cho mục đích thương mại.",
+        },
+        {
+          value: "commercial",
+          label: "Thương mại",
+          description: "Sử dụng trong quảng cáo, sản phẩm, ấn phẩm thương mại.",
+        },
+        {
+          value: "print",
+          label: "In khổ lớn",
+          description: "File độ phân giải cao dành riêng cho in ấn khổ lớn, chất lượng phòng trưng bày.",
+        },
+      ],
+      ctaLabel: "Yêu cầu mua bản quyền ảnh này",
+      modal: {
+        kicker: "Yêu Cầu Mua Ảnh",
+        heading: "Yêu cầu bản quyền tác phẩm",
+        intro:
+          "Cho tôi biết bạn cần gói bản quyền nào, tôi sẽ liên hệ lại với báo giá và cách nhận file.",
+        productLabel: "Tác phẩm",
+        nameLabel: "Họ và tên",
+        contactLabel: "Số điện thoại / Email",
+        licenseFieldLabel: "Gói bản quyền cần mua",
+        licensePlaceholder: "Chọn gói bản quyền",
+        messageLabel: "Ghi chú thêm",
+        submitIdle: "Gửi yêu cầu",
+        submitSending: "Đang gửi…",
+        submitError: "Đã có lỗi xảy ra. Vui lòng thử lại hoặc gọi trực tiếp.",
+        close: "Đóng",
+        closeAria: "Đóng form yêu cầu mua ảnh",
+        successKicker: "Cảm ơn bạn",
+        successMessage:
+          "Yêu cầu của bạn đã được ghi nhận. Chúng tôi sẽ liên hệ lại sớm nhất.",
+      },
     },
     coursesPage: {
       metaTitle: "Khoá học — Quân Vic Foto",
