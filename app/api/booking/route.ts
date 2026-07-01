@@ -7,8 +7,12 @@ const TO_EMAIL = "quanvicfoto@gmail.com";
 const FROM_EMAIL = process.env.RESEND_FROM_EMAIL ?? "onboarding@resend.dev";
 
 const MAX_IMAGES = 10;
-const MAX_FILE_BYTES = 4 * 1024 * 1024; // 4MB per image
-const MAX_TOTAL_BYTES = 20 * 1024 * 1024; // 20MB combined
+const MAX_FILE_BYTES = 4 * 1024 * 1024; // 4MB per image (pre-compression, client-enforced)
+// Vercel serverless functions cap the request body at ~4.5MB regardless of
+// plan. The client compresses images before upload, but this stays as a
+// hard backstop so an oversized request fails with a clear error instead
+// of a raw platform 413.
+const MAX_TOTAL_BYTES = 4 * 1024 * 1024;
 
 export async function POST(req: Request) {
   let form: FormData;

@@ -11,6 +11,38 @@ const labelClass = "font-mono text-xs uppercase tracking-[0.2em] text-mist";
 
 const MAX_IMAGES = 10;
 const MAX_FILE_BYTES = 4 * 1024 * 1024;
+const COMPRESS_MAX_DIMENSION = 1600;
+const COMPRESS_QUALITY = 0.72;
+
+async function compressImage(file: File): Promise<File> {
+  try {
+    if (typeof createImageBitmap === "undefined") return file;
+    const bitmap = await createImageBitmap(file);
+    const scale = Math.min(
+      1,
+      COMPRESS_MAX_DIMENSION / Math.max(bitmap.width, bitmap.height),
+    );
+    const width = Math.round(bitmap.width * scale);
+    const height = Math.round(bitmap.height * scale);
+
+    const canvas = document.createElement("canvas");
+    canvas.width = width;
+    canvas.height = height;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return file;
+    ctx.drawImage(bitmap, 0, 0, width, height);
+
+    const blob = await new Promise<Blob | null>((resolve) =>
+      canvas.toBlob(resolve, "image/jpeg", COMPRESS_QUALITY),
+    );
+    if (!blob || blob.size >= file.size) return file;
+
+    const name = file.name.replace(/\.\w+$/, "") + ".jpg";
+    return new File([blob], name, { type: "image/jpeg" });
+  } catch {
+    return file;
+  }
+}
 
 const FieldInput = forwardRef<
   HTMLInputElement,
@@ -93,7 +125,7 @@ export default function BookingModal({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  function addFiles(fileList: FileList | File[]) {
+  async function addFiles(fileList: FileList | File[]) {
     const incoming = Array.from(fileList).filter((f) =>
       f.type.startsWith("image/"),
     );
@@ -105,23 +137,27 @@ export default function BookingModal({
       return;
     }
 
-    setImages((prev) => {
-      const room = MAX_IMAGES - prev.length;
-      if (room <= 0) {
-        setImageError(b.imagesTooMany);
-        return prev;
-      }
-      const accepted = incoming.slice(0, room);
-      if (incoming.length > room) {
-        setImageError(b.imagesTooMany);
-      } else {
-        setImageError(null);
-      }
-      return [
-        ...prev,
-        ...accepted.map((file) => ({ file, url: URL.createObjectURL(file) })),
-      ];
-    });
+    const room = MAX_IMAGES - images.length;
+    if (room <= 0) {
+      setImageError(b.imagesTooMany);
+      return;
+    }
+    const accepted = incoming.slice(0, room);
+    if (incoming.length > room) {
+      setImageError(b.imagesTooMany);
+    } else {
+      setImageError(null);
+    }
+
+    // Resize/compress before upload — 10 originals at up to 4MB each can
+    // total ~40MB, well past Vercel's ~4.5MB serverless request body
+    // limit, which made every submission with attachments fail silently.
+    const compressed = await Promise.all(accepted.map(compressImage));
+
+    setImages((prev) => [
+      ...prev,
+      ...compressed.map((file) => ({ file, url: URL.createObjectURL(file) })),
+    ]);
   }
 
   function removeImage(url: string) {
@@ -173,11 +209,12 @@ export default function BookingModal({
           />
 
           <motion.div
+            data-lenis-prevent
             initial={{ y: 40, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: 24, opacity: 0 }}
             transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-            className="relative max-h-[92dvh] w-full max-w-lg overflow-y-auto bg-paper px-6 pb-[max(2.5rem,env(safe-area-inset-bottom))] pt-10 md:px-12 md:py-14"
+            className="relative max-h-[92dvh] w-full max-w-lg overflow-y-auto overscroll-contain bg-paper px-6 pb-[max(2.5rem,env(safe-area-inset-bottom))] pt-10 md:px-12 md:py-14"
           >
             <button
               type="button"
