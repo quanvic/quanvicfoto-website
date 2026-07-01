@@ -109,6 +109,26 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     story:
       "Búi tóc cao, đôi tay đan chéo đầy kiêu hãnh trên nền hồng phấn mộng mơ. Muse là lời tôn vinh dành cho người phụ nữ hiện đại — vừa dịu dàng trong từng lớp ren, vừa mạnh mẽ trong ánh nhìn.",
   },
+  {
+    slug: "thanh-xuan",
+    concept: "Thanh Xuân",
+    category: "Skin Study",
+    image: "/images/thanh-xuan.webp",
+    year: "2025",
+    span: "regular",
+    story:
+      "Nền trắng tinh khôi tôn lên từng đường nét tự nhiên nhất. Thanh Xuân là lát cắt của tuổi trẻ rực rỡ — không cần hậu cảnh cầu kỳ, chỉ cần một ánh nhìn chân thành cũng đủ chạm đến trái tim người xem.",
+  },
+  {
+    slug: "phu-van",
+    concept: "Phù Vân",
+    category: "Editorial",
+    image: "/images/phu-van.webp",
+    year: "2025",
+    span: "regular",
+    story:
+      "Ánh sáng chỉ vừa đủ chạm vào một nửa gương mặt, nửa còn lại chìm trong bóng tối đầy ẩn ý. Phù Vân là khoảnh khắc mong manh, thoáng qua như áng mây — đẹp bởi sự không trọn vẹn.",
+  },
 ];
 
 export const ABOUT_IMAGE = "/images/about.webp";
