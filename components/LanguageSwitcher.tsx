@@ -19,7 +19,7 @@ export default function LanguageSwitcher({
         type="button"
         onClick={() => setLang("vi")}
         aria-pressed={lang === "vi"}
-        className={`cursor-hover flex h-8 min-w-[2rem] items-center justify-center px-1 transition-opacity active:scale-95 ${lang === "vi" ? "opacity-100" : "opacity-40 hover:opacity-70"}`}
+        className={`cursor-hover flex h-11 min-w-[2.75rem] items-center justify-center px-2 transition-opacity active:scale-95 ${lang === "vi" ? "opacity-100" : "opacity-40 hover:opacity-70"}`}
       >
         VI
       </button>
@@ -30,7 +30,7 @@ export default function LanguageSwitcher({
         type="button"
         onClick={() => setLang("en")}
         aria-pressed={lang === "en"}
-        className={`cursor-hover flex h-8 min-w-[2rem] items-center justify-center px-1 transition-opacity active:scale-95 ${lang === "en" ? "opacity-100" : "opacity-40 hover:opacity-70"}`}
+        className={`cursor-hover flex h-11 min-w-[2.75rem] items-center justify-center px-2 transition-opacity active:scale-95 ${lang === "en" ? "opacity-100" : "opacity-40 hover:opacity-70"}`}
       >
         EN
       </button>

@@ -1,9 +1,11 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import type { PortfolioItem } from "@/lib/data";
 import { CATEGORY_LABELS, useLanguage } from "@/lib/i18n";
+import Lightbox from "@/components/Lightbox";
 
 const SPAN_CLASSES: Record<PortfolioItem["span"], string> = {
   large: "md:col-span-2 md:row-span-2",
@@ -14,9 +16,10 @@ const SPAN_CLASSES: Record<PortfolioItem["span"], string> = {
 
 export default function GalleryGrid({ items }: { items: PortfolioItem[] }) {
   const { lang } = useLanguage();
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <div className="grid grid-cols-2 gap-3 md:auto-rows-[260px] md:grid-cols-4 md:grid-flow-dense md:gap-4">
+    <div className="grid grid-cols-1 gap-6 md:auto-rows-[260px] md:grid-cols-4 md:grid-flow-dense md:gap-4">
       {items.map((item, i) => (
         <motion.article
           key={item.slug}
@@ -28,35 +31,46 @@ export default function GalleryGrid({ items }: { items: PortfolioItem[] }) {
             delay: (i % 4) * 0.08,
             ease: [0.16, 1, 0.3, 1],
           }}
-          className={`group relative col-span-2 aspect-[4/5] overflow-hidden bg-cloud md:aspect-auto ${SPAN_CLASSES[item.span]}`}
+          className={`group relative aspect-[4/5] overflow-hidden bg-cloud md:aspect-auto ${SPAN_CLASSES[item.span]}`}
         >
-          <div className="cursor-hover absolute inset-0">
+          <button
+            type="button"
+            onClick={() => setOpenIndex(i)}
+            aria-label={`${item.concept} — view full size`}
+            className="cursor-hover absolute inset-0 block w-full text-left"
+          >
             <Image
               src={item.image}
               alt={`${item.concept} — beauty editorial photography by Quân Vic Foto`}
               fill
               sizes="(min-width: 768px) 50vw, 100vw"
-              className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]"
+              className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
             />
             <div className="absolute inset-0 bg-ink/0 transition-colors duration-500 group-hover:bg-ink/35" />
 
-            <div className="absolute inset-x-0 bottom-0 translate-y-4 p-5 opacity-0 transition-all duration-500 ease-out group-hover:translate-y-0 group-hover:opacity-100 md:p-6">
+            <div className="absolute inset-x-0 bottom-0 translate-y-2 p-5 opacity-0 transition-all duration-500 ease-out group-hover:translate-y-0 group-hover:opacity-100 md:p-6">
               <div className="flex items-baseline gap-3">
                 <span className="font-mono text-xs text-paper/50">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <p className="font-serif text-xl italic text-paper md:text-2xl">
+                <p className="font-serif text-xl font-bold uppercase tracking-wide text-paper md:text-2xl">
                   {item.concept}
                 </p>
               </div>
+              <span className="mt-1 block pl-[2.1rem] font-mono text-[11px] uppercase tracking-[0.2em] text-paper/70">
+                {CATEGORY_LABELS[item.category]?.[lang] ?? item.category}
+              </span>
             </div>
-
-            <span className="absolute left-5 top-5 font-mono text-[11px] uppercase tracking-[0.2em] text-paper opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-              {CATEGORY_LABELS[item.category]?.[lang] ?? item.category}
-            </span>
-          </div>
+          </button>
         </motion.article>
       ))}
+
+      <Lightbox
+        items={items}
+        index={openIndex}
+        onClose={() => setOpenIndex(null)}
+        onNavigate={setOpenIndex}
+      />
     </div>
   );
 }

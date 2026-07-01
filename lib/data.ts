@@ -23,8 +23,6 @@ export type PortfolioItem = {
   concept: string;
   category: string;
   image: string;
-  mua: string;
-  model: string;
   year: string;
   span: "tall" | "wide" | "large" | "regular";
 };
@@ -35,8 +33,6 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     concept: "Porcelain",
     category: "Skin Study",
     image: "/images/porcelain.webp",
-    mua: "Elena Cross",
-    model: "Wren Sato",
     year: "2025",
     span: "large",
   },
@@ -45,8 +41,6 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     concept: "Vermillion",
     category: "Colour Story",
     image: "/images/vermillion.webp",
-    mua: "Naomi Reyes",
-    model: "Ines Falk",
     year: "2025",
     span: "tall",
   },
@@ -55,8 +49,6 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     concept: "Noir",
     category: "Black & White",
     image: "/images/noir.jpg",
-    mua: "Priya Shah",
-    model: "Odile Marchetti",
     year: "2024",
     span: "regular",
   },
@@ -65,8 +57,6 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     concept: "Bloom",
     category: "Portrait Study",
     image: "/images/bloom.webp",
-    mua: "Elena Cross",
-    model: "Juno Adebayo",
     year: "2024",
     span: "wide",
   },
@@ -75,8 +65,6 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     concept: "Editorial No. 4",
     category: "Campaign",
     image: "/images/editorial-no-4.webp",
-    mua: "Naomi Reyes",
-    model: "Lior Ben-David",
     year: "2024",
     span: "regular",
   },
@@ -85,8 +73,6 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     concept: "Gaze",
     category: "Portrait Study",
     image: "/images/gaze.webp",
-    mua: "Priya Shah",
-    model: "Wren Sato",
     year: "2023",
     span: "tall",
   },
@@ -95,8 +81,6 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     concept: "Structure",
     category: "Editorial",
     image: "/images/structure.webp",
-    mua: "Elena Cross",
-    model: "Odile Marchetti",
     year: "2023",
     span: "large",
   },
@@ -105,8 +89,6 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     concept: "Muse",
     category: "Bridal",
     image: "/images/muse.jpg",
-    mua: "Naomi Reyes",
-    model: "Juno Adebayo",
     year: "2023",
     span: "regular",
   },

@@ -24,7 +24,7 @@ export default function Footer({
 
           <a
             href={`tel:${PHONE_TEL}`}
-            className="cursor-hover inline-flex w-fit items-center gap-2 border border-ink px-4 py-2.5 font-mono text-xs uppercase tracking-[0.2em] text-ink transition-colors duration-300 hover:bg-ink hover:text-paper"
+            className="cursor-hover inline-flex min-h-11 w-fit items-center gap-2 border border-ink px-4 py-3 font-mono text-xs uppercase tracking-[0.2em] text-ink transition-colors duration-300 hover:bg-ink hover:text-paper"
           >
             <svg
               width="13"

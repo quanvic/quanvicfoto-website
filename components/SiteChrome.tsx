@@ -25,7 +25,7 @@ export default function SiteChrome({
 
       <EditorialFrame />
       <CustomCursor />
-      <Navbar menuOpen={menuOpen} onToggle={() => setMenuOpen((v) => !v)} />
+      <Navbar menuOpen={menuOpen} onToggle={() => setMenuOpen(!menuOpen)} />
       <MenuOverlay
         open={menuOpen}
         onClose={() => setMenuOpen(false)}

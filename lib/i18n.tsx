@@ -51,14 +51,12 @@ export interface Dictionary {
     about: {
       kicker: string;
       heading: string;
+      yearsValue: string;
+      yearsLabel: string;
       body: string[];
       cta: string;
       imageAlt: string;
     };
-  };
-  gallery: {
-    muaLabel: string;
-    modelLabel: string;
   };
   contactCTA: {
     kicker: string;
@@ -164,16 +162,14 @@ const dictionaries: Record<Lang, Dictionary> = {
       about: {
         kicker: "01 — About",
         heading: "Quân Vic Foto | Beauty Photographer",
+        yearsValue: "11+",
+        yearsLabel: "Years of professional photography experience",
         body: [
-          "With more than 11 years of professional photography experience, Quân Vic Foto has become synonymous with striking, aesthetically refined Beauty & Fashion imagery. My strength lies in the art of close-up portraiture — where precise lighting, vivid skin texture, and the model's presence converge in their sharpest, most compelling form.",
+          "Quân Vic Foto has become synonymous with striking, aesthetically refined Beauty & Fashion imagery. My strength lies in the art of close-up portraiture — where precise lighting, vivid skin texture, and the model's presence converge in their sharpest, most compelling form.",
         ],
         cta: "Learn more about my process",
         imageAlt: "Quân Vic Foto photographing a shoot with a Fujifilm camera",
       },
-    },
-    gallery: {
-      muaLabel: "M.U.A",
-      modelLabel: "Model",
     },
     contactCTA: {
       kicker: "Enquiries & Bookings",
@@ -304,16 +300,14 @@ const dictionaries: Record<Lang, Dictionary> = {
       about: {
         kicker: "01 — Giới thiệu",
         heading: "Quân Vic Foto | Beauty Photographer",
+        yearsValue: "11+",
+        yearsLabel: "Năm kinh nghiệm nhiếp ảnh chuyên nghiệp",
         body: [
-          "Với hơn 11 năm kinh nghiệm trong ngành nhiếp ảnh chuyên nghiệp, Quân Vic Foto là cái tên gắn liền với những khung hình Beauty & Fashion đầy tính thẩm mỹ. Thế mạnh của tôi nằm ở nghệ thuật chụp chân dung cận cảnh — nơi sự giao thoa giữa ánh sáng chuẩn xác, kết cấu làn da sống động và thần thái người mẫu được tôn vinh một cách sắc nét nhất.",
+          "Quân Vic Foto là cái tên gắn liền với những khung hình Beauty & Fashion đầy tính thẩm mỹ. Thế mạnh của tôi nằm ở nghệ thuật chụp chân dung cận cảnh — nơi sự giao thoa giữa ánh sáng chuẩn xác, kết cấu làn da sống động và thần thái người mẫu được tôn vinh một cách sắc nét nhất.",
         ],
         cta: "Tìm hiểu thêm về quy trình làm việc",
         imageAlt: "Quân Vic Foto đang tác nghiệp với máy ảnh Fujifilm",
       },
-    },
-    gallery: {
-      muaLabel: "M.U.A",
-      modelLabel: "Người mẫu",
     },
     contactCTA: {
       kicker: "Liên Hệ & Đặt Lịch",

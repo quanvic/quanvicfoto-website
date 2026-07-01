@@ -60,6 +60,10 @@ export default function Hero() {
             className="object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-ink/10 to-ink/40" />
+          <div
+            aria-hidden="true"
+            className="absolute inset-x-0 top-1/2 h-[60%] -translate-y-1/2 bg-[radial-gradient(ellipse_65%_60%_at_50%_50%,rgba(0,0,0,0.5),transparent_72%)]"
+          />
         </div>
 
         <div

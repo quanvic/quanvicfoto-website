@@ -45,10 +45,11 @@ export default function CustomCursor() {
       style={{ x: springX, y: springY }}
     >
       <motion.div
-        className="-translate-x-1/2 -translate-y-1/2 rounded-full bg-paper"
+        className="-translate-x-1/2 -translate-y-1/2 rounded-full border border-paper bg-paper"
         animate={{
-          width: hovering ? 64 : 8,
-          height: hovering ? 64 : 8,
+          width: hovering ? 44 : 8,
+          height: hovering ? 44 : 8,
+          backgroundColor: hovering ? "rgba(255,255,255,0)" : "rgba(255,255,255,1)",
         }}
         transition={{ duration: 0.25, ease: "easeOut" }}
       />
