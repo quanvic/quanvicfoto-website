@@ -327,14 +327,15 @@ const dictionaries: Record<Lang, Dictionary> = {
           title: "Beauty Photography Fundamentals",
           level: "Beginner",
           format: "In-studio, small group",
-          duration: "4 sessions · 8 hours",
-          price: "Contact for pricing",
+          duration: "7 sessions",
+          price: "20,000,000₫",
           description:
-            "Camera fundamentals, working with a single light source, and directing a model with confidence — everything you need to shoot your first real beauty portrait.",
+            "Camera fundamentals, working with a single light source, and directing a model with confidence — plus a foundation in basic Photoshop retouching, so you leave with a finished, edited beauty portrait, not just a raw file.",
           highlights: [
             "Light shaping: hard, soft, and split light",
             "Posing and directing a first-time model",
             "Composition and framing for close-up beauty",
+            "Basic Photoshop retouching fundamentals",
           ],
         },
         {
@@ -568,14 +569,15 @@ const dictionaries: Record<Lang, Dictionary> = {
           title: "Beauty Photography Cơ Bản",
           level: "Người mới bắt đầu",
           format: "Học trực tiếp tại studio, nhóm nhỏ",
-          duration: "4 buổi · 8 giờ",
-          price: "Liên hệ để nhận báo giá",
+          duration: "7 buổi",
+          price: "20.000.000đ",
           description:
-            "Nắm vững máy ảnh, làm việc với một nguồn sáng duy nhất và tự tin chỉ đạo người mẫu — đủ hành trang để bạn chụp bức chân dung beauty đầu tiên thật sự chỉn chu.",
+            "Nắm vững máy ảnh, làm việc với một nguồn sáng duy nhất và tự tin chỉ đạo người mẫu — kèm nền tảng hậu kỳ Photoshop cơ bản, để bạn hoàn thiện trọn vẹn một bức chân dung beauty chứ không chỉ dừng lại ở file ảnh gốc.",
           highlights: [
             "Tạo hình ánh sáng: cứng, mềm và xẻ đôi",
             "Tư thế và cách chỉ đạo người mẫu lần đầu",
             "Bố cục và khung hình cho beauty cận cảnh",
+            "Nền tảng chỉnh sửa ảnh cơ bản với Photoshop",
           ],
         },
         {
