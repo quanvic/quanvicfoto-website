@@ -1,0 +1,114 @@
+"use client";
+
+import { useEffect, useRef } from "react";
+import Image from "next/image";
+import { motion } from "framer-motion";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { HERO_IMAGE } from "@/lib/data";
+import { useLanguage } from "@/lib/i18n";
+
+export default function Hero() {
+  const { t } = useLanguage();
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
+  const imageWrapRef = useRef<HTMLDivElement>(null);
+  const titleRef = useRef<HTMLDivElement>(null);
+  const cueRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Uses a tall wrapper + CSS `sticky` section instead of ScrollTrigger's
+    // `pin: true`, which reparents the DOM node into a spacer it creates and
+    // conflicts with React's reconciliation (removeChild errors on unmount).
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: wrapperRef.current,
+          start: "top top",
+          end: "bottom bottom",
+          scrub: 1,
+        },
+      });
+
+      tl.to(imageWrapRef.current, { scale: 1, ease: "none" }, 0)
+        .to(
+          titleRef.current,
+          { yPercent: -35, opacity: 0, ease: "none" },
+          0,
+        )
+        .to(cueRef.current, { opacity: 0, ease: "none" }, 0);
+    }, wrapperRef);
+
+    return () => ctx.revert();
+  }, []);
+
+  return (
+    <div ref={wrapperRef} className="relative h-[190dvh] w-full">
+      <section
+        ref={sectionRef}
+        className="sticky top-0 h-[100dvh] w-full overflow-hidden bg-ink"
+      >
+        <div ref={imageWrapRef} className="absolute inset-0 scale-[1.18]">
+          <Image
+            src={HERO_IMAGE}
+            alt="Editorial beauty portrait — sleek studio lighting, metallic styling"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-ink/10 to-ink/40" />
+        </div>
+
+        <div
+          ref={titleRef}
+          className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center"
+        >
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 2.05, duration: 0.8, ease: "easeOut" }}
+            className="mb-6 font-sans text-xs uppercase tracking-[0.4em] text-paper/80"
+          >
+            {t.hero.kicker}
+          </motion.p>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 2.2, duration: 0.9, ease: "easeOut" }}
+            className="font-serif text-[clamp(2.75rem,9vw,8rem)] font-medium leading-[0.95] tracking-tight text-paper"
+          >
+            {t.hero.titleTop}
+            <br />
+            <span className="italic">{t.hero.titleItalic}</span>{" "}
+            {t.hero.titleRest}
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 2.35, duration: 0.8, ease: "easeOut" }}
+            className="mt-8 max-w-md text-sm leading-relaxed text-paper/75"
+          >
+            {t.hero.subtitle}
+          </motion.p>
+        </div>
+
+        <div
+          ref={cueRef}
+          className="absolute inset-x-0 bottom-8 z-10 flex flex-col items-center gap-3 text-paper/70"
+        >
+          <span className="text-[10px] uppercase tracking-[0.3em]">
+            {t.hero.scroll}
+          </span>
+          <span className="h-10 w-px overflow-hidden bg-paper/30">
+            <span className="scroll-cue-line block h-full w-full origin-top bg-paper" />
+          </span>
+        </div>
+      </section>
+    </div>
+  );
+}
