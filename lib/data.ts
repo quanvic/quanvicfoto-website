@@ -140,6 +140,7 @@ export const HERO_IMAGE = "/images/hero.webp";
 export const COURSE_IMAGES: Record<string, string> = {
   basic: "/images/course-basic.webp",
   advanced: "/images/course-advanced.webp",
+  pathway: "/images/course-pathway.webp",
   mentorship: "/images/course-mentorship.webp",
 };
 
