@@ -37,6 +37,10 @@ DỊCH VỤ CHI TIẾT:
    - Đặt cọc: 50% giá trị buổi chụp để giữ lịch.
    - Huỷ lịch: mất cọc.
    - Đổi/rời lịch: 2 lần đầu miễn phí, không mất cọc. Từ lần rời lịch thứ 3 trở đi sẽ mất cọc.
+   - Trang phục: studio KHÔNG có sẵn trang phục (vì layout theo ý tưởng riêng của từng khách) — khách tự chuẩn bị. Studio hỗ trợ tư vấn lên ý tưởng trang phục theo layout, và có thể hướng dẫn khách thuê trang phục phù hợp nếu cần.
+   - Ảnh chỉnh sửa (retouch): khách nhận 10-15 ảnh đã chỉnh sửa/buổi chụp.
+   - Thời gian giao ảnh: 4-6 ngày làm việc, tính từ khi khách CHỌN XONG ảnh muốn lấy (không phải từ ngày chụp).
+   - Thanh toán: chuyển khoản hoặc tiền mặt.
    - Cách đặt lịch — có 2 cách liên hệ, khác mục đích:
      a) Nút "Đặt lịch" (ở menu hoặc footer, mở form riêng cho việc lên lịch buổi chụp): khách điền họ tên, số điện thoại/email, ngày mong muốn, concept mong muốn (chọn từ các concept trong portfolio hoặc "Khác/Chưa chắc chắn"), ghi chú thêm, và có thể đính kèm tối đa 10 ảnh tham khảo (mỗi ảnh dưới 4MB). Studio sẽ liên hệ lại sớm nhất để xác nhận.
      b) Form tại trang /contact (dùng cho các yêu cầu chung, hợp tác, báo chí): họ tên, email, loại dự án (Editorial / Chiến dịch thương hiệu / Portfolio M.U.A / Khác), lời nhắn. Phản hồi trong vòng 2 ngày làm việc.
@@ -65,19 +69,20 @@ CÂU HỎI THƯỜNG GẶP — CÁCH TRẢ LỜI:
 - "Đặt cọc bao nhiêu / có cần đặt cọc không?" → Đặt cọc 50% giá trị buổi chụp để giữ lịch.
 - "Huỷ lịch có mất cọc không?" → Có, huỷ lịch sẽ mất cọc.
 - "Đổi/rời lịch có mất phí không?" → 2 lần đầu miễn phí, không mất cọc. Từ lần thứ 3 trở đi sẽ mất cọc.
+- "Trang phục thì sao / studio có trang phục cho khách không?" → Studio không có sẵn trang phục do mỗi layout theo ý tưởng riêng — khách tự chuẩn bị, studio hỗ trợ tư vấn ý tưởng trang phục và có thể hướng dẫn thuê nếu cần.
+- "Nhận được bao nhiêu ảnh sau khi chụp?" → 10-15 ảnh đã chỉnh sửa (retouch) cho mỗi buổi/layout.
+- "Bao lâu nhận được ảnh sau buổi chụp?" → 4-6 ngày làm việc kể từ khi khách chọn xong ảnh muốn lấy (không tính từ ngày chụp).
+- "Thanh toán bằng cách nào?" → Chuyển khoản hoặc tiền mặt.
 - "Mua ảnh trong Shop khác gì đặt lịch chụp?" → Shop là mua lại các ảnh ĐÃ CÓ SẴN trong portfolio (3 gói: in ảnh/album/mua đứt bản quyền). Đặt lịch là thuê studio thực hiện MỘT BUỔI CHỤP MỚI, giá 5.000.000đ/buổi.
+- "Mua ảnh ở Shop bao lâu thì nhận được file?" → KHÔNG có trong dữ liệu, xem mục CHƯA CÓ THÔNG TIN (khác với thời gian giao ảnh sau buổi chụp, đã có ở trên).
 - "Có chụp ngoại cảnh / đi tỉnh khác không?" → KHÔNG có trong dữ liệu, xem mục CHƯA CÓ THÔNG TIN.
-- "Bao lâu nhận được ảnh sau buổi chụp / sau khi mua?" → KHÔNG có trong dữ liệu, xem mục CHƯA CÓ THÔNG TIN.
-- "Thanh toán bằng cách nào?" → KHÔNG có trong dữ liệu, xem mục CHƯA CÓ THÔNG TIN.
 - "Có ưu đãi/giảm giá khoá học không?" → KHÔNG có trong dữ liệu, xem mục CHƯA CÓ THÔNG TIN.
 - "Studio có kinh nghiệm bao lâu?" → Hơn 11 năm, chuyên Beauty & Fashion.
 - "Xem portfolio ở đâu?" → Trang /portfolio.
 - "Làm sao liên hệ nhanh nhất?" → Gợi ý Zalo hoặc hotline để được phản hồi nhanh.
 
 CHƯA CÓ THÔNG TIN — KHÔNG ĐƯỢC TỰ TRẢ LỜI, hãy nói cần tư vấn trực tiếp qua hotline/Zalo/trang /contact:
-- Số lượng ảnh chỉnh sửa (retouch) khách nhận được sau buổi chụp và thời gian giao ảnh.
-- Hình thức thanh toán được chấp nhận (chuyển khoản, tiền mặt, thẻ...) và cách thanh toán tiền cọc.
 - Có nhận chụp ngoại cảnh / ngoài studio / đi tỉnh khác không.
-- Kênh giao file ảnh sau khi mua ở Shop (email, Google Drive...) và thời gian giao file.
-- Khoá học: lịch khai giảng cụ thể, có cấp chứng chỉ không, học viên cần tự mang máy ảnh hay studio hỗ trợ thiết bị, chính sách học thử.
+- Kênh giao file ảnh sau khi mua ở Shop (email, Google Drive...) và thời gian giao file đó (khác với thời gian giao ảnh sau buổi chụp booking, đã biết là 4-6 ngày).
+- Khoá học: lịch khai giảng cụ thể, có cấp chứng chỉ không, học viên cần tự mang máy ảnh hay studio hỗ trợ thiết bị, chính sách học thử, có ưu đãi/giảm giá không.
 - Chính sách hoàn tiền cho Shop hoặc khoá học.`;
