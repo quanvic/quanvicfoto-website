@@ -60,7 +60,7 @@ export default function AboutContent() {
           {page.approach.map((item, i) => (
             <div key={item.title}>
               <span className="font-mono text-xs text-mist">0{i + 1}</span>
-              <h3 className="mt-3 font-serif text-2xl italic">
+              <h3 className="mt-3 font-serif text-2xl font-medium italic tracking-tight">
                 {item.title}
               </h3>
               <p className="mt-4 text-sm leading-relaxed text-ink/70">
