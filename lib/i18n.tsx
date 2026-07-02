@@ -42,6 +42,7 @@ export interface Dictionary {
     titleRest: string;
     subtitle: string;
     scroll: string;
+    ctaLabel: string;
   };
   marquee: string[];
   home: {
@@ -144,9 +145,10 @@ export interface Dictionary {
     projectOptions: { value: string; label: string }[];
     submitIdle: string;
     submitSending: string;
-    submitSent: string;
     submitError: string;
-    srSent: string;
+    successKicker: string;
+    successMessage: string;
+    resetLabel: string;
   };
   booking: {
     kicker: string;
@@ -200,6 +202,7 @@ const dictionaries: Record<Lang, Dictionary> = {
       subtitle:
         "Every face is a work of art. Quân Vic Foto helps you preserve your most radiant moments with dedication, refinement, and frames that touch the heart.",
       scroll: "Scroll",
+      ctaLabel: "Start Your Project",
     },
     marquee: ["Skin", "Light", "Detail", "Structure", "Editorial", "Beauty"],
     home: {
@@ -410,9 +413,11 @@ const dictionaries: Record<Lang, Dictionary> = {
       ],
       submitIdle: "Send message",
       submitSending: "Sending…",
-      submitSent: "Message sent",
       submitError: "Something went wrong. Please try again or email directly.",
-      srSent: "Your message has been sent.",
+      successKicker: "Message Sent",
+      successMessage:
+        "Thank you for reaching out — I'll get back to you within two business days.",
+      resetLabel: "Send another message",
     },
     booking: {
       kicker: "Booking",
@@ -465,6 +470,7 @@ const dictionaries: Record<Lang, Dictionary> = {
       subtitle:
         "Mỗi gương mặt là một tác phẩm nghệ thuật. Quân Vic Foto giúp bạn lưu giữ những khoảnh khắc rực rỡ nhất bằng sự tâm huyết, tinh tế và những khung hình chạm đến cảm xúc.",
       scroll: "Cuộn",
+      ctaLabel: "Bắt Đầu Dự Án",
     },
     marquee: ["Da", "Ánh Sáng", "Chi Tiết", "Cấu Trúc", "Editorial", "Beauty"],
     home: {
@@ -676,9 +682,11 @@ const dictionaries: Record<Lang, Dictionary> = {
       ],
       submitIdle: "Gửi tin nhắn",
       submitSending: "Đang gửi…",
-      submitSent: "Đã gửi tin nhắn",
       submitError: "Đã có lỗi xảy ra. Vui lòng thử lại hoặc gửi email trực tiếp.",
-      srSent: "Tin nhắn của bạn đã được gửi.",
+      successKicker: "Đã gửi tin nhắn",
+      successMessage:
+        "Cảm ơn bạn đã liên hệ — tôi sẽ phản hồi trong vòng 2 ngày làm việc.",
+      resetLabel: "Gửi tin nhắn khác",
     },
     booking: {
       kicker: "Booking",

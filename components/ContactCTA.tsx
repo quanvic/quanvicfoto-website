@@ -9,7 +9,7 @@ export default function ContactCTA() {
   const cta = t.contactCTA;
 
   return (
-    <section className="bg-ink px-6 py-28 text-paper md:px-10 md:py-40">
+    <section id="contact" className="bg-ink px-6 py-28 text-paper md:px-10 md:py-40">
       <motion.div
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
