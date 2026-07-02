@@ -14,11 +14,11 @@ export default function AboutTeaser() {
     <section className="mx-auto max-w-[1440px] px-6 py-24 md:px-10 md:py-32">
       <div className="relative md:grid md:grid-cols-12 md:items-end md:gap-x-6">
         <motion.div
-          initial={{ opacity: 0, scale: 1.05 }}
-          whileInView={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-15% 0px" }}
-          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-          className="relative aspect-[4/5] w-full overflow-hidden bg-cloud md:col-span-7 md:col-start-1"
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="relative aspect-[4/5] w-full overflow-hidden bg-cloud md:col-span-7 md:col-start-1 md:row-start-1"
         >
           <Image
             src={ABOUT_IMAGE}
@@ -30,11 +30,11 @@ export default function AboutTeaser() {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-15% 0px" }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
-          className="relative z-10 -mt-12 mx-4 flex flex-col justify-center bg-paper p-6 shadow-[0_8px_40px_-8px_rgba(0,0,0,0.15)] sm:mx-8 sm:p-10 md:col-span-6 md:col-start-6 md:-ml-16 md:mt-0 md:mb-10 md:p-12 md:shadow-none"
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.15 }}
+          className="relative z-10 -mt-12 mx-4 flex flex-col justify-center bg-paper p-6 shadow-[0_8px_40px_-8px_rgba(0,0,0,0.15)] sm:mx-8 sm:p-10 md:col-span-6 md:col-start-6 md:row-start-1 md:-ml-16 md:mt-0 md:mb-10 md:self-end md:p-12 md:shadow-none"
         >
           <div className="mb-6 flex items-baseline gap-4 border-b border-line pb-6">
             <span className="font-serif text-[clamp(3.25rem,7vw,5.5rem)] font-medium leading-none tracking-tight">

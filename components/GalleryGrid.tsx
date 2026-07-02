@@ -23,13 +23,13 @@ export default function GalleryGrid({ items }: { items: PortfolioItem[] }) {
       {items.map((item, i) => (
         <motion.article
           key={item.slug}
-          initial={{ opacity: 0, y: 32 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-10% 0px" }}
           transition={{
-            duration: 0.7,
-            delay: (i % 4) * 0.08,
-            ease: [0.16, 1, 0.3, 1],
+            duration: 0.8,
+            delay: (i % 4) * 0.12,
+            ease: "easeOut",
           }}
           className={`group relative aspect-[4/5] overflow-hidden bg-cloud md:aspect-auto ${SPAN_CLASSES[item.span]}`}
         >
