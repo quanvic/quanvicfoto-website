@@ -7,6 +7,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { HERO_IMAGE } from "@/lib/data";
 import { useLanguage } from "@/lib/i18n";
+import { blurProps } from "@/lib/blur-data";
 
 export default function Hero() {
   const { t } = useLanguage();
@@ -56,6 +57,7 @@ export default function Hero() {
             alt="Editorial beauty portrait — sleek studio lighting, metallic styling"
             fill
             priority
+            {...blurProps(HERO_IMAGE)}
             sizes="100vw"
             className="object-cover"
           />

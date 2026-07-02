@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { COURSE_IMAGES } from "@/lib/data";
 import { useLanguage } from "@/lib/i18n";
+import { blurProps } from "@/lib/blur-data";
 
 export default function CoursesContent() {
   const { t } = useLanguage();
@@ -39,6 +40,7 @@ export default function CoursesContent() {
                 src={COURSE_IMAGES[course.slug]}
                 alt={course.title}
                 fill
+                {...blurProps(COURSE_IMAGES[course.slug])}
                 sizes="(min-width: 768px) 40vw, 100vw"
                 className="object-cover"
               />

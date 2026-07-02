@@ -5,6 +5,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import type { PortfolioItem } from "@/lib/data";
 import { CATEGORY_LABELS, useLanguage } from "@/lib/i18n";
+import { blurProps } from "@/lib/blur-data";
 import Lightbox from "@/components/Lightbox";
 
 const SPAN_CLASSES: Record<PortfolioItem["span"], string> = {
@@ -43,6 +44,7 @@ export default function GalleryGrid({ items }: { items: PortfolioItem[] }) {
               src={item.images[0]}
               alt={`${item.concept} — beauty editorial photography by Quân Vic Foto`}
               fill
+              {...blurProps(item.images[0])}
               sizes="(min-width: 768px) 50vw, 100vw"
               className="object-cover transition-all duration-500 ease-out group-hover:scale-105"
             />

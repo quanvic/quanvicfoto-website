@@ -5,6 +5,7 @@ import Image from "next/image";
 import { AnimatePresence, motion, type PanInfo } from "framer-motion";
 import type { PortfolioItem } from "@/lib/data";
 import { CATEGORY_LABELS, useLanguage } from "@/lib/i18n";
+import { blurProps } from "@/lib/blur-data";
 
 const SWIPE_OFFSET_THRESHOLD = 60;
 const SWIPE_VELOCITY_THRESHOLD = 500;
@@ -192,6 +193,7 @@ export default function Lightbox({
                     alt={`${item.concept} — full size`}
                     fill
                     draggable={false}
+                    {...blurProps(item.images[photoIndex])}
                     sizes="92vw"
                     className="pointer-events-none select-none object-contain"
                   />

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ABOUT_IMAGE } from "@/lib/data";
 import { useLanguage } from "@/lib/i18n";
+import { blurProps } from "@/lib/blur-data";
 
 export default function AboutTeaser() {
   const { t } = useLanguage();
@@ -24,6 +25,7 @@ export default function AboutTeaser() {
             src={ABOUT_IMAGE}
             alt={about.imageAlt}
             fill
+            {...blurProps(ABOUT_IMAGE)}
             sizes="(min-width: 768px) 50vw, 100vw"
             className="object-cover"
           />

@@ -5,6 +5,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { PORTFOLIO_ITEMS, SHOP_SLUGS, type PortfolioItem } from "@/lib/data";
 import { CATEGORY_LABELS, useLanguage } from "@/lib/i18n";
+import { blurProps } from "@/lib/blur-data";
 import Watermark from "@/components/Watermark";
 import ShopModal from "@/components/ShopModal";
 
@@ -56,6 +57,7 @@ export default function ShopContent() {
                 alt={item.concept}
                 fill
                 draggable={false}
+                {...blurProps(item.images[0])}
                 sizes="(min-width: 768px) 33vw, 100vw"
                 className="pointer-events-none select-none object-cover transition-all duration-500 ease-out group-hover:scale-105"
               />

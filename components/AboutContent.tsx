@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { ABOUT_IMAGE, HERO_IMAGE } from "@/lib/data";
 import { useLanguage } from "@/lib/i18n";
+import { blurProps } from "@/lib/blur-data";
 
 export default function AboutContent() {
   const { t } = useLanguage();
@@ -46,6 +47,7 @@ export default function AboutContent() {
             src={ABOUT_IMAGE}
             alt={page.imageAlt}
             fill
+            {...blurProps(ABOUT_IMAGE)}
             sizes="(min-width: 768px) 50vw, 100vw"
             className="object-cover"
           />
@@ -76,6 +78,7 @@ export default function AboutContent() {
           src={HERO_IMAGE}
           alt={page.heroImageAlt}
           fill
+          {...blurProps(HERO_IMAGE)}
           sizes="100vw"
           className="object-cover"
         />

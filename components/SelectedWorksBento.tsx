@@ -5,6 +5,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import type { PortfolioItem } from "@/lib/data";
 import { CATEGORY_LABELS, useLanguage } from "@/lib/i18n";
+import { blurProps } from "@/lib/blur-data";
 import Lightbox from "@/components/Lightbox";
 
 // The bento rhythm: item 1 is the hero (2 cols x 2 rows), item 2 is a tall
@@ -18,6 +19,19 @@ const BENTO_SPANS = [
   "lg:col-span-1 lg:row-span-1",
   "lg:col-span-1 lg:row-span-1",
   "lg:col-span-1 lg:row-span-1",
+];
+
+// The 2-column hero card renders ~66vw wide at lg while the rest are
+// ~33vw; on sm both hero and standard cards span the full 2-col row half
+// or whole. Declaring that per-item keeps next/image from serving the
+// hero card an image half its rendered width.
+const BENTO_SIZES = [
+  "(min-width: 1024px) 66vw, 100vw",
+  "(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw",
+  "(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw",
+  "(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw",
+  "(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw",
+  "(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw",
 ];
 
 export default function SelectedWorksBento({
@@ -74,7 +88,8 @@ export default function SelectedWorksBento({
                     alt={`${item.concept} — beauty editorial photography by Quân Vic Foto`}
                     fill
                     draggable={false}
-                    sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                    {...blurProps(item.images[0])}
+                    sizes={BENTO_SIZES[i] ?? BENTO_SIZES[1]}
                     className="pointer-events-none select-none object-contain"
                   />
                 </motion.div>
