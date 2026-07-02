@@ -156,7 +156,7 @@ export default function ShopModal({
                 <div className="mt-6 flex items-center gap-4 border border-line p-3">
                   <div className="relative h-16 w-16 shrink-0 overflow-hidden bg-cloud">
                     <Image
-                      src={product.image}
+                      src={product.images[0]}
                       alt={product.concept}
                       fill
                       draggable={false}

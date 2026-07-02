@@ -40,13 +40,23 @@ export default function GalleryGrid({ items }: { items: PortfolioItem[] }) {
             className="cursor-hover absolute inset-0 block w-full text-left"
           >
             <Image
-              src={item.image}
+              src={item.images[0]}
               alt={`${item.concept} — beauty editorial photography by Quân Vic Foto`}
               fill
               sizes="(min-width: 768px) 50vw, 100vw"
               className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
             />
             <div className="absolute inset-0 bg-ink/0 transition-colors duration-500 group-hover:bg-ink/35" />
+
+            {item.images.length > 1 && (
+              <span className="absolute right-3 top-3 flex items-center gap-1 bg-ink/60 px-2 py-1 font-mono text-[10px] uppercase tracking-[0.15em] text-paper backdrop-blur-sm">
+                <svg width="11" height="11" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                  <rect x="4" y="4" width="12" height="12" rx="1.5" stroke="currentColor" strokeWidth="1.4" />
+                  <path d="M7 4V2.5a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1V13a1 1 0 0 1-1 1H16" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
+                </svg>
+                {item.images.length}
+              </span>
+            )}
 
             <div className="absolute inset-x-0 bottom-0 translate-y-2 p-5 opacity-0 transition-all duration-500 ease-out group-hover:translate-y-0 group-hover:opacity-100 md:p-6">
               <div className="flex items-baseline gap-3">

@@ -45,6 +45,12 @@ export default function Lightbox({
   const open = index !== null;
   const item = open ? items[index as number] : null;
   const [direction, setDirection] = useState(1);
+  const [photoIndex, setPhotoIndex] = useState(0);
+  const [lastIndex, setLastIndex] = useState(index);
+  if (index !== lastIndex) {
+    setLastIndex(index);
+    setPhotoIndex(0);
+  }
 
   const goPrev = useCallback(() => {
     if (index === null) return;
@@ -180,9 +186,9 @@ export default function Lightbox({
                 onDragEnd={handleDragEnd}
                 className="flex h-full w-full cursor-grab flex-col items-center justify-center gap-4 active:cursor-grabbing"
               >
-                <div className="relative h-[78dvh] w-full">
+                <div className="relative h-[72dvh] w-full">
                   <Image
-                    src={item.image}
+                    src={item.images[photoIndex]}
                     alt={`${item.concept} — full size`}
                     fill
                     draggable={false}
@@ -190,6 +196,27 @@ export default function Lightbox({
                     className="pointer-events-none select-none object-contain"
                   />
                 </div>
+
+                {item.images.length > 1 && (
+                  <div className="flex items-center gap-2">
+                    {item.images.map((_, i) => (
+                      <button
+                        key={i}
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setPhotoIndex(i);
+                        }}
+                        aria-label={`Photo ${i + 1} of ${item.images.length}`}
+                        aria-current={i === photoIndex}
+                        className={`cursor-hover h-1.5 rounded-full transition-all duration-300 ${
+                          i === photoIndex ? "w-6 bg-paper" : "w-1.5 bg-paper/40"
+                        }`}
+                      />
+                    ))}
+                  </div>
+                )}
+
                 <div className="flex max-w-xl flex-col items-center gap-2 text-center text-paper">
                   <div className="flex items-baseline gap-3">
                     <span className="font-mono text-xs text-paper/50">

@@ -20,11 +20,15 @@ export const SOCIAL_LINKS = [
 export const PHONE_DISPLAY = "+84 824939333";
 export const PHONE_TEL = "+84824939333";
 
+// Each PortfolioItem is an album: one concept, one story, one or more
+// photos. Most albums hold a single cover photo; a handful hold a small
+// set of related shots from the same session (images[0] is always the
+// cover used for grid thumbnails, Shop listings, etc.).
 export type PortfolioItem = {
   slug: string;
   concept: string;
   category: string;
-  image: string;
+  images: string[];
   year: string;
   span: "tall" | "wide" | "large" | "regular";
   story?: string;
@@ -35,7 +39,7 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     slug: "porcelain",
     concept: "Tinh Khôi",
     category: "Skin Study",
-    image: "/images/porcelain.webp",
+    images: ["/images/porcelain.webp"],
     year: "2025",
     span: "large",
     story:
@@ -45,7 +49,7 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     slug: "vermillion",
     concept: "Sắc Sảo",
     category: "Colour Story",
-    image: "/images/vermillion.webp",
+    images: ["/images/vermillion.webp"],
     year: "2025",
     span: "tall",
     story:
@@ -55,7 +59,7 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     slug: "noir",
     concept: "Noir",
     category: "Black & White",
-    image: "/images/noir.jpg",
+    images: ["/images/noir.jpg"],
     year: "2024",
     span: "regular",
     story:
@@ -65,7 +69,7 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     slug: "bloom",
     concept: "Bloom",
     category: "Portrait Study",
-    image: "/images/bloom.webp",
+    images: ["/images/bloom.webp"],
     year: "2024",
     span: "wide",
     story:
@@ -75,7 +79,7 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     slug: "editorial-no-4",
     concept: "Editorial No. 4",
     category: "Campaign",
-    image: "/images/editorial-no-4.webp",
+    images: ["/images/editorial-no-4.webp"],
     year: "2024",
     span: "regular",
     story:
@@ -85,7 +89,7 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     slug: "gaze",
     concept: "Gaze",
     category: "Portrait Study",
-    image: "/images/gaze.webp",
+    images: ["/images/gaze.webp"],
     year: "2023",
     span: "tall",
     story:
@@ -95,7 +99,7 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     slug: "structure",
     concept: "Structure",
     category: "Editorial",
-    image: "/images/structure.webp",
+    images: ["/images/structure.webp"],
     year: "2023",
     span: "large",
     story:
@@ -105,7 +109,7 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     slug: "muse",
     concept: "Muse",
     category: "Bridal",
-    image: "/images/muse.jpg",
+    images: ["/images/muse.jpg"],
     year: "2023",
     span: "regular",
     story:
@@ -115,7 +119,7 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     slug: "thanh-xuan",
     concept: "Thanh Xuân",
     category: "Skin Study",
-    image: "/images/thanh-xuan.webp",
+    images: ["/images/thanh-xuan.webp"],
     year: "2025",
     span: "regular",
     story:
@@ -125,7 +129,7 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     slug: "phu-van",
     concept: "Phù Vân",
     category: "Editorial",
-    image: "/images/phu-van.webp",
+    images: ["/images/phu-van.webp"],
     year: "2025",
     span: "regular",
     story:
@@ -135,7 +139,7 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     slug: "diu-dang",
     concept: "Dịu Dàng",
     category: "Bridal",
-    image: "/images/diu-dang.webp",
+    images: ["/images/diu-dang.webp"],
     year: "2026",
     span: "large",
     story:
@@ -145,7 +149,7 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     slug: "loi-hen",
     concept: "Lời Hẹn",
     category: "Bridal",
-    image: "/images/loi-hen.webp",
+    images: ["/images/loi-hen.webp"],
     year: "2026",
     span: "tall",
     story:
@@ -155,7 +159,7 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     slug: "lang",
     concept: "Lặng",
     category: "Portrait Study",
-    image: "/images/lang.webp",
+    images: ["/images/lang.webp"],
     year: "2026",
     span: "regular",
     story:
@@ -165,7 +169,7 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     slug: "mien-xa",
     concept: "Miền Xa",
     category: "Editorial",
-    image: "/images/mien-xa.webp",
+    images: ["/images/mien-xa.webp", "/images/mien-xa-2.webp"],
     year: "2026",
     span: "wide",
     story:

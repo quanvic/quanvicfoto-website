@@ -52,7 +52,7 @@ export default function ShopContent() {
               className="cursor-hover group relative block aspect-[4/5] w-full overflow-hidden bg-cloud"
             >
               <Image
-                src={item.image}
+                src={item.images[0]}
                 alt={item.concept}
                 fill
                 draggable={false}
