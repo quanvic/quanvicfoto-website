@@ -175,6 +175,26 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     story:
       "Dáng nghiêng quay về phía xa xăm, tấm voan trải dài trên nền hoa rực rỡ như một bức tranh tĩnh vật sống động. Miền Xa là khoảnh khắc suy tư thoáng qua, khi cô dâu tạm gác lại mọi ồn ào để nhìn về những điều sắp tới.",
   },
+  {
+    slug: "kieu-sa",
+    concept: "Kiêu Sa",
+    category: "Bridal",
+    images: [
+      "/images/kieu-sa.webp",
+      "/images/kieu-sa-2.webp",
+      "/images/kieu-sa-3.webp",
+      "/images/kieu-sa-4.webp",
+      "/images/kieu-sa-5.webp",
+      "/images/kieu-sa-6.webp",
+      "/images/kieu-sa-7.webp",
+      "/images/kieu-sa-8.webp",
+      "/images/kieu-sa-9.webp",
+    ],
+    year: "2026",
+    span: "large",
+    story:
+      "Đường ren tinh xảo ôm trọn vòng eo, tà váy đuôi cá lộng lẫy trải dài như một áng thơ trên nền phông tối. Kiêu Sa là chân dung của người phụ nữ tự tin bước vào ngày trọng đại — ánh nhìn thẳng thắn, dáng vóc kiêu hãnh, và một vẻ đẹp không cần vội vã phô bày.",
+  },
 ];
 
 export const ABOUT_IMAGE = "/images/about.webp";
