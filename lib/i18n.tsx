@@ -343,14 +343,15 @@ const dictionaries: Record<Lang, Dictionary> = {
           title: "Advanced Lighting & Editorial Craft",
           level: "Advanced",
           format: "In-studio, small group",
-          duration: "6 sessions · 14 hours",
-          price: "Contact for pricing",
+          duration: "10 sessions",
+          price: "30,000,000₫",
           description:
-            "For photographers who already shoot but want editorial-grade results — multi-light setups, working alongside a M.U.A., and building a portfolio brands actually notice.",
+            "For photographers who already shoot but want editorial-grade results — multi-light setups, working alongside a M.U.A., and advanced Photoshop retouching for a portfolio brands actually notice.",
           highlights: [
             "Multi-light studio setups for editorial work",
             "Collaborating with makeup artists and stylists",
             "Retouching that preserves real skin texture",
+            "Advanced Photoshop compositing and retouching",
           ],
         },
         {
@@ -585,14 +586,15 @@ const dictionaries: Record<Lang, Dictionary> = {
           title: "Ánh Sáng & Tạo Hình Nâng Cao",
           level: "Nâng cao",
           format: "Học trực tiếp tại studio, nhóm nhỏ",
-          duration: "6 buổi · 14 giờ",
-          price: "Liên hệ để nhận báo giá",
+          duration: "10 buổi",
+          price: "30.000.000đ",
           description:
-            "Dành cho người đã chụp ảnh nhưng muốn đạt chất lượng editorial thực thụ — thiết lập đa nguồn sáng, phối hợp cùng M.U.A và xây dựng một portfolio thật sự được các nhãn hàng chú ý.",
+            "Dành cho người đã chụp ảnh nhưng muốn đạt chất lượng editorial thực thụ — thiết lập đa nguồn sáng, phối hợp cùng M.U.A và hậu kỳ Photoshop nâng cao để xây dựng một portfolio thật sự được các nhãn hàng chú ý.",
           highlights: [
             "Thiết lập đa nguồn sáng cho editorial",
             "Phối hợp cùng Makeup Artist và Stylist",
             "Hậu kỳ giữ trọn kết cấu da thật",
+            "Photoshop nâng cao: ghép ảnh và chỉnh sửa chuyên sâu",
           ],
         },
         {
