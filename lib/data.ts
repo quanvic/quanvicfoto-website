@@ -80,34 +80,14 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
       "Sắc đỏ rực rỡ ôm lấy gương mặt như một lời tuyên ngôn — bản lĩnh, quyến rũ và không hề do dự. Đây là khoảnh khắc một người phụ nữ chọn tỏa sáng theo cách của riêng mình.",
   },
   {
-    slug: "noir",
-    concept: "Noir",
-    category: "Black & White",
-    images: ["/images/noir.jpg"],
-    year: "2024",
-    span: "regular",
-    story:
-      "Đôi mắt khép lại, không phải để trốn tránh mà để lắng nghe chính mình. Giữa nền đen tuyệt đối, chiếc nơ voan trắng nổi bật như một hơi thở nhẹ — sự tương phản làm nên vẻ đẹp tĩnh lặng và đầy nội lực.",
-  },
-  {
     slug: "bloom",
     concept: "Bloom",
     category: "Portrait Study",
-    images: ["/images/bloom.webp"],
+    images: ["/images/bloom.webp", "/images/editorial-no-4.webp"],
     year: "2024",
     span: "wide",
     story:
-      "Một cánh hoa Thiên điểu rực rỡ băng ngang gương mặt, nhưng ánh nhìn vẫn thẳng thắn không giấu diếm. Bloom là khoảnh khắc vẻ đẹp tự nhiên bung nở giữa sắc màu, chẳng cần phô trương mà vẫn cuốn hút.",
-  },
-  {
-    slug: "editorial-no-4",
-    concept: "Editorial No. 4",
-    category: "Campaign",
-    images: ["/images/editorial-no-4.webp"],
-    year: "2024",
-    span: "regular",
-    story:
-      "Một đóa hoa nâng niu bên gò má, ánh mắt hướng thẳng ống kính đầy tự tin. Trên nền xanh đêm sâu thẳm, đây là chân dung của một tuyên ngôn thời trang không cần lời.",
+      "Một cánh hoa Thiên điểu rực rỡ băng ngang gương mặt, khi ánh nhìn thẳng thắn không giấu diếm, khi ánh mắt dịu dàng hướng nghiêng đầy tự tin. Giữa nền đen sâu thẳm và cả sắc xanh đêm, Bloom là khoảnh khắc vẻ đẹp tự nhiên bung nở giữa sắc màu, chẳng cần phô trương mà vẫn cuốn hút.",
   },
   {
     slug: "gaze",
@@ -123,11 +103,11 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     slug: "structure",
     concept: "Structure",
     category: "Editorial",
-    images: ["/images/structure.webp"],
+    images: ["/images/structure.webp", "/images/noir.jpg"],
     year: "2023",
     span: "large",
     story:
-      "Một hình khối voan trắng tưởng như chỉ thuộc về kiến trúc lại ôm trọn gương mặt, cùng ánh nhìn nghiêng đầy thách thức. Structure là nơi kỹ thuật ánh sáng và sự sáng tạo hình khối gặp nhau trong từng đường nét.",
+      "Một hình khối voan trắng tưởng như chỉ thuộc về kiến trúc lại ôm trọn gương mặt — khi ánh nhìn nghiêng đầy thách thức hướng thẳng ống kính, khi đôi mắt khép lại để lắng nghe chính mình. Giữa nền đen tuyệt đối, Structure là nơi kỹ thuật ánh sáng, sự sáng tạo hình khối và nội lực tĩnh lặng gặp nhau trong từng đường nét.",
   },
   {
     slug: "muse",
