@@ -5,6 +5,7 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 import SiteChrome from "@/components/SiteChrome";
 import { LanguageProvider } from "@/lib/i18n";
+import { SITE_URL, localBusinessSchema } from "@/lib/seo";
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
 
@@ -28,9 +29,11 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: "Quân Vic Foto — Beauty Photographer",
   description:
     "Editorial beauty photography portfolio. 11 năm kinh nghiệm chụp ảnh Beauty — skin, light, and the architecture of a face, captured by Quân Vic Foto.",
+  robots: { index: true, follow: true },
 };
 
 export default function RootLayout({
@@ -40,10 +43,16 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
+      lang="vi"
       className={`${playfair.variable} ${inter.variable} ${jetbrainsMono.variable}`}
     >
       <body className="bg-paper text-ink antialiased">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(localBusinessSchema()),
+          }}
+        />
         <LanguageProvider>
           <SiteChrome>{children}</SiteChrome>
         </LanguageProvider>

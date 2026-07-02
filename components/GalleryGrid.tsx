@@ -50,7 +50,7 @@ export default function GalleryGrid({ items }: { items: PortfolioItem[] }) {
           >
             <Image
               src={item.images[0]}
-              alt={`${item.concept} — beauty editorial photography by Quân Vic Foto`}
+              alt={`${item.concept} - Ảnh chân dung Beauty Editorial, chụp bởi Quân Vic Foto Studio Hà Nội`}
               fill
               {...blurProps(item.images[0])}
               sizes="(min-width: 768px) 50vw, 100vw"

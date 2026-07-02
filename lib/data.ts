@@ -19,6 +19,26 @@ export const SOCIAL_LINKS = [
 
 export const PHONE_DISPLAY = "+84 824939333";
 export const PHONE_TEL = "+84824939333";
+export const EMAIL = "quanvicfoto@gmail.com";
+export const ZALO_URL = "https://zalo.me/0824939333";
+
+// Kept as a single canonical string (not split/translated per language) so
+// it stays byte-identical to the Google Business Profile listing — mixing
+// address variants across pages/languages hurts local SEO NAP consistency.
+export const ADDRESS = {
+  street: "248B Phố Huế",
+  ward: "Phường Phố Huế",
+  district: "Quận Hai Bà Trưng",
+  city: "Hà Nội",
+  country: "Việt Nam",
+  countryCode: "VN",
+  full: "248B Phố Huế, Phường Phố Huế, Quận Hai Bà Trưng, Thành phố Hà Nội, Việt Nam",
+};
+
+export const GEO = { latitude: "21.01188", longitude: "105.85231" };
+
+// schema.org OpeningHoursSpecification format (day range + 24h times).
+export const OPENING_HOURS = "Mo-Su 09:00-21:00";
 
 // Each PortfolioItem is an album: one concept, one story, one or more
 // photos. Most albums hold a single cover photo; a handful hold a small

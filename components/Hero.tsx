@@ -55,7 +55,7 @@ export default function Hero() {
         <div ref={imageWrapRef} className="absolute inset-0 scale-[1.18]">
           <Image
             src={HERO_IMAGE}
-            alt="Editorial beauty portrait — sleek studio lighting, metallic styling"
+            alt="Chân dung Beauty Editorial ánh sáng studio chuyên nghiệp tại Hà Nội - Quân Vic Foto"
             fill
             priority
             {...blurProps(HERO_IMAGE)}

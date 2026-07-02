@@ -205,7 +205,7 @@ export default function Lightbox({
                 <div className="relative h-[72dvh] w-full">
                   <Image
                     src={item.images[photoIndex]}
-                    alt={`${item.concept} — full size`}
+                    alt={`${item.concept} - Ảnh chân dung Beauty Editorial cỡ đầy đủ, Quân Vic Foto Studio Hà Nội`}
                     fill
                     draggable={false}
                     {...blurProps(item.images[photoIndex])}

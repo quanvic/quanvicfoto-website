@@ -55,7 +55,7 @@ export default function ShopContent() {
             >
               <Image
                 src={item.images[0]}
-                alt={item.concept}
+                alt={`${item.concept} - Mua ảnh bản quyền chân dung Beauty, Quân Vic Foto Studio Hà Nội`}
                 fill
                 draggable={false}
                 {...blurProps(item.images[0])}

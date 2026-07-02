@@ -1,8 +1,7 @@
 "use client";
 
 import { trackEvent } from "@/lib/analytics";
-
-const ZALO_URL = "https://zalo.me/0824939333";
+import { ZALO_URL } from "@/lib/data";
 
 export default function ZaloButton() {
   return (

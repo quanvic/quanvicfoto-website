@@ -149,6 +149,9 @@ export interface Dictionary {
     kicker: string;
     heading: string;
     body: string;
+    addressLabel: string;
+    hoursLabel: string;
+    hoursValue: string;
     nameLabel: string;
     emailLabel: string;
     projectLabel: string;
@@ -425,6 +428,9 @@ const dictionaries: Record<Lang, Dictionary> = {
       kicker: "Contact",
       heading: "Tell me about your project.",
       body: "For bookings, collaborations, or press enquiries, use the form or email directly. I typically reply within two business days.",
+      addressLabel: "Studio",
+      hoursLabel: "Hours",
+      hoursValue: "9:00 AM – 9:00 PM, daily",
       nameLabel: "Name",
       emailLabel: "Email",
       projectLabel: "Project type",
@@ -706,6 +712,9 @@ const dictionaries: Record<Lang, Dictionary> = {
       kicker: "Liên hệ",
       heading: "Hãy kể tôi nghe về dự án của bạn.",
       body: "Với các yêu cầu đặt lịch, hợp tác hoặc báo chí, hãy điền vào form hoặc gửi email trực tiếp. Tôi thường phản hồi trong vòng 2 ngày làm việc.",
+      addressLabel: "Studio",
+      hoursLabel: "Giờ mở cửa",
+      hoursValue: "9:00 – 21:00, tất cả các ngày trong tuần",
       nameLabel: "Họ và tên",
       emailLabel: "Email",
       projectLabel: "Loại dự án",
@@ -777,6 +786,10 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     setLangState(next);
     window.localStorage.setItem(STORAGE_KEY, next);
   };
+
+  useEffect(() => {
+    document.documentElement.lang = lang;
+  }, [lang]);
 
   const value = useMemo<LanguageContextValue>(
     () => ({ lang, setLang, t: dictionaries[lang] }),

@@ -85,7 +85,7 @@ export default function SelectedWorksBento({
                   */}
                   <Image
                     src={item.images[0]}
-                    alt={`${item.concept} — beauty editorial photography by Quân Vic Foto`}
+                    alt={`${item.concept} - Ảnh chân dung Beauty Editorial, chụp bởi Quân Vic Foto Studio Hà Nội`}
                     fill
                     draggable={false}
                     {...blurProps(item.images[0])}
