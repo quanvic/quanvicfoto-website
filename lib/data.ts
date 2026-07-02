@@ -131,6 +131,46 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     story:
       "Ánh sáng chỉ vừa đủ chạm vào một nửa gương mặt, nửa còn lại chìm trong bóng tối đầy ẩn ý. Phù Vân là khoảnh khắc mong manh, thoáng qua như áng mây — đẹp bởi sự không trọn vẹn.",
   },
+  {
+    slug: "diu-dang",
+    concept: "Dịu Dàng",
+    category: "Bridal",
+    image: "/images/diu-dang.webp",
+    year: "2026",
+    span: "large",
+    story:
+      "Một nụ cười khẽ nở sau bàn tay đặt nhẹ nơi cằm, đóa hoa tím thẫm chạm nhẹ vào khung hình như một lời thì thầm. Dịu Dàng là khoảnh khắc hạnh phúc không cần phô diễn — chỉ ánh mắt và nụ cười cũng đủ nói lên tất cả.",
+  },
+  {
+    slug: "loi-hen",
+    concept: "Lời Hẹn",
+    category: "Bridal",
+    image: "/images/loi-hen.webp",
+    year: "2026",
+    span: "tall",
+    story:
+      "Tấm voan mỏng buông xuống như một lời hẹn chưa nói thành lời, ánh mắt nhìn thẳng vào ống kính đầy tự tin và bình yên. Giữa sắc hoa rực rỡ, đây là khoảnh khắc một cô dâu sẵn sàng bước vào chương mới của đời mình.",
+  },
+  {
+    slug: "lang",
+    concept: "Lặng",
+    category: "Portrait Study",
+    image: "/images/lang.webp",
+    year: "2026",
+    span: "regular",
+    story:
+      "Ánh mắt cúi xuống, bàn tay khẽ chạm vào những cánh hoa như đang lắng nghe một điều gì đó rất riêng. Lặng là khoảnh khắc chậm lại hiếm hoi giữa một ngày trọng đại — nơi cảm xúc thật sự được phép lên tiếng.",
+  },
+  {
+    slug: "mien-xa",
+    concept: "Miền Xa",
+    category: "Editorial",
+    image: "/images/mien-xa.webp",
+    year: "2026",
+    span: "wide",
+    story:
+      "Dáng nghiêng quay về phía xa xăm, tấm voan trải dài trên nền hoa rực rỡ như một bức tranh tĩnh vật sống động. Miền Xa là khoảnh khắc suy tư thoáng qua, khi cô dâu tạm gác lại mọi ồn ào để nhìn về những điều sắp tới.",
+  },
 ];
 
 export const ABOUT_IMAGE = "/images/about.webp";
