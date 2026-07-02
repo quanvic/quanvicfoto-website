@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Hero from "@/components/Hero";
 import Marquee from "@/components/Marquee";
-import GalleryGrid from "@/components/GalleryGrid";
+import SelectedWorksBento from "@/components/SelectedWorksBento";
 import AboutTeaser from "@/components/AboutTeaser";
 import ContactCTA from "@/components/ContactCTA";
 import { PORTFOLIO_ITEMS } from "@/lib/data";
@@ -40,7 +40,7 @@ export default function Home() {
           </Link>
         </div>
 
-        <GalleryGrid items={featured} />
+        <SelectedWorksBento items={featured} />
       </section>
 
       <AboutTeaser />
