@@ -189,6 +189,18 @@ export interface Dictionary {
     successKicker: string;
     successMessage: string;
   };
+  chat: {
+    toggleOpenAria: string;
+    toggleCloseAria: string;
+    title: string;
+    subtitle: string;
+    greeting: string;
+    placeholder: string;
+    send: string;
+    thinking: string;
+    notConfigured: string;
+    error: string;
+  };
 }
 
 const dictionaries: Record<Lang, Dictionary> = {
@@ -475,6 +487,20 @@ const dictionaries: Record<Lang, Dictionary> = {
       successKicker: "Thank You",
       successMessage: "Your request has been received. We'll be in touch shortly.",
     },
+    chat: {
+      toggleOpenAria: "Open chat assistant",
+      toggleCloseAria: "Close chat assistant",
+      title: "Studio Assistant",
+      subtitle: "Ask about pricing, booking, or services",
+      greeting:
+        "Hi! I'm the studio assistant. Ask me anything about booking a shoot, pricing, or courses.",
+      placeholder: "Type a message…",
+      send: "Send",
+      thinking: "Thinking…",
+      notConfigured:
+        "The chat assistant isn't available right now — please reach out via the contact form or hotline instead.",
+      error: "Something went wrong. Please try again or contact us directly.",
+    },
   },
   vi: {
     nav: {
@@ -758,6 +784,20 @@ const dictionaries: Record<Lang, Dictionary> = {
       successKicker: "Cảm ơn bạn",
       successMessage:
         "Yêu cầu của bạn đã được ghi nhận. Chúng tôi sẽ liên hệ lại sớm nhất.",
+    },
+    chat: {
+      toggleOpenAria: "Mở trợ lý chat",
+      toggleCloseAria: "Đóng trợ lý chat",
+      title: "Trợ Lý Studio",
+      subtitle: "Hỏi về giá, đặt lịch hoặc dịch vụ",
+      greeting:
+        "Xin chào! Tôi là trợ lý của studio. Bạn có thể hỏi tôi về đặt lịch chụp, bảng giá, hoặc khoá học.",
+      placeholder: "Nhập tin nhắn…",
+      send: "Gửi",
+      thinking: "Đang trả lời…",
+      notConfigured:
+        "Trợ lý chat hiện chưa khả dụng — vui lòng liên hệ qua form hoặc hotline.",
+      error: "Đã có lỗi xảy ra. Vui lòng thử lại hoặc liên hệ trực tiếp.",
     },
   },
 };

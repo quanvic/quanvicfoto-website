@@ -10,6 +10,7 @@ import SmoothScroll from "@/components/SmoothScroll";
 import Footer from "@/components/Footer";
 import EditorialFrame from "@/components/EditorialFrame";
 import ZaloButton from "@/components/ZaloButton";
+import ChatWidget from "@/components/ChatWidget";
 import ImageProtection from "@/components/ImageProtection";
 
 export default function SiteChrome({
@@ -20,6 +21,7 @@ export default function SiteChrome({
   const [loading, setLoading] = useState(true);
   const [menuOpen, setMenuOpen] = useState(false);
   const [bookingOpen, setBookingOpen] = useState(false);
+  const [chatOpen, setChatOpen] = useState(false);
 
   return (
     <>
@@ -36,8 +38,9 @@ export default function SiteChrome({
       />
       <BookingModal open={bookingOpen} onClose={() => setBookingOpen(false)} />
       <ZaloButton />
+      <ChatWidget open={chatOpen} onToggle={() => setChatOpen((v) => !v)} />
 
-      <SmoothScroll paused={loading || menuOpen || bookingOpen}>
+      <SmoothScroll paused={loading || menuOpen || bookingOpen || chatOpen}>
         <div className="flex min-h-screen flex-col">
           <main className="flex-1">{children}</main>
           <Footer onBookingOpen={() => setBookingOpen(true)} />
