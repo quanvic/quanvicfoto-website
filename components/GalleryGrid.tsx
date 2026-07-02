@@ -44,9 +44,9 @@ export default function GalleryGrid({ items }: { items: PortfolioItem[] }) {
               alt={`${item.concept} — beauty editorial photography by Quân Vic Foto`}
               fill
               sizes="(min-width: 768px) 50vw, 100vw"
-              className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+              className="object-cover transition-all duration-500 ease-out group-hover:scale-105"
             />
-            <div className="absolute inset-0 bg-ink/0 transition-colors duration-500 group-hover:bg-ink/35" />
+            <div className="absolute inset-0 bg-ink/0 transition-all duration-500 group-hover:bg-ink/35" />
 
             {item.images.length > 1 && (
               <span className="absolute right-3 top-3 flex items-center gap-1 bg-ink/60 px-2 py-1 font-mono text-[10px] uppercase tracking-[0.15em] text-paper backdrop-blur-sm">

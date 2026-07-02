@@ -59,8 +59,8 @@ export default function SelectedWorksBento({
                 className="relative h-full w-full"
               >
                 <motion.div
-                  variants={{ rest: { scale: 1 }, hover: { scale: 1.04 } }}
-                  transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                  variants={{ rest: { scale: 1 }, hover: { scale: 1.05 } }}
+                  transition={{ duration: 0.5, ease: "easeOut" }}
                   className="relative h-full w-full"
                 >
                   {/*
@@ -81,7 +81,7 @@ export default function SelectedWorksBento({
 
                 <motion.div
                   variants={{ rest: { opacity: 0 }, hover: { opacity: 1 } }}
-                  transition={{ duration: 0.45, ease: "easeOut" }}
+                  transition={{ duration: 0.5, ease: "easeOut" }}
                   className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center gap-2 bg-ink/55 text-center backdrop-blur-[2px]"
                 >
                   <p className="font-serif text-2xl italic tracking-tight text-paper md:text-3xl">

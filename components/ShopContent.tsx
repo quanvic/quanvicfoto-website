@@ -4,12 +4,12 @@ import { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { PORTFOLIO_ITEMS, SHOP_SLUGS, type PortfolioItem } from "@/lib/data";
-import { useLanguage } from "@/lib/i18n";
+import { CATEGORY_LABELS, useLanguage } from "@/lib/i18n";
 import Watermark from "@/components/Watermark";
 import ShopModal from "@/components/ShopModal";
 
 export default function ShopContent() {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   const page = t.shopPage;
   const [selected, setSelected] = useState<PortfolioItem | null>(null);
   const items = PORTFOLIO_ITEMS.filter((p) => SHOP_SLUGS.includes(p.slug));
@@ -57,10 +57,18 @@ export default function ShopContent() {
                 fill
                 draggable={false}
                 sizes="(min-width: 768px) 33vw, 100vw"
-                className="pointer-events-none select-none object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                className="pointer-events-none select-none object-cover transition-all duration-500 ease-out group-hover:scale-105"
               />
               <Watermark />
-              <div className="absolute inset-0 bg-ink/0 transition-colors duration-500 group-hover:bg-ink/25" />
+              <div className="absolute inset-0 bg-ink/0 transition-all duration-500 group-hover:bg-ink/35" />
+              <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center gap-2 opacity-0 transition-all duration-500 ease-out group-hover:opacity-100">
+                <p className="font-serif text-2xl italic tracking-tight text-paper">
+                  {item.concept}
+                </p>
+                <span className="font-mono text-[11px] uppercase tracking-[0.25em] text-paper/80">
+                  {CATEGORY_LABELS[item.category]?.[lang] ?? item.category}
+                </span>
+              </div>
             </button>
 
             <div className="mt-4 flex items-baseline justify-between gap-3">
