@@ -7,6 +7,7 @@ import type { PortfolioItem } from "@/lib/data";
 import { CATEGORY_LABELS, useLanguage } from "@/lib/i18n";
 import { blurProps } from "@/lib/blur-data";
 import Lightbox from "@/components/Lightbox";
+import { trackEvent } from "@/lib/analytics";
 
 const SPAN_CLASSES: Record<PortfolioItem["span"], string> = {
   large: "md:col-span-2 md:row-span-2",
@@ -36,7 +37,14 @@ export default function GalleryGrid({ items }: { items: PortfolioItem[] }) {
         >
           <button
             type="button"
-            onClick={() => setOpenIndex(i)}
+            onClick={() => {
+              setOpenIndex(i);
+              trackEvent("portfolio_item_view", {
+                slug: item.slug,
+                concept: item.concept,
+                category: item.category,
+              });
+            }}
             aria-label={`${item.concept} — view full size`}
             className="cursor-hover absolute inset-0 block w-full text-left"
           >

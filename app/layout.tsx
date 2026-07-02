@@ -1,8 +1,12 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Inter, JetBrains_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 import SiteChrome from "@/components/SiteChrome";
 import { LanguageProvider } from "@/lib/i18n";
+
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
 
 const playfair = Playfair_Display({
   variable: "--font-playfair",
@@ -43,6 +47,8 @@ export default function RootLayout({
         <LanguageProvider>
           <SiteChrome>{children}</SiteChrome>
         </LanguageProvider>
+        <Analytics />
+        {GA_ID && <GoogleAnalytics gaId={GA_ID} />}
       </body>
     </html>
   );

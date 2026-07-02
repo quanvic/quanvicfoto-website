@@ -4,6 +4,7 @@ import { forwardRef, useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { PORTFOLIO_ITEMS } from "@/lib/data";
 import { useLanguage } from "@/lib/i18n";
+import { trackEvent } from "@/lib/analytics";
 
 const fieldClass =
   "border-b border-line bg-transparent py-3 text-base outline-none transition-colors focus:border-ink";
@@ -175,6 +176,9 @@ export default function BookingModal({
 
     const formData = new FormData(e.currentTarget);
     images.forEach((entry) => formData.append("images", entry.file));
+    trackEvent("booking_form_submit", {
+      concept: String(formData.get("concept") ?? ""),
+    });
 
     try {
       const res = await fetch("/api/booking", {
