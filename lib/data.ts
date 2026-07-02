@@ -139,41 +139,18 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     slug: "diu-dang",
     concept: "Dịu Dàng",
     category: "Bridal",
-    images: ["/images/diu-dang.webp"],
+    images: [
+      "/images/diu-dang.webp",
+      "/images/loi-hen.webp",
+      "/images/lang.webp",
+      "/images/mien-xa.webp",
+      "/images/mien-xa-2.webp",
+      "/images/diu-dang-6.webp",
+    ],
     year: "2026",
     span: "large",
     story:
-      "Một nụ cười khẽ nở sau bàn tay đặt nhẹ nơi cằm, đóa hoa tím thẫm chạm nhẹ vào khung hình như một lời thì thầm. Dịu Dàng là khoảnh khắc hạnh phúc không cần phô diễn — chỉ ánh mắt và nụ cười cũng đủ nói lên tất cả.",
-  },
-  {
-    slug: "loi-hen",
-    concept: "Lời Hẹn",
-    category: "Bridal",
-    images: ["/images/loi-hen.webp"],
-    year: "2026",
-    span: "tall",
-    story:
-      "Tấm voan mỏng buông xuống như một lời hẹn chưa nói thành lời, ánh mắt nhìn thẳng vào ống kính đầy tự tin và bình yên. Giữa sắc hoa rực rỡ, đây là khoảnh khắc một cô dâu sẵn sàng bước vào chương mới của đời mình.",
-  },
-  {
-    slug: "lang",
-    concept: "Lặng",
-    category: "Portrait Study",
-    images: ["/images/lang.webp"],
-    year: "2026",
-    span: "regular",
-    story:
-      "Ánh mắt cúi xuống, bàn tay khẽ chạm vào những cánh hoa như đang lắng nghe một điều gì đó rất riêng. Lặng là khoảnh khắc chậm lại hiếm hoi giữa một ngày trọng đại — nơi cảm xúc thật sự được phép lên tiếng.",
-  },
-  {
-    slug: "mien-xa",
-    concept: "Miền Xa",
-    category: "Editorial",
-    images: ["/images/mien-xa.webp", "/images/mien-xa-2.webp"],
-    year: "2026",
-    span: "wide",
-    story:
-      "Dáng nghiêng quay về phía xa xăm, tấm voan trải dài trên nền hoa rực rỡ như một bức tranh tĩnh vật sống động. Miền Xa là khoảnh khắc suy tư thoáng qua, khi cô dâu tạm gác lại mọi ồn ào để nhìn về những điều sắp tới.",
+      "Một buổi sáng trước ngày trọng đại, giữa những đóa hoa rực rỡ trên bàn gỗ mộc. Tấm voan khẽ buông, nụ cười dịu dàng, khi ánh mắt cúi xuống lặng lẽ, khi nhìn thẳng đầy tự tin, khi quay về phía xa xăm — Dịu Dàng là chuỗi khoảnh khắc rất thật của một cô dâu trước ngưỡng cửa hạnh phúc.",
   },
   {
     slug: "kieu-sa",
