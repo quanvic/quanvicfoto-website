@@ -53,7 +53,11 @@ export default function ShopModal({
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
     "idle",
   );
+  const [license, setLicense] = useState("");
+  const [photoIndex, setPhotoIndex] = useState(0);
   const firstFieldRef = useRef<HTMLInputElement>(null);
+  const needsPhotoPicker =
+    license === "print" && (product?.images.length ?? 0) > 1;
 
   useEffect(() => {
     if (!open) return;
@@ -64,6 +68,8 @@ export default function ShopModal({
   useEffect(() => {
     if (!open) {
       setStatus("idle");
+      setLicense("");
+      setPhotoIndex(0);
       return;
     }
     const onKey = (e: KeyboardEvent) => {
@@ -79,10 +85,13 @@ export default function ShopModal({
     setStatus("sending");
 
     const data = new FormData(e.currentTarget);
+    const selectedOption = s.licenseOptions.find((opt) => opt.value === license);
     const payload = {
       name: String(data.get("name") ?? ""),
       contact: String(data.get("contact") ?? ""),
       license: String(data.get("license") ?? ""),
+      price: selectedOption?.price ?? "",
+      photoIndex: needsPhotoPicker ? photoIndex + 1 : undefined,
       message: String(data.get("message") ?? ""),
       product: product.concept,
       productSlug: product.slug,
@@ -199,20 +208,70 @@ export default function ShopModal({
                     <select
                       id="s-license"
                       name="license"
-                      defaultValue=""
+                      value={license}
+                      onChange={(e) => {
+                        setLicense(e.target.value);
+                        setPhotoIndex(0);
+                      }}
                       required
                       className={`cursor-hover ${fieldClass}`}
                     >
                       <option value="" disabled>
                         {m.licensePlaceholder}
                       </option>
-                      {s.licenseOptions.map((opt) => (
-                        <option key={opt.value} value={opt.value}>
-                          {opt.label}
-                        </option>
-                      ))}
+                      {s.licenseOptions.map((opt) => {
+                        const sold = opt.value === "exclusive" && product.exclusiveSold;
+                        return (
+                          <option key={opt.value} value={opt.value} disabled={sold}>
+                            {opt.label} — {opt.price}
+                            {sold ? m.licenseSoldSuffix : ""}
+                          </option>
+                        );
+                      })}
                     </select>
+                    {license && (
+                      <p className="text-xs leading-relaxed text-ink/60">
+                        {s.licenseOptions.find((opt) => opt.value === license)
+                          ?.description}
+                      </p>
+                    )}
+                    {license === "exclusive" && product.exclusiveSold && (
+                      <p role="alert" className="text-xs leading-relaxed text-red-600">
+                        {m.exclusiveSoldNote}
+                      </p>
+                    )}
                   </div>
+
+                  {needsPhotoPicker && (
+                    <div className="flex flex-col gap-3">
+                      <span className={labelClass}>{m.photoPickerLabel}</span>
+                      <div className="grid grid-cols-4 gap-2 sm:grid-cols-5">
+                        {product.images.map((src, i) => (
+                          <button
+                            key={src}
+                            type="button"
+                            onClick={() => setPhotoIndex(i)}
+                            aria-label={`${m.photoLabel} ${i + 1}`}
+                            aria-pressed={i === photoIndex}
+                            className={`cursor-hover relative aspect-square overflow-hidden bg-cloud transition-all ${
+                              i === photoIndex
+                                ? "ring-2 ring-ink ring-offset-2"
+                                : "opacity-60 hover:opacity-100"
+                            }`}
+                          >
+                            <Image
+                              src={src}
+                              alt={`${m.photoLabel} ${i + 1}`}
+                              fill
+                              draggable={false}
+                              sizes="80px"
+                              className="pointer-events-none select-none object-cover"
+                            />
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  )}
 
                   <div className="flex flex-col gap-2">
                     <label htmlFor="s-message" className={labelClass}>
@@ -234,7 +293,10 @@ export default function ShopModal({
 
                   <button
                     type="submit"
-                    disabled={status === "sending"}
+                    disabled={
+                      status === "sending" ||
+                      (license === "exclusive" && product.exclusiveSold)
+                    }
                     className="cursor-hover mt-2 inline-flex w-full items-center justify-center border border-ink bg-ink px-8 py-4 font-mono text-sm uppercase tracking-[0.25em] text-paper transition-colors duration-300 hover:bg-paper hover:text-ink disabled:opacity-50 sm:w-fit"
                   >
                     {status === "sending" ? m.submitSending : s.ctaLabel}

@@ -48,22 +48,37 @@ export default function Lightbox({
   const [direction, setDirection] = useState(1);
   const [photoIndex, setPhotoIndex] = useState(0);
   const [lastIndex, setLastIndex] = useState(index);
+  const [enterFromEnd, setEnterFromEnd] = useState(false);
   if (index !== lastIndex) {
     setLastIndex(index);
-    setPhotoIndex(0);
+    setPhotoIndex(enterFromEnd && item ? item.images.length - 1 : 0);
   }
 
+  // Prev/next (arrows, swipe, keyboard) step through the current album's
+  // photos first, then spill over into the neighbouring album at each
+  // end — so browsing a multi-photo album is just "keep going the same
+  // direction" instead of requiring the tiny dot indicators.
   const goPrev = useCallback(() => {
-    if (index === null) return;
+    if (index === null || !item) return;
     setDirection(-1);
-    onNavigate((index - 1 + items.length) % items.length);
-  }, [index, items.length, onNavigate]);
+    if (photoIndex > 0) {
+      setPhotoIndex((p) => p - 1);
+    } else {
+      setEnterFromEnd(true);
+      onNavigate((index - 1 + items.length) % items.length);
+    }
+  }, [index, item, photoIndex, items.length, onNavigate]);
 
   const goNext = useCallback(() => {
-    if (index === null) return;
+    if (index === null || !item) return;
     setDirection(1);
-    onNavigate((index + 1) % items.length);
-  }, [index, items.length, onNavigate]);
+    if (photoIndex < item.images.length - 1) {
+      setPhotoIndex((p) => p + 1);
+    } else {
+      setEnterFromEnd(false);
+      onNavigate((index + 1) % items.length);
+    }
+  }, [index, item, photoIndex, items.length, onNavigate]);
 
   useEffect(() => {
     if (!open) return;
@@ -80,7 +95,7 @@ export default function Lightbox({
     _event: MouseEvent | TouchEvent | PointerEvent,
     info: PanInfo,
   ) {
-    if (items.length <= 1) return;
+    if (items.length <= 1 && (item?.images.length ?? 0) <= 1) return;
     const { offset, velocity } = info;
     if (
       offset.x < -SWIPE_OFFSET_THRESHOLD ||
@@ -125,7 +140,7 @@ export default function Lightbox({
             </svg>
           </button>
 
-          {items.length > 1 && (
+          {(items.length > 1 || item.images.length > 1) && (
             <>
               <button
                 type="button"
@@ -133,7 +148,7 @@ export default function Lightbox({
                   e.stopPropagation();
                   goPrev();
                 }}
-                aria-label="Previous image"
+                aria-label="Previous photo"
                 className="cursor-hover absolute left-2 top-1/2 z-20 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full text-paper/70 transition-colors hover:bg-paper/10 hover:text-paper md:left-6"
               >
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
@@ -152,7 +167,7 @@ export default function Lightbox({
                   e.stopPropagation();
                   goNext();
                 }}
-                aria-label="Next image"
+                aria-label="Next photo"
                 className="cursor-hover absolute right-2 top-1/2 z-20 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full text-paper/70 transition-colors hover:bg-paper/10 hover:text-paper md:right-6"
               >
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
@@ -174,14 +189,14 @@ export default function Lightbox({
           >
             <AnimatePresence custom={direction} mode="popLayout" initial={false}>
               <motion.div
-                key={item.slug}
+                key={`${item.slug}-${photoIndex}`}
                 custom={direction}
                 variants={slideVariants}
                 initial="enter"
                 animate="center"
                 exit="exit"
                 transition={slideTransition}
-                drag={items.length > 1 ? "x" : false}
+                drag={items.length > 1 || item.images.length > 1 ? "x" : false}
                 dragConstraints={{ left: 0, right: 0 }}
                 dragElastic={1}
                 onDragEnd={handleDragEnd}
@@ -200,22 +215,34 @@ export default function Lightbox({
                 </div>
 
                 {item.images.length > 1 && (
-                  <div className="flex items-center gap-2">
-                    {item.images.map((_, i) => (
-                      <button
-                        key={i}
-                        type="button"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          setPhotoIndex(i);
-                        }}
-                        aria-label={`Photo ${i + 1} of ${item.images.length}`}
-                        aria-current={i === photoIndex}
-                        className={`cursor-hover h-1.5 rounded-full transition-all duration-300 ${
-                          i === photoIndex ? "w-6 bg-paper" : "w-1.5 bg-paper/40"
-                        }`}
-                      />
-                    ))}
+                  <div className="flex flex-col items-center gap-2">
+                    <div className="flex items-center gap-1">
+                      {item.images.map((_, i) => (
+                        <button
+                          key={i}
+                          type="button"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setDirection(i > photoIndex ? 1 : -1);
+                            setPhotoIndex(i);
+                          }}
+                          aria-label={`Photo ${i + 1} of ${item.images.length}`}
+                          aria-current={i === photoIndex}
+                          className="cursor-hover flex h-8 w-6 items-center justify-center"
+                        >
+                          <span
+                            className={`block h-1.5 rounded-full transition-all duration-300 ${
+                              i === photoIndex
+                                ? "w-6 bg-paper"
+                                : "w-1.5 bg-paper/40"
+                            }`}
+                          />
+                        </button>
+                      ))}
+                    </div>
+                    <span className="font-mono text-[11px] tracking-[0.1em] text-paper/50">
+                      {photoIndex + 1} / {item.images.length}
+                    </span>
                   </div>
                 )}
 

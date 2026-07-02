@@ -23,7 +23,10 @@ export const PHONE_TEL = "+84824939333";
 // Each PortfolioItem is an album: one concept, one story, one or more
 // photos. Most albums hold a single cover photo; a handful hold a small
 // set of related shots from the same session (images[0] is always the
-// cover used for grid thumbnails, Shop listings, etc.).
+// cover used for grid thumbnails, Shop listings, etc.). Every portfolio
+// piece is for sale in the Shop by default — set exclusiveSold once the
+// one-off copyright buyout tier has actually been sold for a piece, so
+// it stops being offered to other buyers.
 export type PortfolioItem = {
   slug: string;
   concept: string;
@@ -32,6 +35,7 @@ export type PortfolioItem = {
   year: string;
   span: "tall" | "wide" | "large" | "regular";
   story?: string;
+  exclusiveSold?: boolean;
 };
 
 export const PORTFOLIO_ITEMS: PortfolioItem[] = [
@@ -184,14 +188,3 @@ export const COURSE_IMAGES: Record<string, string> = {
   pathway: "/images/course-pathway.webp",
   mentorship: "/images/course-mentorship.webp",
 };
-
-// Portfolio pieces available for licensing in the Shop — references
-// PORTFOLIO_ITEMS by slug rather than duplicating image/story data.
-export const SHOP_SLUGS = [
-  "porcelain",
-  "vermillion",
-  "noir",
-  "bloom",
-  "structure",
-  "muse",
-];

@@ -95,8 +95,15 @@ export interface Dictionary {
     heading: string;
     body: string;
     protectedNote: string;
+    fromLabel: string;
+    exclusiveSoldBadge: string;
     licenseLabel: string;
-    licenseOptions: { value: string; label: string; description: string }[];
+    licenseOptions: {
+      value: string;
+      label: string;
+      price: string;
+      description: string;
+    }[];
     ctaLabel: string;
     modal: {
       kicker: string;
@@ -107,6 +114,10 @@ export interface Dictionary {
       contactLabel: string;
       licenseFieldLabel: string;
       licensePlaceholder: string;
+      licenseSoldSuffix: string;
+      exclusiveSoldNote: string;
+      photoPickerLabel: string;
+      photoLabel: string;
       messageLabel: string;
       submitIdle: string;
       submitSending: string;
@@ -276,38 +287,51 @@ const dictionaries: Record<Lang, Dictionary> = {
       metaTitle: "Shop — Quân Vic Foto",
       kicker: "Print & Licensing Shop",
       heading: "Own a piece of the story.",
-      body: "Selected pieces from the portfolio, available to license for personal or commercial use, or as large-format prints. Every preview here is watermarked — the piece you receive is not.",
+      body: "Every piece in the portfolio is available to buy — as a print, a full digital album, or an exclusive copyright buyout. Every preview here is watermarked — the piece you receive is not.",
       protectedNote:
         "Previews are protected and watermarked. Full-resolution, unwatermarked files are delivered only after your request is confirmed.",
-      licenseLabel: "Licensing options",
+      fromLabel: "From",
+      exclusiveSoldBadge: "Exclusive — Sold",
+      licenseLabel: "Pricing",
       licenseOptions: [
         {
-          value: "personal",
-          label: "Personal",
-          description: "Personal printing and private use — not for commercial use.",
-        },
-        {
-          value: "commercial",
-          label: "Commercial",
-          description: "Use in advertising, products, or commercial publications.",
-        },
-        {
           value: "print",
-          label: "Large-format print",
-          description: "High-resolution file prepared for gallery-quality large prints.",
+          label: "Print File",
+          price: "1,000,000₫",
+          description:
+            "One high-resolution file prepared for printing — priced per photo.",
+        },
+        {
+          value: "album",
+          label: "Album File",
+          price: "5,000,000₫",
+          description:
+            "Full-resolution digital files for every photo in the set, for personal use — not exclusive, may also be sold to other buyers.",
+        },
+        {
+          value: "exclusive",
+          label: "Exclusive Copyright",
+          price: "20,000,000₫",
+          description:
+            "Full copyright buyout for the entire set. Once sold, this piece is retired from sale to anyone else.",
         },
       ],
-      ctaLabel: "Request to license this piece",
+      ctaLabel: "Buy this piece",
       modal: {
         kicker: "Shop Enquiry",
         heading: "Request this piece",
         intro:
-          "Tell me which licence you need and I'll follow up with pricing and delivery.",
+          "Tell me which tier you'd like and I'll follow up to confirm payment and delivery.",
         productLabel: "Piece",
         nameLabel: "Full Name",
         contactLabel: "Phone / Email",
-        licenseFieldLabel: "Licence needed",
-        licensePlaceholder: "Choose a licence",
+        licenseFieldLabel: "Tier",
+        licensePlaceholder: "Choose a tier",
+        licenseSoldSuffix: " (Sold)",
+        exclusiveSoldNote:
+          "The exclusive copyright for this piece has already been sold and is no longer available.",
+        photoPickerLabel: "Which photo would you like printed?",
+        photoLabel: "Photo",
         messageLabel: "Additional Notes",
         submitIdle: "Send Request",
         submitSending: "Sending…",
@@ -544,38 +568,50 @@ const dictionaries: Record<Lang, Dictionary> = {
       metaTitle: "Mua ảnh — Quân Vic Foto",
       kicker: "Mua Bản Quyền & In Ấn",
       heading: "Sở hữu một phần của câu chuyện.",
-      body: "Những tác phẩm chọn lọc từ portfolio, sẵn sàng để mua bản quyền sử dụng cá nhân, thương mại hoặc in ấn khổ lớn. Mọi ảnh xem trước tại đây đều có watermark bảo vệ — bản bạn nhận được thì không.",
+      body: "Tất cả tác phẩm trong portfolio đều có thể mua — dưới dạng file in ảnh, file trọn bộ album, hoặc mua đứt bản quyền độc quyền. Mọi ảnh xem trước tại đây đều có watermark bảo vệ — bản bạn nhận được thì không.",
       protectedNote:
         "Ảnh xem trước đã được bảo vệ và đóng watermark. File gốc độ phân giải đầy đủ, không watermark chỉ được gửi sau khi yêu cầu của bạn được xác nhận.",
-      licenseLabel: "Các gói bản quyền",
+      fromLabel: "Từ",
+      exclusiveSoldBadge: "Độc quyền — Đã bán",
+      licenseLabel: "Bảng giá",
       licenseOptions: [
         {
-          value: "personal",
-          label: "Cá nhân",
-          description: "In ấn, sử dụng riêng tư — không dùng cho mục đích thương mại.",
-        },
-        {
-          value: "commercial",
-          label: "Thương mại",
-          description: "Sử dụng trong quảng cáo, sản phẩm, ấn phẩm thương mại.",
-        },
-        {
           value: "print",
-          label: "In khổ lớn",
-          description: "File độ phân giải cao dành riêng cho in ấn khổ lớn, chất lượng phòng trưng bày.",
+          label: "File in ảnh",
+          price: "1.000.000đ",
+          description: "File độ phân giải cao cho 1 ảnh in — tính theo từng ảnh, bạn chọn ảnh mình muốn.",
+        },
+        {
+          value: "album",
+          label: "File album",
+          price: "5.000.000đ",
+          description:
+            "Trọn bộ file gốc độ phân giải đầy đủ của cả bộ ảnh, dùng cá nhân — không độc quyền, vẫn có thể bán cho khách khác.",
+        },
+        {
+          value: "exclusive",
+          label: "Mua đứt bản quyền",
+          price: "20.000.000đ",
+          description:
+            "Sở hữu toàn bộ bản quyền cả bộ ảnh. Sau khi bán, tác phẩm này sẽ ngừng bán cho bất kỳ ai khác.",
         },
       ],
-      ctaLabel: "Yêu cầu mua bản quyền ảnh này",
+      ctaLabel: "Mua tác phẩm này",
       modal: {
         kicker: "Yêu Cầu Mua Ảnh",
-        heading: "Yêu cầu bản quyền tác phẩm",
+        heading: "Yêu cầu mua tác phẩm",
         intro:
-          "Cho tôi biết bạn cần gói bản quyền nào, tôi sẽ liên hệ lại với báo giá và cách nhận file.",
+          "Cho tôi biết bạn muốn mua gói nào, tôi sẽ liên hệ lại để xác nhận thanh toán và cách nhận file.",
         productLabel: "Tác phẩm",
         nameLabel: "Họ và tên",
         contactLabel: "Số điện thoại / Email",
-        licenseFieldLabel: "Gói bản quyền cần mua",
-        licensePlaceholder: "Chọn gói bản quyền",
+        licenseFieldLabel: "Gói muốn mua",
+        licensePlaceholder: "Chọn gói",
+        licenseSoldSuffix: " (Đã bán)",
+        exclusiveSoldNote:
+          "Bản quyền độc quyền của tác phẩm này đã được bán và không còn khả dụng.",
+        photoPickerLabel: "Bạn muốn in ảnh nào?",
+        photoLabel: "Ảnh",
         messageLabel: "Ghi chú thêm",
         submitIdle: "Gửi yêu cầu",
         submitSending: "Đang gửi…",

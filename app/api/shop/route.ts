@@ -12,6 +12,8 @@ export async function POST(req: Request) {
     name?: string;
     contact?: string;
     license?: string;
+    price?: string;
+    photoIndex?: number;
     message?: string;
     product?: string;
     productSlug?: string;
@@ -26,6 +28,9 @@ export async function POST(req: Request) {
   const name = (body.name ?? "").trim();
   const contact = (body.contact ?? "").trim();
   const license = (body.license ?? "").trim();
+  const price = (body.price ?? "").trim();
+  const photoIndex =
+    typeof body.photoIndex === "number" ? body.photoIndex : null;
   const message = (body.message ?? "").trim();
   const product = (body.product ?? "").trim();
   const productSlug = (body.productSlug ?? "").trim();
@@ -52,7 +57,8 @@ export async function POST(req: Request) {
     <p><strong>Name:</strong> ${escapeHtml(name)}</p>
     <p><strong>Contact:</strong> ${escapeHtml(contact)}</p>
     <p><strong>Piece:</strong> ${escapeHtml(product)} (${escapeHtml(productSlug)})</p>
-    <p><strong>Licence requested:</strong> ${escapeHtml(license)}</p>
+    <p><strong>Tier requested:</strong> ${escapeHtml(license)}${price ? ` — ${escapeHtml(price)}` : ""}</p>
+    ${photoIndex ? `<p><strong>Photo selected:</strong> #${photoIndex}</p>` : ""}
     <p><strong>Message:</strong><br/>${escapeHtml(message).replace(/\n/g, "<br/>")}</p>
   `;
 
