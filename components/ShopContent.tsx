@@ -31,7 +31,7 @@ export default function ShopContent() {
         </p>
       </div>
 
-      <div className="mt-16 grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 md:mt-20 md:grid-cols-3">
+      <div className="mt-16 grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 md:mt-24 md:grid-cols-3">
         {items.map((item, i) => (
           <motion.article
             key={item.slug}

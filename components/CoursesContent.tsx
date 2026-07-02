@@ -24,7 +24,7 @@ export default function CoursesContent() {
         </p>
       </div>
 
-      <div className="mt-16 flex flex-col gap-16 md:mt-20 md:gap-24">
+      <div className="mt-16 flex flex-col gap-16 md:mt-24 md:gap-24">
         {page.courses.map((course, i) => (
           <motion.article
             key={course.slug}

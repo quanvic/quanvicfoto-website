@@ -10,7 +10,7 @@ export default function PortfolioContent() {
 
   return (
     <div className="mx-auto max-w-[1440px] px-6 pb-24 pt-36 md:px-10 md:pt-44">
-      <div className="mb-14 max-w-2xl md:mb-20">
+      <div className="mb-16 max-w-2xl md:mb-24">
         <span className="mb-4 block font-mono text-xs uppercase tracking-[0.3em] text-mist">
           {page.kicker}
         </span>

@@ -19,7 +19,7 @@ export default function Home() {
       <Hero />
       <Marquee />
 
-      <section className="mx-auto max-w-[1440px] px-6 pb-16 pt-24 md:px-10 md:pb-20 md:pt-32">
+      <section className="mx-auto max-w-[1440px] px-6 py-24 md:px-10 md:py-32">
         <div className="mb-12 flex flex-col gap-6 md:mb-16 md:flex-row md:items-end md:justify-between">
           <div>
             <span className="mb-4 block font-mono text-xs uppercase tracking-[0.3em] text-mist">
