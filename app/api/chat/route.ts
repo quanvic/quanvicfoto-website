@@ -3,9 +3,10 @@ import { SYSTEM_INSTRUCTION } from "@/lib/chatbot-knowledge";
 
 export const runtime = "nodejs";
 
-// gemini-2.0-flash is free-tier eligible on Google AI Studio API keys.
-// Override via GEMINI_MODEL if it's ever deprecated/renamed.
-const MODEL = process.env.GEMINI_MODEL ?? "gemini-2.0-flash";
+// gemini-2.0-flash was deprecated 2026-06-01 (requests against it return a
+// blanket 429 regardless of quota). gemini-3.5-flash is the current
+// free-tier default — override via GEMINI_MODEL if it's ever renamed again.
+const MODEL = process.env.GEMINI_MODEL ?? "gemini-3.5-flash";
 const MAX_MESSAGE_LENGTH = 800;
 const MAX_HISTORY_TURNS = 10;
 
