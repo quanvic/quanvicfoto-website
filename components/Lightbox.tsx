@@ -1,8 +1,14 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { AnimatePresence, motion, type PanInfo } from "framer-motion";
+import {
+  AnimatePresence,
+  animate,
+  motion,
+  useMotionValue,
+  type PanInfo,
+} from "framer-motion";
 import type { PortfolioItem } from "@/lib/data";
 import { CATEGORY_LABELS, useLanguage } from "@/lib/i18n";
 import { blurProps } from "@/lib/blur-data";
@@ -12,6 +18,13 @@ const SWIPE_VELOCITY_THRESHOLD = 500;
 const SWIPE_CLOSE_OFFSET_THRESHOLD = 80;
 const SWIPE_CLOSE_VELOCITY_THRESHOLD = 500;
 const SLIDE_DISTANCE = 320;
+const PINCH_MIN_SCALE = 1;
+const PINCH_MAX_SCALE = 3;
+
+function pinchDistance(touches: React.TouchList | TouchList) {
+  const [a, b] = [touches[0], touches[1]];
+  return Math.hypot(a.clientX - b.clientX, a.clientY - b.clientY);
+}
 
 // A deliberate, non-bouncy cross-slide (tween, not spring) reads as
 // editorial rather than a stock carousel effect — no scale pulse, and
@@ -55,6 +68,9 @@ export default function Lightbox({
   const [photoIndex, setPhotoIndex] = useState(0);
   const [lastIndex, setLastIndex] = useState(index);
   const [enterFromEnd, setEnterFromEnd] = useState(false);
+  const [isPinching, setIsPinching] = useState(false);
+  const pinchScale = useMotionValue(1);
+  const pinchStartDistance = useRef(0);
   if (index !== lastIndex) {
     setLastIndex(index);
     setPhotoIndex(enterFromEnd && item ? item.images.length - 1 : 0);
@@ -96,6 +112,45 @@ export default function Lightbox({
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [open, onClose, goNext, goPrev]);
+
+  // Each photo starts fresh at 1x — an in-progress or lingering pinch
+  // shouldn't carry over when the user swipes to a different photo.
+  useEffect(() => {
+    pinchScale.set(1);
+    pinchStartDistance.current = 0;
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- defensive reset of our own gesture state when the photo changes underneath an (unlikely) still-active pinch, not derived render output
+    setIsPinching(false);
+  }, [photoIndex, item?.slug, pinchScale]);
+
+  // Pinch-to-zoom: scale follows the distance between the two touch
+  // points in real time; lifting either finger snaps straight back to
+  // 1x. This is a momentary "peek" zoom, not a persistent one, so there
+  // is no pan-when-zoomed mode to reconcile with the existing swipe
+  // gestures — swipe/close drag is simply suspended while a second
+  // finger is down.
+  function handleTouchStart(e: React.TouchEvent) {
+    if (e.touches.length === 2) {
+      setIsPinching(true);
+      pinchStartDistance.current = pinchDistance(e.touches);
+    }
+  }
+
+  function handleTouchMove(e: React.TouchEvent) {
+    if (e.touches.length === 2 && pinchStartDistance.current > 0) {
+      const ratio = pinchDistance(e.touches) / pinchStartDistance.current;
+      pinchScale.set(
+        Math.min(PINCH_MAX_SCALE, Math.max(PINCH_MIN_SCALE, ratio)),
+      );
+    }
+  }
+
+  function handleTouchEnd(e: React.TouchEvent) {
+    if (e.touches.length < 2) {
+      setIsPinching(false);
+      pinchStartDistance.current = 0;
+      animate(pinchScale, 1, { type: "spring", stiffness: 300, damping: 30 });
+    }
+  }
 
   function handleDragEnd(
     _event: MouseEvent | TouchEvent | PointerEvent,
@@ -218,22 +273,31 @@ export default function Lightbox({
                   animate="center"
                   exit="exit"
                   transition={slideTransition}
-                  drag
+                  drag={!isPinching}
                   dragSnapToOrigin
                   dragElastic={0.7}
                   dragTransition={{ bounceStiffness: 500, bounceDamping: 40 }}
                   onDragEnd={handleDragEnd}
-                  className="absolute inset-0 cursor-grab active:cursor-grabbing"
+                  onTouchStart={handleTouchStart}
+                  onTouchMove={handleTouchMove}
+                  onTouchEnd={handleTouchEnd}
+                  onTouchCancel={handleTouchEnd}
+                  className="absolute inset-0 cursor-grab touch-none active:cursor-grabbing"
                 >
-                  <Image
-                    src={item.images[photoIndex]}
-                    alt={`${item.concept} - Ảnh chân dung Beauty Editorial cỡ đầy đủ, Quân Vic Foto Studio Hà Nội`}
-                    fill
-                    draggable={false}
-                    {...blurProps(item.images[photoIndex])}
-                    sizes="92vw"
-                    className="pointer-events-none select-none object-contain"
-                  />
+                  <motion.div
+                    style={{ scale: pinchScale }}
+                    className="h-full w-full"
+                  >
+                    <Image
+                      src={item.images[photoIndex]}
+                      alt={`${item.concept} - Ảnh chân dung Beauty Editorial cỡ đầy đủ, Quân Vic Foto Studio Hà Nội`}
+                      fill
+                      draggable={false}
+                      {...blurProps(item.images[photoIndex])}
+                      sizes="92vw"
+                      className="pointer-events-none select-none object-contain"
+                    />
+                  </motion.div>
                 </motion.div>
               </AnimatePresence>
             </div>
