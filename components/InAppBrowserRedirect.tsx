@@ -1,7 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { AnimatePresence, motion, type PanInfo } from "framer-motion";
 import { useLanguage } from "@/lib/i18n";
+
+const SWIPE_DISMISS_OFFSET_THRESHOLD = 40;
+const SWIPE_DISMISS_VELOCITY_THRESHOLD = 400;
 
 // Signatures of common in-app "mini browsers" (Facebook, Instagram,
 // Messenger, Zalo, WeChat, TikTok, Line) that wrap pages in a webview
@@ -51,29 +55,53 @@ export default function InAppBrowserRedirect() {
     }
   }
 
-  if (!visible) return null;
+  function handleDragEnd(
+    _event: MouseEvent | TouchEvent | PointerEvent,
+    info: PanInfo,
+  ) {
+    if (
+      info.offset.y < -SWIPE_DISMISS_OFFSET_THRESHOLD ||
+      info.velocity.y < -SWIPE_DISMISS_VELOCITY_THRESHOLD
+    ) {
+      dismiss();
+    }
+  }
 
   return (
-    <div className="fixed inset-x-0 top-0 z-[200] flex flex-col items-center justify-center gap-2 border-b border-line bg-paper/95 px-4 py-2.5 text-center backdrop-blur-sm sm:flex-row sm:gap-4">
-      <p className="text-xs leading-snug text-ink/70 sm:text-[13px]">
-        {b.message}
-      </p>
-      <div className="flex shrink-0 items-center gap-4">
-        <button
-          type="button"
-          onClick={copyLink}
-          className="cursor-hover whitespace-nowrap font-mono text-[11px] uppercase tracking-[0.1em] text-ink underline decoration-line underline-offset-4 transition-colors hover:decoration-ink"
+    <AnimatePresence>
+      {visible && (
+        <motion.div
+          initial={{ y: "-100%" }}
+          animate={{ y: 0 }}
+          exit={{ y: "-100%" }}
+          transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+          drag="y"
+          dragConstraints={{ top: 0, bottom: 0 }}
+          dragElastic={{ top: 0.5, bottom: 0.1 }}
+          onDragEnd={handleDragEnd}
+          className="fixed inset-x-0 top-0 z-[200] flex touch-none flex-col items-center justify-center gap-2 border-b border-line bg-paper/95 px-4 py-2.5 text-center backdrop-blur-sm sm:flex-row sm:gap-4"
         >
-          {copied ? "✓" : b.cta}
-        </button>
-        <button
-          type="button"
-          onClick={dismiss}
-          className="cursor-hover whitespace-nowrap font-mono text-[11px] uppercase tracking-[0.1em] text-ink/50 transition-colors hover:text-ink"
-        >
-          {b.dismiss}
-        </button>
-      </div>
-    </div>
+          <p className="text-xs leading-snug text-ink/70 sm:text-[13px]">
+            {b.message}
+          </p>
+          <div className="flex shrink-0 items-center gap-4">
+            <button
+              type="button"
+              onClick={copyLink}
+              className="cursor-hover whitespace-nowrap font-mono text-[11px] uppercase tracking-[0.1em] text-ink underline decoration-line underline-offset-4 transition-colors hover:decoration-ink"
+            >
+              {copied ? "✓" : b.cta}
+            </button>
+            <button
+              type="button"
+              onClick={dismiss}
+              className="cursor-hover whitespace-nowrap font-mono text-[11px] uppercase tracking-[0.1em] text-ink/50 transition-colors hover:text-ink"
+            >
+              {b.dismiss}
+            </button>
+          </div>
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 }
