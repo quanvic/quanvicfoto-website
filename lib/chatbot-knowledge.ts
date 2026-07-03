@@ -36,7 +36,8 @@ THÔNG TIN STUDIO:
 DỊCH VỤ CHI TIẾT:
 
 1. Đặt lịch chụp ảnh (booking 1 concept):
-   - Giá: 5.000.000đ/concept — đã bao gồm trọn gói trang điểm (makeup) và làm tóc, không phát sinh thêm phí.
+   - Loại hình: studio nhận chụp đa dạng — ảnh cưới, ảnh cá nhân nam/nữ, gia đình, sinh nhật, sự kiện — không chỉ riêng Beauty/Editorial như trong portfolio. Giá 5.000.000đ/concept CHỈ áp dụng cho chụp ảnh cá nhân/beauty/editorial theo mô hình hiện tại. Với cưới, gia đình, sinh nhật, sự kiện: giá KHÔNG cố định vì quy mô mỗi buổi khác nhau — cần trao đổi trực tiếp qua hotline/Zalo/trang /contact để được báo giá, TUYỆT ĐỐI không tự đưa ra con số cho các loại hình này.
+   - Giá: 5.000.000đ/concept (áp dụng cho chụp cá nhân/beauty/editorial) — đã bao gồm trọn gói trang điểm (makeup) và làm tóc, không phát sinh thêm phí. Nếu khách không có nhu cầu dùng dịch vụ trang điểm/làm tóc của studio (tự trang điểm hoặc đã trang điểm sẵn), giá giảm 800.000đ (còn 4.200.000đ/concept).
    - Đặt cọc: 50% giá trị gói chụp để giữ lịch.
    - Đổi/dời lịch: cần báo trước ít nhất 3 ngày. Dời lịch lần đầu tiên không phát sinh chi phí. Từ lần dời lịch thứ 2 trở đi sẽ tính là mất cọc.
    - Huỷ lịch: mất cọc.
@@ -52,6 +53,12 @@ DỊCH VỤ CHI TIẾT:
    - Thanh toán: chuyển khoản hoặc tiền mặt. Giá niêm yết là giá net (giá cuối cùng), studio KHÔNG xuất hoá đơn/VAT.
    - Quyền sử dụng ảnh: mặc định studio được phép đăng ảnh buổi chụp lên portfolio và mạng xã hội của studio để giới thiệu tác phẩm. Nếu khách yêu cầu gỡ ảnh xuống, studio sẽ chấp thuận gỡ.
    - Khách dưới 18 tuổi: vẫn nhận chụp, nhưng cần có người giám hộ đi cùng trong suốt buổi chụp.
+   - Đến trễ giờ hẹn: nếu trễ không quá 1 tiếng, studio vẫn chụp đủ thời lượng như bình thường (không bị trừ giờ).
+   - Mang người thân/bạn bè đi cùng: được, nhưng không nên đi quá đông để tránh ảnh hưởng đến buổi chụp.
+   - Quay video / behind-the-scenes trong buổi chụp: KHÔNG thực hiện.
+   - Ảnh in bản cứng: gói chụp chỉ giao ảnh qua file (không tặng kèm bản in). Nếu khách có nhu cầu in ấn, studio báo giá phát sinh riêng cho phần in ấn.
+   - Bãi đỗ xe: studio có hầm gửi xe máy tại chỗ; khách đi ô tô có thể gửi tại bãi cách studio khoảng 150m.
+   - Voucher quà tặng: tuỳ thời điểm và chương trình của studio, không cố định — khách quan tâm nên liên hệ trực tiếp để biết hiện có chương trình nào không.
    - Chụp ngoại cảnh / đi tỉnh: CÓ nhận. Khách chịu thêm chi phí phát sinh ngoài giá gói chụp: di chuyển (vé tàu/xe/máy bay), lưu trú (khách sạn), và ăn uống cho ê-kíp (ê-kíp tối thiểu 2-3 người tuỳ quy mô dự án). Nếu gặp thời tiết xấu (mưa, thiên tai...) ảnh hưởng buổi chụp ngoại cảnh, studio sẽ trao đổi với khách để dời lịch, đảm bảo có được bộ ảnh ưng ý nhất.
    - Cách đặt lịch — có 2 cách liên hệ, khác mục đích:
      a) Nút "Đặt lịch" (ở menu hoặc footer, mở form riêng cho việc lên lịch buổi chụp): khách điền họ tên, số điện thoại/email, ngày mong muốn, concept mong muốn (chọn từ các concept trong portfolio hoặc "Khác/Chưa chắc chắn"), ghi chú thêm, và có thể đính kèm tối đa 10 ảnh tham khảo (mỗi ảnh dưới 4MB). Studio sẽ liên hệ lại sớm nhất để xác nhận.
@@ -116,6 +123,14 @@ CÂU HỎI THƯỜNG GẶP — CÁCH TRẢ LỜI:
 - "Trẻ em/người dưới 18 tuổi có chụp được không?" → Có nhận, nhưng cần người giám hộ đi cùng trong suốt buổi chụp.
 - "Chụp ngoại cảnh mà trời mưa/thời tiết xấu thì sao?" → Studio sẽ trao đổi với khách để dời lịch, đảm bảo có được bộ ảnh ưng ý nhất.
 - "Giá có xuất hoá đơn/VAT không?" → Không xuất hoá đơn, giá niêm yết là giá net (giá cuối cùng).
+- "Studio chỉ chụp nữ hay có nhận chụp nam/cặp đôi/gia đình/cưới/sinh nhật/sự kiện không?" → Studio nhận đa dạng loại hình: cưới, ảnh cá nhân nam/nữ, gia đình, sinh nhật, sự kiện. Giá 5.000.000đ/concept chỉ áp dụng cho chụp cá nhân/beauty/editorial; các loại hình khác (cưới, gia đình, sinh nhật, sự kiện) giá tuỳ quy mô, cần liên hệ trực tiếp để được báo giá — không tự đưa ra con số.
+- "Không dùng dịch vụ trang điểm/làm tóc của studio thì giá có giảm không?" → Có, giảm 800.000đ trên giá gói (còn 4.200.000đ/concept) nếu khách tự lo trang điểm và làm tóc.
+- "Đến trễ giờ hẹn có sao không?" → Nếu trễ không quá 1 tiếng, studio vẫn chụp đủ thời lượng như bình thường.
+- "Có được mang người thân/bạn bè đi cùng xem buổi chụp không?" → Được, nhưng không nên đi quá đông để tránh ảnh hưởng buổi chụp.
+- "Studio có cho quay video/behind-the-scenes khi chụp không?" → Không, studio không thực hiện quay video trong quá trình chụp.
+- "Có được tặng kèm ảnh in không hay chỉ nhận file?" → Gói chụp chỉ giao ảnh qua file. Nếu khách muốn in ấn, studio báo giá phát sinh riêng cho phần in.
+- "Studio có chỗ đậu xe không?" → Có hầm gửi xe máy tại studio; ô tô gửi tại bãi cách studio khoảng 150m.
+- "Studio có bán voucher quà tặng không?" → Tuỳ thời điểm và chương trình của studio, không cố định — khách nên liên hệ trực tiếp để biết chương trình hiện có.
 - "Studio có kinh nghiệm bao lâu?" → Hơn 11 năm, chuyên Beauty & Fashion.
 - "Xem portfolio ở đâu?" → Trang /portfolio.
 - "Làm sao liên hệ nhanh nhất / muốn chốt lịch ngay?" → Gợi ý nhắn Zalo (${ZALO_URL}) hoặc gọi hotline để được xử lý nhanh nhất.`;
