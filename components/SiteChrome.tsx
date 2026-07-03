@@ -40,7 +40,7 @@ export default function SiteChrome({
       <ZaloButton />
       <ChatWidget open={chatOpen} onToggle={() => setChatOpen((v) => !v)} />
 
-      <SmoothScroll paused={loading || menuOpen || bookingOpen || chatOpen}>
+      <SmoothScroll paused={loading || menuOpen || bookingOpen}>
         <div className="flex min-h-screen flex-col">
           <main className="flex-1">{children}</main>
           <Footer onBookingOpen={() => setBookingOpen(true)} />
