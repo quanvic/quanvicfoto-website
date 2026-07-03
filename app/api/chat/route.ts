@@ -67,7 +67,15 @@ export async function POST(req: Request) {
         body: JSON.stringify({
           systemInstruction: { parts: [{ text: SYSTEM_INSTRUCTION }] },
           contents,
-          generationConfig: { maxOutputTokens: 400, temperature: 0.4 },
+          generationConfig: {
+            maxOutputTokens: 800,
+            temperature: 0.4,
+            // gemini-3.5-flash has "thinking" on by default, and thinking
+            // tokens are deducted from maxOutputTokens — without this, the
+            // visible reply gets silently cut off mid-sentence. This is a
+            // short FAQ-style chatbot, so no reasoning budget is needed.
+            thinkingConfig: { thinkingBudget: 0 },
+          },
         }),
       },
     );
