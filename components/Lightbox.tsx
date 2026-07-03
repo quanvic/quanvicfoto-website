@@ -201,26 +201,26 @@ export default function Lightbox({
           )}
 
           <div
-            className="relative flex h-full w-full max-w-5xl items-center justify-center overflow-hidden"
+            className="relative flex h-full w-full max-w-5xl flex-col items-center justify-center gap-4 overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
-            <AnimatePresence custom={direction} mode="popLayout" initial={false}>
-              <motion.div
-                key={`${item.slug}-${photoIndex}`}
-                custom={direction}
-                variants={slideVariants}
-                initial="enter"
-                animate="center"
-                exit="exit"
-                transition={slideTransition}
-                drag
-                dragSnapToOrigin
-                dragElastic={0.7}
-                dragTransition={{ bounceStiffness: 500, bounceDamping: 40 }}
-                onDragEnd={handleDragEnd}
-                className="flex h-full w-full cursor-grab flex-col items-center justify-center gap-4 active:cursor-grabbing"
-              >
-                <div className="relative h-[72dvh] w-full">
+            <div className="relative h-[72dvh] w-full">
+              <AnimatePresence custom={direction} mode="popLayout" initial={false}>
+                <motion.div
+                  key={`${item.slug}-${photoIndex}`}
+                  custom={direction}
+                  variants={slideVariants}
+                  initial="enter"
+                  animate="center"
+                  exit="exit"
+                  transition={slideTransition}
+                  drag
+                  dragSnapToOrigin
+                  dragElastic={0.7}
+                  dragTransition={{ bounceStiffness: 500, bounceDamping: 40 }}
+                  onDragEnd={handleDragEnd}
+                  className="absolute inset-0 cursor-grab active:cursor-grabbing"
+                >
                   <Image
                     src={item.images[photoIndex]}
                     alt={`${item.concept} - Ảnh chân dung Beauty Editorial cỡ đầy đủ, Quân Vic Foto Studio Hà Nội`}
@@ -230,8 +230,23 @@ export default function Lightbox({
                     sizes="92vw"
                     className="pointer-events-none select-none object-contain"
                   />
-                </div>
+                </motion.div>
+              </AnimatePresence>
+            </div>
 
+            {/* Caption fades only (no slide/scale) — letting text travel
+                across the screen alongside the photo on every swipe was
+                the main source of the "dizzy after a few swipes" feeling
+                reported by users; a plain crossfade reads as calm instead. */}
+            <AnimatePresence mode="wait" initial={false}>
+              <motion.div
+                key={`${item.slug}-${photoIndex}-caption`}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.2 }}
+                className="flex flex-col items-center gap-4"
+              >
                 {item.images.length > 1 && (
                   <div className="flex flex-col items-center gap-2">
                     <div className="flex items-center gap-1">
