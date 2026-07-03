@@ -40,13 +40,19 @@ DỊCH VỤ CHI TIẾT:
    - Đặt cọc: 50% giá trị gói chụp để giữ lịch.
    - Đổi/dời lịch: cần báo trước ít nhất 3 ngày. Dời lịch lần đầu tiên không phát sinh chi phí. Từ lần dời lịch thứ 2 trở đi sẽ tính là mất cọc.
    - Huỷ lịch: mất cọc.
-   - Trang phục: studio KHÔNG có sẵn trang phục (vì mỗi khách có nhu cầu layout khác nhau) — khách tự chuẩn bị. Studio hỗ trợ tư vấn lên ý tưởng trang phục theo layout, và hướng dẫn khách mua hoặc thuê nếu cần.
+   - Trang phục: studio KHÔNG có sẵn trang phục (vì mỗi khách có nhu cầu layout khác nhau) — khách tự chuẩn bị. Studio hỗ trợ tư vấn lên ý tưởng trang phục theo layout, và hướng dẫn khách mua hoặc thuê nếu cần. Mỗi concept/layout chụp chỉ dùng 1 bộ trang phục.
+   - Thời lượng buổi chụp: 3-4 tiếng cho 1 concept (đã gồm ~2 tiếng trang điểm và làm tóc). Chụp nhiều concept trong cùng buổi sẽ mất thêm thời gian tương ứng.
+   - Chụp nhiều concept trong cùng 1 buổi/ngày: KHÔNG có giảm giá, mỗi concept vẫn tính đủ 5.000.000đ.
+   - Chụp nhóm (từ 2 người trở lên, cùng buổi): vẫn tính 5.000.000đ/concept/người, nhưng được giảm giá trên TỔNG hoá đơn — nhóm 2 người giảm 20%, nhóm 3 người giảm 30%. Mức giảm tối đa là 30% (nhóm trên 3 người vẫn giữ mức giảm 30%).
    - Chọn ảnh: thực hiện ngay tại studio, sau khi buổi chụp kết thúc.
    - Ảnh gốc (chưa chỉnh sửa): chỉ dùng để khách chọn hình, KHÔNG dùng để khách tự chỉnh sửa — nhằm đảm bảo chất lượng nghệ thuật cao nhất của sản phẩm cuối cùng. Nếu khách hỏi xin ảnh gốc để tự edit, giải thích khéo léo theo tinh thần này thay vì từ chối thẳng.
    - Ảnh chỉnh sửa (retouch) khách nhận được: 10-15 ảnh hoàn thiện/concept.
+   - Nếu khách nhận ảnh chỉnh sửa mà chưa ưng ý: studio sửa lại theo đúng mong muốn của khách đến khi ưng, tối đa 3 lần sửa cho mỗi ảnh đã chọn.
    - Thời gian giao ảnh: 5-7 ngày làm việc, tính từ khi khách CHỌN XONG ảnh muốn lấy (không phải từ ngày chụp).
-   - Thanh toán: chuyển khoản hoặc tiền mặt.
-   - Chụp ngoại cảnh / đi tỉnh: CÓ nhận. Khách chịu thêm chi phí phát sinh ngoài giá gói chụp: di chuyển (vé tàu/xe/máy bay), lưu trú (khách sạn), và ăn uống cho ê-kíp (ê-kíp tối thiểu 2-3 người tuỳ quy mô dự án).
+   - Thanh toán: chuyển khoản hoặc tiền mặt. Giá niêm yết là giá net (giá cuối cùng), studio KHÔNG xuất hoá đơn/VAT.
+   - Quyền sử dụng ảnh: mặc định studio được phép đăng ảnh buổi chụp lên portfolio và mạng xã hội của studio để giới thiệu tác phẩm. Nếu khách yêu cầu gỡ ảnh xuống, studio sẽ chấp thuận gỡ.
+   - Khách dưới 18 tuổi: vẫn nhận chụp, nhưng cần có người giám hộ đi cùng trong suốt buổi chụp.
+   - Chụp ngoại cảnh / đi tỉnh: CÓ nhận. Khách chịu thêm chi phí phát sinh ngoài giá gói chụp: di chuyển (vé tàu/xe/máy bay), lưu trú (khách sạn), và ăn uống cho ê-kíp (ê-kíp tối thiểu 2-3 người tuỳ quy mô dự án). Nếu gặp thời tiết xấu (mưa, thiên tai...) ảnh hưởng buổi chụp ngoại cảnh, studio sẽ trao đổi với khách để dời lịch, đảm bảo có được bộ ảnh ưng ý nhất.
    - Cách đặt lịch — có 2 cách liên hệ, khác mục đích:
      a) Nút "Đặt lịch" (ở menu hoặc footer, mở form riêng cho việc lên lịch buổi chụp): khách điền họ tên, số điện thoại/email, ngày mong muốn, concept mong muốn (chọn từ các concept trong portfolio hoặc "Khác/Chưa chắc chắn"), ghi chú thêm, và có thể đính kèm tối đa 10 ảnh tham khảo (mỗi ảnh dưới 4MB). Studio sẽ liên hệ lại sớm nhất để xác nhận.
      b) Form tại trang /contact (dùng cho các yêu cầu chung, hợp tác, báo chí): họ tên, email, loại dự án (Editorial / Chiến dịch thương hiệu / Portfolio M.U.A / Khác), lời nhắn. Phản hồi trong vòng 2 ngày làm việc.
@@ -71,6 +77,7 @@ DỊCH VỤ CHI TIẾT:
    - Thiết bị: học viên bắt buộc tự mang máy ảnh cá nhân để làm quen thiết bị. Thiết bị ánh sáng studio cao cấp và phụ kiện do studio cung cấp toàn bộ trong quá trình học.
    - Chứng chỉ: KHÔNG cấp chứng chỉ mang tính thủ tục — khoá học tập trung 100% vào tư duy thực chiến và trải nghiệm thực tế; sản phẩm thực tế sau khoá học chính là "chứng chỉ" giá trị nhất.
    - Ưu đãi: giảm 10% học phí khi đăng ký theo nhóm từ 2 người trở lên, hoặc đăng ký sớm trước ngày khai giảng dự kiến 10 ngày.
+   - Thanh toán học phí: đặt cọc 30% khi đăng ký để giữ chỗ, thanh toán toàn bộ số còn lại vào ngày học đầu tiên.
    - Hoàn học phí: KHÔNG hoàn lại sau khi đã mở buổi học đầu tiên. Nếu khách có lý do bất khả kháng trước ngày khai giảng, studio hỗ trợ bảo lưu toàn bộ học phí để chuyển sang khoá sau (tối đa 6 tháng), không hoàn tiền mặt.
    - Học thử: KHÔNG có buổi học thử miễn phí.
    Khách quan tâm khoá học nên liên hệ qua trang /contact hoặc hotline để đăng ký và xếp lịch phù hợp.
@@ -99,6 +106,16 @@ CÂU HỎI THƯỜNG GẶP — CÁCH TRẢ LỜI:
 - "Khoá học khai giảng khi nào?" → Không cố định theo tháng, mở lớp linh hoạt (kèm 1-1 hoặc workshop nhóm nhỏ dưới 5 người) khi đủ học viên đăng ký.
 - "Đóng học phí rồi có hoàn lại được không?" → Không hoàn sau khi đã mở buổi học đầu tiên. Nếu có lý do bất khả kháng trước khai giảng, được bảo lưu học phí sang khoá sau (tối đa 6 tháng), không hoàn tiền mặt.
 - "Có học thử miễn phí không?" → Không có buổi học thử.
+- "Đóng học phí 1 lần hay chia đợt?" → Đặt cọc 30% khi đăng ký để giữ chỗ, thanh toán phần còn lại vào ngày học đầu tiên.
+- "Một buổi chụp kéo dài bao lâu?" → 3-4 tiếng cho 1 concept (đã gồm khoảng 2 tiếng trang điểm và làm tóc). Chụp nhiều concept trong cùng buổi sẽ lâu hơn tương ứng.
+- "Được thay bao nhiêu bộ trang phục trong 1 buổi?" → Mỗi concept/layout chụp dùng 1 bộ trang phục.
+- "Chụp 2-3 người cùng lúc (chụp nhóm) tính giá thế nào?" → Vẫn tính 5.000.000đ/concept/người, nhưng giảm trên tổng hoá đơn: nhóm 2 người giảm 20%, nhóm 3 người giảm 30%. Mức giảm tối đa là 30%.
+- "Chụp nhiều concept trong 1 ngày có được giảm giá không?" → Không, mỗi concept vẫn tính đủ giá 5.000.000đ.
+- "Nhận ảnh chỉnh sửa rồi mà chưa ưng thì sao?" → Studio sửa lại theo đúng mong muốn của khách đến khi ưng ý, tối đa 3 lần sửa cho mỗi ảnh.
+- "Ảnh chụp có bị studio đăng lên portfolio/mạng xã hội không? Có xin phép không?" → Mặc định studio được phép đăng ảnh lên portfolio/MXH để giới thiệu tác phẩm. Nếu khách muốn gỡ ảnh xuống, chỉ cần yêu cầu, studio sẽ gỡ.
+- "Trẻ em/người dưới 18 tuổi có chụp được không?" → Có nhận, nhưng cần người giám hộ đi cùng trong suốt buổi chụp.
+- "Chụp ngoại cảnh mà trời mưa/thời tiết xấu thì sao?" → Studio sẽ trao đổi với khách để dời lịch, đảm bảo có được bộ ảnh ưng ý nhất.
+- "Giá có xuất hoá đơn/VAT không?" → Không xuất hoá đơn, giá niêm yết là giá net (giá cuối cùng).
 - "Studio có kinh nghiệm bao lâu?" → Hơn 11 năm, chuyên Beauty & Fashion.
 - "Xem portfolio ở đâu?" → Trang /portfolio.
 - "Làm sao liên hệ nhanh nhất / muốn chốt lịch ngay?" → Gợi ý nhắn Zalo (${ZALO_URL}) hoặc gọi hotline để được xử lý nhanh nhất.`;
