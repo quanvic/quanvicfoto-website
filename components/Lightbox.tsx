@@ -9,6 +9,8 @@ import { blurProps } from "@/lib/blur-data";
 
 const SWIPE_OFFSET_THRESHOLD = 60;
 const SWIPE_VELOCITY_THRESHOLD = 500;
+const SWIPE_CLOSE_OFFSET_THRESHOLD = 80;
+const SWIPE_CLOSE_VELOCITY_THRESHOLD = 500;
 const SLIDE_DISTANCE = 320;
 
 const slideVariants = {
@@ -95,8 +97,23 @@ export default function Lightbox({
     _event: MouseEvent | TouchEvent | PointerEvent,
     info: PanInfo,
   ) {
-    if (items.length <= 1 && (item?.images.length ?? 0) <= 1) return;
     const { offset, velocity } = info;
+
+    // A predominantly vertical swipe (either direction) dismisses the
+    // lightbox, matching the swipe-down-to-close pattern from Instagram/
+    // Twitter's photo viewers — checked first so a diagonal swipe reads
+    // as "close" rather than "next/prev".
+    if (Math.abs(offset.y) > Math.abs(offset.x)) {
+      if (
+        Math.abs(offset.y) > SWIPE_CLOSE_OFFSET_THRESHOLD ||
+        Math.abs(velocity.y) > SWIPE_CLOSE_VELOCITY_THRESHOLD
+      ) {
+        onClose();
+      }
+      return;
+    }
+
+    if (items.length <= 1 && (item?.images.length ?? 0) <= 1) return;
     if (
       offset.x < -SWIPE_OFFSET_THRESHOLD ||
       velocity.x < -SWIPE_VELOCITY_THRESHOLD
@@ -196,8 +213,8 @@ export default function Lightbox({
                 animate="center"
                 exit="exit"
                 transition={slideTransition}
-                drag={items.length > 1 || item.images.length > 1 ? "x" : false}
-                dragConstraints={{ left: 0, right: 0 }}
+                drag
+                dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
                 dragElastic={1}
                 onDragEnd={handleDragEnd}
                 className="flex h-full w-full cursor-grab flex-col items-center justify-center gap-4 active:cursor-grabbing"
