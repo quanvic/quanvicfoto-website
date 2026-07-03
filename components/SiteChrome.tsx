@@ -12,6 +12,7 @@ import EditorialFrame from "@/components/EditorialFrame";
 import ZaloButton from "@/components/ZaloButton";
 import ChatWidget from "@/components/ChatWidget";
 import ImageProtection from "@/components/ImageProtection";
+import InAppBrowserRedirect from "@/components/InAppBrowserRedirect";
 
 export default function SiteChrome({
   children,
@@ -27,6 +28,7 @@ export default function SiteChrome({
     <>
       {loading && <Preloader onDone={() => setLoading(false)} />}
 
+      <InAppBrowserRedirect />
       <EditorialFrame />
       <CustomCursor />
       <ImageProtection />

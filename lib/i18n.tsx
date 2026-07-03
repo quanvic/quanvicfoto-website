@@ -209,6 +209,11 @@ export interface Dictionary {
     homeCta: string;
     portfolioCta: string;
   };
+  inAppBrowser: {
+    message: string;
+    cta: string;
+    dismiss: string;
+  };
 }
 
 const dictionaries: Record<Lang, Dictionary> = {
@@ -524,6 +529,12 @@ const dictionaries: Record<Lang, Dictionary> = {
       homeCta: "Back to Home",
       portfolioCta: "View Portfolio",
     },
+    inAppBrowser: {
+      message:
+        "You're viewing this inside an app's built-in browser, which can feel slower and less smooth. For the best experience, open this page in your regular browser.",
+      cta: "Copy link",
+      dismiss: "Dismiss",
+    },
   },
   vi: {
     nav: {
@@ -836,6 +847,12 @@ const dictionaries: Record<Lang, Dictionary> = {
       body: "Trang bạn tìm không tồn tại hoặc đã được di chuyển. Hãy quay lại để khám phá những điều đẹp đẽ khác.",
       homeCta: "Về Trang Chủ",
       portfolioCta: "Xem Portfolio",
+    },
+    inAppBrowser: {
+      message:
+        "Bạn đang xem trang này trong trình duyệt riêng của ứng dụng, có thể chậm và giật hơn bình thường. Để trải nghiệm mượt mà nhất, hãy mở bằng trình duyệt chính trên máy (Chrome, Safari...).",
+      cta: "Sao chép liên kết",
+      dismiss: "Đóng",
     },
   },
 };
