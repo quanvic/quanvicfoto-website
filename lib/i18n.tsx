@@ -201,6 +201,13 @@ export interface Dictionary {
     notConfigured: string;
     error: string;
   };
+  notFound: {
+    kicker: string;
+    heading: string;
+    body: string;
+    homeCta: string;
+    portfolioCta: string;
+  };
 }
 
 const dictionaries: Record<Lang, Dictionary> = {
@@ -508,6 +515,13 @@ const dictionaries: Record<Lang, Dictionary> = {
         "The chat assistant isn't available right now — please reach out via the contact form or hotline instead.",
       error: "Something went wrong. Please try again or contact us directly.",
     },
+    notFound: {
+      kicker: "404",
+      heading: "This page has stepped out of frame.",
+      body: "The page you're looking for doesn't exist or may have moved. Let's get you back to something beautiful.",
+      homeCta: "Back to Home",
+      portfolioCta: "View Portfolio",
+    },
   },
   vi: {
     nav: {
@@ -813,6 +827,13 @@ const dictionaries: Record<Lang, Dictionary> = {
         "Trợ lý chat hiện chưa khả dụng — vui lòng liên hệ qua form hoặc hotline.",
       error: "Đã có lỗi xảy ra. Vui lòng thử lại hoặc liên hệ trực tiếp.",
     },
+    notFound: {
+      kicker: "404",
+      heading: "Trang này đã bước ra khỏi khung hình.",
+      body: "Trang bạn tìm không tồn tại hoặc đã được di chuyển. Hãy quay lại để khám phá những điều đẹp đẽ khác.",
+      homeCta: "Về Trang Chủ",
+      portfolioCta: "Xem Portfolio",
+    },
   },
 };
 
@@ -832,6 +853,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     const stored = window.localStorage.getItem(STORAGE_KEY);
     if (stored === "en" || stored === "vi") {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- one-time hydration-safe read of the visitor's saved language preference from localStorage (unavailable during SSR)
       setLangState(stored);
     }
   }, []);

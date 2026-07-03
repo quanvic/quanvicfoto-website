@@ -67,11 +67,15 @@ export default function ShopModal({
 
   useEffect(() => {
     if (!open) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- resetting our own form state in response to the modal closing, not deriving render output
       setStatus("idle");
       setLicense("");
       setPhotoIndex(0);
-      return;
     }
+  }, [open]);
+
+  useEffect(() => {
+    if (!open) return;
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
     };

@@ -102,21 +102,27 @@ export default function BookingModal({
   }, [open]);
 
   useEffect(() => {
+    // Resets the form once the close animation has started rather than on
+    // next open — avoids a flash of stale data while the modal is still
+    // visibly closing.
     if (!open) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- resetting our own form state in response to the modal closing, not deriving render output
       setStatus("idle");
       setImages((prev) => {
         prev.forEach((entry) => URL.revokeObjectURL(entry.url));
         return [];
       });
       setImageError(null);
-      return;
     }
+  }, [open]);
+
+  useEffect(() => {
+    if (!open) return;
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [open, onClose]);
 
   useEffect(() => {
