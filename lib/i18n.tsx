@@ -530,10 +530,9 @@ const dictionaries: Record<Lang, Dictionary> = {
       portfolioCta: "View Portfolio",
     },
     inAppBrowser: {
-      message:
-        "You're viewing this inside an app's built-in browser, which can feel slower and less smooth. For the best experience, open this page in your regular browser.",
+      message: "You're in the app's browser — open in your regular browser for a smoother experience.",
       cta: "Copy link",
-      dismiss: "Dismiss",
+      dismiss: "Skip",
     },
   },
   vi: {
@@ -849,10 +848,9 @@ const dictionaries: Record<Lang, Dictionary> = {
       portfolioCta: "Xem Portfolio",
     },
     inAppBrowser: {
-      message:
-        "Bạn đang xem trang này trong trình duyệt riêng của ứng dụng, có thể chậm và giật hơn bình thường. Để trải nghiệm mượt mà nhất, hãy mở bằng trình duyệt chính trên máy (Chrome, Safari...).",
+      message: "Đang mở trong trình duyệt của ứng dụng — mở bằng trình duyệt chính để mượt hơn.",
       cta: "Sao chép liên kết",
-      dismiss: "Đóng",
+      dismiss: "Bỏ qua",
     },
   },
 };

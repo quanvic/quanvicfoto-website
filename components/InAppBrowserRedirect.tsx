@@ -54,30 +54,24 @@ export default function InAppBrowserRedirect() {
   if (!visible) return null;
 
   return (
-    <div className="fixed inset-x-0 top-0 z-[200] flex flex-col items-center gap-3 border-b border-line bg-paper px-5 py-4 text-center shadow-[0_4px_20px_rgba(0,0,0,0.08)] sm:flex-row sm:justify-between sm:text-left">
-      <p className="text-sm leading-relaxed text-ink/80">{b.message}</p>
-      <div className="flex shrink-0 items-center gap-3">
+    <div className="fixed inset-x-0 top-0 z-[200] flex flex-col items-center justify-center gap-2 border-b border-line bg-paper/95 px-4 py-2.5 text-center backdrop-blur-sm sm:flex-row sm:gap-4">
+      <p className="text-xs leading-snug text-ink/70 sm:text-[13px]">
+        {b.message}
+      </p>
+      <div className="flex shrink-0 items-center gap-4">
         <button
           type="button"
           onClick={copyLink}
-          className="cursor-hover whitespace-nowrap border border-ink px-4 py-2 font-mono text-xs uppercase tracking-[0.15em] text-ink transition-colors duration-300 hover:bg-ink hover:text-paper"
+          className="cursor-hover whitespace-nowrap font-mono text-[11px] uppercase tracking-[0.1em] text-ink underline decoration-line underline-offset-4 transition-colors hover:decoration-ink"
         >
           {copied ? "✓" : b.cta}
         </button>
         <button
           type="button"
           onClick={dismiss}
-          aria-label={b.dismiss}
-          className="cursor-hover flex h-9 w-9 shrink-0 items-center justify-center text-ink/50 transition-colors hover:text-ink"
+          className="cursor-hover whitespace-nowrap font-mono text-[11px] uppercase tracking-[0.1em] text-ink/50 transition-colors hover:text-ink"
         >
-          <svg width="14" height="14" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-            <path
-              d="M5 5L15 15M15 5L5 15"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-            />
-          </svg>
+          {b.dismiss}
         </button>
       </div>
     </div>
