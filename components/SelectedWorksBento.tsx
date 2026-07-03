@@ -8,40 +8,30 @@ import { CATEGORY_LABELS, useLanguage } from "@/lib/i18n";
 import { blurProps } from "@/lib/blur-data";
 import Lightbox from "@/components/Lightbox";
 
-// The bento rhythm: item 1 is the hero (2 cols x 2 rows), items 2 and 8 are
-// tall portrait focuses (1 col x 2 rows), item 6 is a wide breather (2 cols
-// x 1 row), the rest are standard 1x1 cells. grid-flow-row-dense on the
-// container backfills any gaps this pattern leaves rather than requiring
-// exact manual row math. Spans only apply at the lg breakpoint — below that
-// every card is a single column/tablet-width block so the "rhythm" doesn't
-// fight a narrow viewport.
+// Nearly every source photo is a vertical/portrait frame (shot on a GFX
+// 100S), so every cell here stays single-column — a 2-column span forces a
+// landscape-shaped box that a portrait image can only fill by shrinking
+// down and leaving big empty grey gutters on both sides, which reads as
+// broken layout rather than a deliberate gallery mat. Size rhythm instead
+// comes from varying row-span (3 = feature, 2 = standard), which keeps
+// every cell taller than it is wide, matching the source material. Spans
+// only apply at the lg breakpoint — below that every card is a single
+// column/tablet-width block so the rhythm doesn't fight a narrow viewport.
+// grid-flow-row-dense on the container backfills gaps from the row-span
+// variation automatically.
 const BENTO_SPANS = [
-  "sm:col-span-2 lg:col-span-2 lg:row-span-2",
-  "lg:col-span-1 lg:row-span-2",
-  "lg:col-span-1 lg:row-span-1",
-  "lg:col-span-1 lg:row-span-1",
-  "lg:col-span-1 lg:row-span-1",
-  "sm:col-span-2 lg:col-span-2 lg:row-span-1",
-  "lg:col-span-1 lg:row-span-1",
-  "lg:col-span-1 lg:row-span-2",
-  "lg:col-span-1 lg:row-span-1",
+  "lg:row-span-3",
+  "lg:row-span-2",
+  "lg:row-span-2",
+  "lg:row-span-3",
+  "lg:row-span-2",
+  "lg:row-span-2",
+  "lg:row-span-3",
+  "lg:row-span-2",
+  "lg:row-span-2",
 ];
 
-// The 2-column hero/wide cards render ~66vw wide at lg while the rest are
-// ~33vw; on sm both hero/wide and standard cards span the full 2-col row
-// half or whole. Declaring that per-item keeps next/image from serving a
-// wide card an image half its rendered width.
-const BENTO_SIZES = [
-  "(min-width: 1024px) 66vw, 100vw",
-  "(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw",
-  "(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw",
-  "(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw",
-  "(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw",
-  "(min-width: 1024px) 66vw, 100vw",
-  "(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw",
-  "(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw",
-  "(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw",
-];
+const BENTO_SIZES = "(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw";
 
 export default function SelectedWorksBento({
   items,
@@ -98,7 +88,7 @@ export default function SelectedWorksBento({
                     fill
                     draggable={false}
                     {...blurProps(item.images[0])}
-                    sizes={BENTO_SIZES[i] ?? BENTO_SIZES[1]}
+                    sizes={BENTO_SIZES}
                     className="pointer-events-none select-none object-contain"
                   />
                 </motion.div>
