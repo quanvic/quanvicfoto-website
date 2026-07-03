@@ -1,10 +1,27 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 
+const RING_SIZE = 44; // px — hover-state diameter; default dot achieved via scale
+const DOT_SCALE = 8 / RING_SIZE;
+
+function subscribeNoop() {
+  return () => {};
+}
+function getFinePointer() {
+  return window.matchMedia("(pointer: fine)").matches;
+}
+function getFinePointerServer() {
+  return false;
+}
+
 export default function CustomCursor() {
-  const [enabled, setEnabled] = useState(false);
+  const enabled = useSyncExternalStore(
+    subscribeNoop,
+    getFinePointer,
+    getFinePointerServer,
+  );
   const [hovering, setHovering] = useState(false);
   const x = useMotionValue(-100);
   const y = useMotionValue(-100);
@@ -12,9 +29,7 @@ export default function CustomCursor() {
   const springY = useSpring(y, { stiffness: 500, damping: 40, mass: 0.4 });
 
   useEffect(() => {
-    const fine = window.matchMedia("(pointer: fine)").matches;
-    setEnabled(fine);
-    if (!fine) return;
+    if (!enabled) return;
 
     document.documentElement.classList.add("has-custom-cursor");
 
@@ -34,7 +49,7 @@ export default function CustomCursor() {
       window.removeEventListener("mouseover", over);
       document.documentElement.classList.remove("has-custom-cursor");
     };
-  }, [x, y]);
+  }, [enabled, x, y]);
 
   if (!enabled) return null;
 
@@ -46,9 +61,9 @@ export default function CustomCursor() {
     >
       <motion.div
         className="-translate-x-1/2 -translate-y-1/2 rounded-full border border-paper bg-paper"
+        style={{ width: RING_SIZE, height: RING_SIZE }}
         animate={{
-          width: hovering ? 44 : 8,
-          height: hovering ? 44 : 8,
+          scale: hovering ? 1 : DOT_SCALE,
           backgroundColor: hovering ? "rgba(255,255,255,0)" : "rgba(255,255,255,1)",
         }}
         transition={{ duration: 0.25, ease: "easeOut" }}
