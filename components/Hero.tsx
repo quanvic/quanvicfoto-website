@@ -8,7 +8,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { HERO_IMAGE } from "@/lib/data";
 import { useLanguage } from "@/lib/i18n";
 import { blurProps } from "@/lib/blur-data";
-import { scrollToElement } from "@/lib/lenis";
 
 export default function Hero() {
   const { t } = useLanguage();
@@ -102,23 +101,6 @@ export default function Hero() {
           >
             {t.hero.subtitle}
           </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 2.5, duration: 0.8, ease: "easeOut" }}
-          >
-            <button
-              type="button"
-              onClick={() => scrollToElement("#contact", -80)}
-              className="cursor-hover group mt-10 inline-flex items-center gap-4 border border-paper bg-paper px-8 py-4 font-mono text-sm uppercase tracking-[0.25em] text-ink transition-colors duration-300 hover:bg-transparent hover:text-paper"
-            >
-              {t.hero.ctaLabel}
-              <span className="transition-transform duration-300 group-hover:translate-x-1">
-                &rarr;
-              </span>
-            </button>
-          </motion.div>
         </div>
 
         <div

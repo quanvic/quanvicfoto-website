@@ -214,8 +214,9 @@ export default function Lightbox({
                 exit="exit"
                 transition={slideTransition}
                 drag
-                dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
-                dragElastic={1}
+                dragSnapToOrigin
+                dragElastic={0.7}
+                dragTransition={{ bounceStiffness: 500, bounceDamping: 40 }}
                 onDragEnd={handleDragEnd}
                 className="flex h-full w-full cursor-grab flex-col items-center justify-center gap-4 active:cursor-grabbing"
               >
