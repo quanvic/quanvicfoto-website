@@ -36,7 +36,7 @@ export default function AboutTeaser() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-15% 0px" }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.15 }}
-          className="relative z-10 -mt-12 mx-4 flex flex-col justify-center bg-paper p-6 shadow-[0_8px_40px_-8px_rgba(0,0,0,0.15)] sm:mx-8 sm:p-10 md:col-span-6 md:col-start-6 md:row-start-1 md:-ml-16 md:mt-0 md:mb-10 md:self-end md:p-12 md:shadow-none"
+          className="relative z-10 -mt-12 mx-4 flex flex-col justify-center bg-paper p-6 shadow-[0_8px_40px_-8px_rgba(0,0,0,0.15)] sm:mx-8 sm:p-10 md:col-span-6 md:col-start-7 md:row-start-1 md:-ml-6 md:mt-0 md:mb-10 md:self-end md:p-12 md:shadow-none"
         >
           <div className="mb-6 flex items-baseline gap-4 border-b border-line pb-6">
             <span className="font-serif text-[clamp(3.25rem,7vw,5.5rem)] font-medium leading-none tracking-tight">
