@@ -64,9 +64,12 @@ export default function ChatWidget({
       });
 
       if (res.status === 503) {
+        const body = await res.json().catch(() => null);
+        const text =
+          body?.error === "chat_quota_exceeded" ? c.busy : c.notConfigured;
         setMessages((prev) => [
           ...prev,
-          { role: "model", text: c.notConfigured, isNotice: true },
+          { role: "model", text, isNotice: true },
         ]);
         return;
       }

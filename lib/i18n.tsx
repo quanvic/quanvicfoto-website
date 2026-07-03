@@ -199,6 +199,7 @@ export interface Dictionary {
     send: string;
     thinking: string;
     notConfigured: string;
+    busy: string;
     error: string;
   };
   notFound: {
@@ -513,6 +514,7 @@ const dictionaries: Record<Lang, Dictionary> = {
       thinking: "Thinking…",
       notConfigured:
         "The chat assistant isn't available right now — please reach out via the contact form or hotline instead.",
+      busy: "The chat assistant is at capacity for the moment — message us on Zalo or call the hotline and we'll reply right away.",
       error: "Something went wrong. Please try again or contact us directly.",
     },
     notFound: {
@@ -825,6 +827,7 @@ const dictionaries: Record<Lang, Dictionary> = {
       thinking: "Đang trả lời…",
       notConfigured:
         "Trợ lý chat hiện chưa khả dụng — vui lòng liên hệ qua form hoặc hotline.",
+      busy: "Trợ lý chat đang tạm hết lượt phản hồi — nhắn Zalo hoặc gọi hotline, studio sẽ trả lời bạn ngay.",
       error: "Đã có lỗi xảy ra. Vui lòng thử lại hoặc liên hệ trực tiếp.",
     },
     notFound: {

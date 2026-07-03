@@ -83,6 +83,13 @@ export async function POST(req: Request) {
     if (!res.ok) {
       const errBody = await res.text();
       console.error("Gemini API error:", res.status, errBody);
+      // Free-tier daily quota (100 requests/day) — a deliberate choice not
+      // to enable billing for a support-only chat widget. Surface this as
+      // its own code so the UI can show a "temporarily busy" message
+      // instead of a generic error.
+      if (res.status === 429) {
+        return NextResponse.json({ error: "chat_quota_exceeded" }, { status: 503 });
+      }
       return NextResponse.json({ error: "chat_failed" }, { status: 502 });
     }
 
