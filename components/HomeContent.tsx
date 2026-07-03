@@ -9,9 +9,27 @@ import ContactCTA from "@/components/ContactCTA";
 import { PORTFOLIO_ITEMS } from "@/lib/data";
 import { useLanguage } from "@/lib/i18n";
 
+// Hand-picked for the homepage showcase — deliberately varied in category,
+// composition, and framing (not just the first N items in data order) so
+// the front page reads as a curated selection rather than a beauty
+// close-up wall.
+const FEATURED_SLUGS = [
+  "kieu-sa",
+  "structure",
+  "bloom",
+  "pho-thi",
+  "du-muc",
+  "cam-do",
+  "co-tich",
+  "nguyen-uoc",
+  "quyen-ru",
+];
+
 export default function HomeContent() {
   const { t } = useLanguage();
-  const featured = PORTFOLIO_ITEMS.slice(0, 6);
+  const featured = FEATURED_SLUGS.map((slug) =>
+    PORTFOLIO_ITEMS.find((item) => item.slug === slug),
+  ).filter((item): item is (typeof PORTFOLIO_ITEMS)[number] => Boolean(item));
   const selectedWork = t.home.selectedWork;
 
   return (

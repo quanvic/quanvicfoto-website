@@ -230,7 +230,14 @@ const dictionaries: Record<Lang, Dictionary> = {
       scroll: "Scroll",
       ctaLabel: "Start Your Project",
     },
-    marquee: ["Skin", "Light", "Detail", "Structure", "Editorial", "Beauty"],
+    marquee: [
+      "Light",
+      "Texture",
+      "Portraiture",
+      "Editorial",
+      "Elegance",
+      "Beauty",
+    ],
     home: {
       selectedWork: {
         kicker: "02 — Selected Work",
@@ -528,7 +535,14 @@ const dictionaries: Record<Lang, Dictionary> = {
       scroll: "Cuộn",
       ctaLabel: "Bắt Đầu Dự Án",
     },
-    marquee: ["Da", "Ánh Sáng", "Chi Tiết", "Cấu Trúc", "Editorial", "Beauty"],
+    marquee: [
+      "Light",
+      "Texture",
+      "Portraiture",
+      "Editorial",
+      "Elegance",
+      "Beauty",
+    ],
     home: {
       selectedWork: {
         kicker: "02 — Tác Phẩm Chọn Lọc",

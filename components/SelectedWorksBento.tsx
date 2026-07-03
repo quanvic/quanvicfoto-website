@@ -8,27 +8,36 @@ import { CATEGORY_LABELS, useLanguage } from "@/lib/i18n";
 import { blurProps } from "@/lib/blur-data";
 import Lightbox from "@/components/Lightbox";
 
-// The bento rhythm: item 1 is the hero (2 cols x 2 rows), item 2 is a tall
-// portrait focus (1 col x 2 rows), items 3-6 are standard 1x1 cells. Spans
-// only apply at the lg breakpoint — below that every card is a single
-// column/tablet-width block so the "rhythm" doesn't fight a narrow viewport.
+// The bento rhythm: item 1 is the hero (2 cols x 2 rows), items 2 and 8 are
+// tall portrait focuses (1 col x 2 rows), item 6 is a wide breather (2 cols
+// x 1 row), the rest are standard 1x1 cells. grid-flow-row-dense on the
+// container backfills any gaps this pattern leaves rather than requiring
+// exact manual row math. Spans only apply at the lg breakpoint — below that
+// every card is a single column/tablet-width block so the "rhythm" doesn't
+// fight a narrow viewport.
 const BENTO_SPANS = [
   "sm:col-span-2 lg:col-span-2 lg:row-span-2",
   "lg:col-span-1 lg:row-span-2",
   "lg:col-span-1 lg:row-span-1",
   "lg:col-span-1 lg:row-span-1",
   "lg:col-span-1 lg:row-span-1",
+  "sm:col-span-2 lg:col-span-2 lg:row-span-1",
+  "lg:col-span-1 lg:row-span-1",
+  "lg:col-span-1 lg:row-span-2",
   "lg:col-span-1 lg:row-span-1",
 ];
 
-// The 2-column hero card renders ~66vw wide at lg while the rest are
-// ~33vw; on sm both hero and standard cards span the full 2-col row half
-// or whole. Declaring that per-item keeps next/image from serving the
-// hero card an image half its rendered width.
+// The 2-column hero/wide cards render ~66vw wide at lg while the rest are
+// ~33vw; on sm both hero/wide and standard cards span the full 2-col row
+// half or whole. Declaring that per-item keeps next/image from serving a
+// wide card an image half its rendered width.
 const BENTO_SIZES = [
   "(min-width: 1024px) 66vw, 100vw",
   "(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw",
   "(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw",
+  "(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw",
+  "(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw",
+  "(min-width: 1024px) 66vw, 100vw",
   "(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw",
   "(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw",
   "(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw",
@@ -41,11 +50,11 @@ export default function SelectedWorksBento({
 }) {
   const { lang } = useLanguage();
   const [openIndex, setOpenIndex] = useState<number | null>(null);
-  const works = items.slice(0, 6);
+  const works = items.slice(0, 9);
 
   return (
     <>
-      <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-9 lg:grid-cols-3 lg:auto-rows-[240px] lg:gap-10">
+      <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-9 lg:grid-cols-3 lg:auto-rows-[240px] lg:grid-flow-row-dense lg:gap-10">
         {works.map((item, i) => (
           <motion.article
             key={item.slug}
