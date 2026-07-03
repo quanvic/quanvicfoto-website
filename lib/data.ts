@@ -103,7 +103,7 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     slug: "structure",
     concept: "Structure",
     category: "Editorial",
-    images: ["/images/structure.webp", "/images/noir.jpg"],
+    images: ["/images/structure.webp", "/images/noir.jpg", "/images/structure-3.webp"],
     year: "2023",
     span: "large",
     story:
@@ -175,6 +175,261 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     span: "large",
     story:
       "Đường ren tinh xảo ôm trọn vòng eo, tà váy đuôi cá lộng lẫy trải dài như một áng thơ trên nền phông tối. Kiêu Sa là chân dung của người phụ nữ tự tin bước vào ngày trọng đại — ánh nhìn thẳng thắn, dáng vóc kiêu hãnh, và một vẻ đẹp không cần vội vã phô bày.",
+  },
+  {
+    slug: "rang-ro",
+    concept: "Rạng Rỡ",
+    category: "Colour Story",
+    images: ["/images/rang-ro.webp"],
+    year: "2025",
+    span: "tall",
+    story:
+      "Sắc đỏ cam rực cháy hoà cùng ánh nhìn cương nghị, không một chút rụt rè. Rạng Rỡ là khoảnh khắc vẻ đẹp bừng sáng từ bên trong, tự tin đối diện ống kính như đối diện chính mình.",
+  },
+  {
+    slug: "yeu-kieu",
+    concept: "Yêu Kiều",
+    category: "Bridal",
+    images: ["/images/yeu-kieu.webp"],
+    year: "2025",
+    span: "regular",
+    story:
+      "Tấm voan ngà mềm mại buông xuống bờ vai trần, ánh nhìn nghiêng dịu dàng giữa nền nâu trầm ấm áp. Yêu Kiều là nét đẹp cổ điển không tuổi — nhẹ nhàng mà đầy sức hút.",
+  },
+  {
+    slug: "anh-kim",
+    concept: "Ánh Kim",
+    category: "Editorial",
+    images: ["/images/anh-kim.webp", "/images/anh-kim-2.webp", "/images/anh-kim-3.webp"],
+    year: "2024",
+    span: "wide",
+    story:
+      "Chất liệu ánh kim lấp lánh ôm lấy dáng vóc thanh thoát giữa không gian đô thị hiện đại. Ánh Kim là lời khẳng định của một vẻ đẹp sắc sảo, tự do bước đi giữa phố thị mà không hề hoà lẫn.",
+  },
+  {
+    slug: "hoai-co",
+    concept: "Hoài Cổ",
+    category: "Colour Story",
+    images: ["/images/hoai-co.webp"],
+    year: "2024",
+    span: "regular",
+    story:
+      "Sắc đỏ truyền thống tôn lên làn da và ánh mắt đầy hoài niệm. Hoài Cổ là lát cắt giữa xưa và nay, nơi vẻ đẹp Á Đông được kể lại bằng một ngôn ngữ rất riêng.",
+  },
+  {
+    slug: "tinh-te",
+    concept: "Tinh Tế",
+    category: "Skin Study",
+    images: ["/images/tinh-te.webp"],
+    year: "2025",
+    span: "tall",
+    story:
+      "Không cầu kỳ, không phụ kiện, chỉ có làn da thật được ánh sáng nâng niu từng milimet. Tinh Tế là bản chất của vẻ đẹp — giản đơn mà đầy tinh tế.",
+  },
+  {
+    slug: "guong-xua",
+    concept: "Gương Xưa",
+    category: "Editorial",
+    images: ["/images/guong-xua.webp", "/images/guong-xua-2.webp", "/images/guong-xua-3.webp"],
+    year: "2025",
+    span: "wide",
+    story:
+      "Mái tóc dợn sóng kiểu xưa phản chiếu trong gương, gợi nhắc một thời hoàng kim đã qua. Gương Xưa là hành trình ngược dòng thời gian, nơi vẻ đẹp cổ điển được tái hiện đầy tinh tế.",
+  },
+  {
+    slug: "nguyen-uoc",
+    concept: "Nguyện Ước",
+    category: "Bridal",
+    images: [
+      "/images/nguyen-uoc.webp",
+      "/images/nguyen-uoc-2.webp",
+      "/images/nguyen-uoc-3.webp",
+      "/images/nguyen-uoc-4.webp",
+    ],
+    year: "2025",
+    span: "large",
+    story:
+      "Chiếc váy ren trắng ôm trọn dáng hình mảnh mai, mái tóc dợn sóng gợi nhắc vẻ đẹp cổ điển vượt thời gian. Nguyện Ước là lời hứa hẹn thầm lặng trước ngưỡng cửa hôn nhân — tinh khôi và trọn vẹn.",
+  },
+  {
+    slug: "lung-linh",
+    concept: "Lung Linh",
+    category: "Portrait Study",
+    images: ["/images/lung-linh.webp"],
+    year: "2026",
+    span: "tall",
+    story:
+      "Từng hạt cườm lấp lánh phản chiếu ánh sáng giữa nền đen huyền bí. Lung Linh là khoảnh khắc rực rỡ nhất — nơi sự quyến rũ được tôn vinh bằng ánh sáng và bóng tối hoà quyện.",
+  },
+  {
+    slug: "bach-lan",
+    concept: "Bạch Lan",
+    category: "Portrait Study",
+    images: ["/images/bach-lan.webp", "/images/bach-lan-2.webp", "/images/bach-lan-3.webp"],
+    year: "2026",
+    span: "wide",
+    story:
+      "Đoá lan trắng tinh khôi cài trên mái tóc buông giữa nền đen sâu thẳm. Bạch Lan là biểu tượng của vẻ đẹp thuần khiết, kiêu sa mà không phô trương.",
+  },
+  {
+    slug: "du-muc",
+    concept: "Du Mục",
+    category: "Portrait Study",
+    images: ["/images/du-muc.webp", "/images/du-muc-2.webp", "/images/du-muc-3.webp"],
+    year: "2024",
+    span: "large",
+    story:
+      "Vòng hoa khô mộc mạc trên mái tóc rối bồng bềnh, đôi khi khẽ phủ qua làn voan mỏng. Du Mục là tinh thần tự do phóng khoáng — vẻ đẹp hoang dại mà vẫn dịu dàng đến lạ.",
+  },
+  {
+    slug: "pho-thi",
+    concept: "Phố Thị",
+    category: "Campaign",
+    images: ["/images/pho-thi.webp", "/images/pho-thi-2.webp", "/images/pho-thi-3.webp"],
+    year: "2021",
+    span: "wide",
+    story:
+      "Bộ vest đen sang trọng sải bước giữa lòng phố cổ Hà Nội, ánh đèn đường hắt lên gương mặt đầy khí chất. Phố Thị là chân dung người phụ nữ hiện đại — bản lĩnh, độc lập và không ngừng chuyển động.",
+  },
+  {
+    slug: "tich-lang",
+    concept: "Tịch Lặng",
+    category: "Black & White",
+    images: ["/images/tich-lang.webp", "/images/tich-lang-2.webp", "/images/tich-lang-3.webp"],
+    year: "2024",
+    span: "large",
+    story:
+      "Đen trắng tuyệt đối, chỉ còn lại đường nét gương mặt và ánh sáng khắc hoạ từng biểu cảm. Tịch Lặng là khoảnh khắc tĩnh lặng nhất — nơi cảm xúc được kể bằng im lặng thay vì lời nói.",
+  },
+  {
+    slug: "giot-suong",
+    concept: "Giọt Sương",
+    category: "Colour Story",
+    images: ["/images/giot-suong.webp", "/images/giot-suong-2.webp"],
+    year: "2024",
+    span: "regular",
+    story:
+      "Những hạt ngọc trai điểm nhẹ trên gương mặt ướt sương giữa nền xanh sâu thẳm. Giọt Sương là khoảnh khắc mong manh, trong trẻo như buổi sớm mai chưa kịp tan.",
+  },
+  {
+    slug: "trong-treo",
+    concept: "Trong Trẻo",
+    category: "Skin Study",
+    images: ["/images/trong-treo.webp", "/images/trong-treo-2.webp", "/images/trong-treo-3.webp"],
+    year: "2024",
+    span: "wide",
+    story:
+      "Những cánh hoa trắng nhỏ điểm nhẹ trên mái tóc, làn da căng mịn dưới ánh sáng dịu dàng. Trong Trẻo là vẻ đẹp thanh xuân nguyên bản — không cần che giấu, chỉ cần được nhìn thấy.",
+  },
+  {
+    slug: "e-ap",
+    concept: "E Ấp",
+    category: "Skin Study",
+    images: ["/images/e-ap.webp", "/images/e-ap-2.webp", "/images/e-ap-3.webp"],
+    year: "2023",
+    span: "wide",
+    story:
+      "Đôi má ửng hồng, bờ vai trần khẽ nghiêng như đang giấu một nụ cười. E Ấp là nét duyên thầm kín của người con gái — e dè mà vẫn đầy cuốn hút.",
+  },
+  {
+    slug: "cam-do",
+    concept: "Cám Dỗ",
+    category: "Campaign",
+    images: ["/images/cam-do.webp", "/images/cam-do-2.webp", "/images/cam-do-3.webp"],
+    year: "2025",
+    span: "large",
+    story:
+      "Trái táo đỏ mọng trong tay, ánh mắt lơ đãng giữa nền đỏ rực như một câu chuyện cổ tích được kể lại. Cám Dỗ là sự quyến rũ tinh nghịch, vừa ngây thơ vừa đầy toan tính.",
+  },
+  {
+    slug: "dem-huyen",
+    concept: "Đêm Huyền",
+    category: "Portrait Study",
+    images: ["/images/dem-huyen.webp"],
+    year: "2023",
+    span: "tall",
+    story:
+      "Ánh sáng le lói giữa bóng tối, từng hạt sequin lấp lánh như những vì sao lạc giữa đêm. Đêm Huyền là vẻ đẹp bí ẩn, quyến rũ trong từng khoảnh khắc mờ ảo.",
+  },
+  {
+    slug: "quyen-ru",
+    concept: "Quyến Rũ",
+    category: "Portrait Study",
+    images: ["/images/quyen-ru.webp", "/images/quyen-ru-2.webp", "/images/quyen-ru-3.webp"],
+    year: "2023",
+    span: "wide",
+    story:
+      "Dáng vóc mềm mại buông lơi trên nền da đen bóng, mái tóc xoăn bồng bềnh phủ qua bờ vai trần. Quyến Rũ là vẻ đẹp tự tin và phóng khoáng — không ngại tỏa sáng theo cách riêng.",
+  },
+  {
+    slug: "mong-mo",
+    concept: "Mộng Mơ",
+    category: "Portrait Study",
+    images: ["/images/mong-mo.webp", "/images/mong-mo-2.webp", "/images/mong-mo-3.webp"],
+    year: "2024",
+    span: "large",
+    story:
+      "Cánh hoa Thiên điểu cam rực áp nhẹ lên gò má, lớp lụa tím nhạt buông mềm giữa nền xanh đêm. Mộng Mơ là giấc mơ được dệt bằng sắc màu và ánh sáng — dịu dàng mà đầy mê hoặc.",
+  },
+  {
+    slug: "hong-nhung",
+    concept: "Hồng Nhung",
+    category: "Colour Story",
+    images: ["/images/hong-nhung.webp", "/images/hong-nhung-2.webp", "/images/hong-nhung-3.webp"],
+    year: "2023",
+    span: "wide",
+    story:
+      "Cụm hoa cẩm tú cầu hồng thẫm rực rỡ trên nền đỏ nhung, chiếc bình sứ lam cổ điển gợi nét hoài cổ tinh tế. Hồng Nhung là bản giao hưởng của sắc màu — rực rỡ nhưng vẫn giữ trọn nét thanh lịch.",
+  },
+  {
+    slug: "co-tich",
+    concept: "Cổ Tích",
+    category: "Editorial",
+    images: ["/images/co-tich.webp", "/images/co-tich-2.webp", "/images/co-tich-3.webp"],
+    year: "2024",
+    span: "large",
+    story:
+      "Đôi tai tiên lấp ló sau mái tóc rối, giọt lệ pha ánh nhũ lăn dài trên gò má như bước ra từ một câu chuyện cổ tích. Cổ Tích là thế giới huyền ảo nơi vẻ đẹp và cảm xúc hoà làm một.",
+  },
+  {
+    slug: "khoi-dau",
+    concept: "Khởi Đầu",
+    category: "Bridal",
+    images: ["/images/khoi-dau.webp", "/images/khoi-dau-2.webp", "/images/khoi-dau-3.webp"],
+    year: "2023",
+    span: "wide",
+    story:
+      "Tấm voan ren tinh xảo buông nhẹ trên nền trắng tinh khôi, ánh nhìn vừa e ấp vừa đầy hy vọng. Khởi Đầu là khoảnh khắc thiêng liêng trước một hành trình mới — dịu dàng và trọn vẹn niềm tin.",
+  },
+  {
+    slug: "nhe-nhang",
+    concept: "Nhẹ Nhàng",
+    category: "Skin Study",
+    images: ["/images/nhe-nhang.webp", "/images/nhe-nhang-2.webp", "/images/nhe-nhang-3.webp"],
+    year: "2023",
+    span: "regular",
+    story:
+      "Lớp lụa ngà mềm mại ôm nhẹ bờ vai trần trên nền xám thanh lịch. Nhẹ Nhàng là vẻ đẹp tối giản nhưng không hề đơn điệu — mỗi đường nét đều được ánh sáng kể lại bằng sự tinh tế.",
+  },
+  {
+    slug: "bang-tuyet",
+    concept: "Băng Tuyết",
+    category: "Portrait Study",
+    images: ["/images/bang-tuyet.webp", "/images/bang-tuyet-2.webp", "/images/bang-tuyet-3.webp"],
+    year: "2024",
+    span: "wide",
+    story:
+      "Lông vũ trắng muốt phủ nhẹ trên mái tóc, chuỗi ngọc trai ôm quanh cổ như những bông tuyết đầu mùa. Băng Tuyết là vẻ đẹp thanh khiết, lạnh lùng mà vẫn ấm áp trong từng ánh nhìn.",
+  },
+  {
+    slug: "lap-lanh",
+    concept: "Lấp Lánh",
+    category: "Campaign",
+    images: ["/images/lap-lanh.webp", "/images/lap-lanh-2.webp", "/images/lap-lanh-3.webp"],
+    year: "2023",
+    span: "regular",
+    story:
+      "Từng viên đá quý lấp lánh nơi vành tai, cổ tay điểm xuyết trên nền chất liệu dệt kim mềm mại. Lấp Lánh là câu chuyện của những chi tiết nhỏ làm nên vẻ đẹp hoàn chỉnh.",
   },
 ];
 
