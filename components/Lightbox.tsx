@@ -13,24 +13,28 @@ const SWIPE_CLOSE_OFFSET_THRESHOLD = 80;
 const SWIPE_CLOSE_VELOCITY_THRESHOLD = 500;
 const SLIDE_DISTANCE = 320;
 
+// A deliberate, non-bouncy cross-slide (tween, not spring) reads as
+// editorial rather than a stock carousel effect — no scale pulse, and
+// the easing curve matches the house style used elsewhere (e.g. the
+// chat panel) instead of an underdamped spring that overshoots/settles
+// with a visible wobble.
+const EASE_OUT_EXPO: [number, number, number, number] = [0.16, 1, 0.3, 1];
+
 const slideVariants = {
   enter: (direction: number) => ({
     opacity: 0,
     x: direction * SLIDE_DISTANCE,
-    scale: 0.94,
   }),
-  center: { opacity: 1, x: 0, scale: 1 },
+  center: { opacity: 1, x: 0 },
   exit: (direction: number) => ({
     opacity: 0,
     x: direction * -SLIDE_DISTANCE,
-    scale: 0.94,
   }),
 };
 
 const slideTransition = {
-  x: { type: "spring" as const, stiffness: 340, damping: 32 },
-  opacity: { duration: 0.2 },
-  scale: { duration: 0.25 },
+  x: { duration: 0.4, ease: EASE_OUT_EXPO },
+  opacity: { duration: 0.3, ease: EASE_OUT_EXPO },
 };
 
 export default function Lightbox({
