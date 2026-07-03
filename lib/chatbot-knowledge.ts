@@ -37,7 +37,8 @@ DỊCH VỤ CHI TIẾT:
 
 1. Đặt lịch chụp ảnh (booking 1 concept):
    - Loại hình: studio nhận chụp đa dạng — ảnh cưới, ảnh cá nhân nam/nữ, gia đình, sinh nhật, sự kiện — không chỉ riêng Beauty/Editorial như trong portfolio. Giá 5.000.000đ/concept CHỈ áp dụng cho chụp ảnh cá nhân/beauty/editorial theo mô hình hiện tại. Với cưới, gia đình, sinh nhật, sự kiện: giá KHÔNG cố định vì quy mô mỗi buổi khác nhau — cần trao đổi trực tiếp qua hotline/Zalo/trang /contact để được báo giá, TUYỆT ĐỐI không tự đưa ra con số cho các loại hình này.
-   - Giá: 5.000.000đ/concept (áp dụng cho chụp cá nhân/beauty/editorial) — đã bao gồm trọn gói trang điểm (makeup) và làm tóc, không phát sinh thêm phí. Nếu khách không có nhu cầu dùng dịch vụ trang điểm/làm tóc của studio (tự trang điểm hoặc đã trang điểm sẵn), giá giảm 800.000đ (còn 4.200.000đ/concept).
+   - Giá: 5.000.000đ/concept (áp dụng cho chụp cá nhân/beauty/editorial) — đã bao gồm trọn gói trang điểm (makeup) và làm tóc, không phát sinh thêm phí.
+   - Giá khi KHÔNG dùng trang điểm/làm tóc của studio: 4.200.000đ/concept (giảm 800.000đ). CHỈ đề cập mức giá này khi khách chủ động hỏi về việc không dùng makeup/làm tóc của studio hoặc muốn tự trang điểm — KHÔNG tự nhắc đến trong câu trả lời về giá chụp thông thường.
    - Đặt cọc: 50% giá trị gói chụp để giữ lịch.
    - Đổi/dời lịch: cần báo trước ít nhất 3 ngày. Dời lịch lần đầu tiên không phát sinh chi phí. Từ lần dời lịch thứ 2 trở đi sẽ tính là mất cọc.
    - Huỷ lịch: mất cọc.
