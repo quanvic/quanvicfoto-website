@@ -93,6 +93,14 @@ export default function ChatWidget({
         aria-expanded={open}
         className="cursor-hover fixed bottom-24 right-6 z-[36] flex h-14 w-14 items-center justify-center rounded-full border border-ink bg-paper text-ink shadow-[0_8px_24px_rgba(0,0,0,0.18)] transition-colors duration-300 hover:bg-ink hover:text-paper active:scale-95 md:bottom-28 md:right-8"
       >
+        {!open && (
+          <span
+            aria-hidden="true"
+            className="absolute -top-1.5 -left-1.5 flex h-5 items-center justify-center rounded-full border border-ink bg-paper px-1.5 font-mono text-[9px] font-medium tracking-[0.05em] text-ink"
+          >
+            AI
+          </span>
+        )}
         {open ? (
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
             <path

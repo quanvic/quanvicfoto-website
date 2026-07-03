@@ -11,7 +11,7 @@ export default function ZaloButton() {
       rel="noreferrer"
       aria-label="Chat qua Zalo"
       onClick={() => trackEvent("zalo_click", { location: "floating_button" })}
-      className="cursor-hover fixed bottom-6 right-6 z-[35] flex h-14 w-14 items-center justify-center rounded-full border border-ink bg-ink text-paper shadow-[0_8px_24px_rgba(0,0,0,0.25)] transition-colors duration-300 hover:bg-paper hover:text-ink active:scale-95 md:bottom-8 md:right-8"
+      className="cursor-hover fixed bottom-6 right-6 z-[35] flex h-14 w-14 items-center justify-center rounded-full border border-[#0068FF] bg-[#0068FF] text-paper shadow-[0_8px_24px_rgba(0,104,255,0.35)] transition-transform duration-300 hover:brightness-110 active:scale-95 md:bottom-8 md:right-8"
     >
       <svg width="27" height="27" viewBox="0 0 24 24" fill="none" aria-hidden="true">
         <path
