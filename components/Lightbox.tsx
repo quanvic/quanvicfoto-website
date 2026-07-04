@@ -7,11 +7,15 @@ import {
   motion,
   useMotionValue,
   useSpring,
-  type PanInfo,
 } from "framer-motion";
 import type { PortfolioItem } from "@/lib/data";
 import { CATEGORY_LABELS, useLanguage } from "@/lib/i18n";
 import { blurProps } from "@/lib/blur-data";
+
+type SwipeInfo = {
+  offset: { x: number; y: number };
+  velocity: { x: number; y: number };
+};
 
 const SWIPE_OFFSET_THRESHOLD = 60;
 const SWIPE_VELOCITY_THRESHOLD = 500;
@@ -61,15 +65,12 @@ function LightboxSlide({
   src,
   alt,
   direction,
-  onDragEnd,
+  onSwipeEnd,
 }: {
   src: string;
   alt: string;
   direction: number;
-  onDragEnd: (
-    event: MouseEvent | TouchEvent | PointerEvent,
-    info: PanInfo,
-  ) => void;
+  onSwipeEnd: (info: SwipeInfo) => void;
 }) {
   const [isPinching, setIsPinching] = useState(false);
   // Two-finger distance is naturally noisy — a human hand can't hold a
@@ -87,6 +88,45 @@ function LightboxSlide({
     mass: 1,
   });
   const pinchStartDistance = useRef(0);
+  const swipeStart = useRef<{
+    x: number;
+    y: number;
+    time: number;
+    pointerId: number;
+  } | null>(null);
+
+  // Swipe navigation is detected from raw pointer movement, but the photo
+  // itself is never repositioned while the gesture is in progress — it
+  // must stay visually still and only react (instantly) once the gesture
+  // ends. Framer's `drag` gesture inherently moves the element with the
+  // pointer, and pinning it via a zero-elasticity 0,0 constraint turned
+  // out to suppress gesture recognition entirely rather than just hiding
+  // the movement, so this tracks pointer start/end manually instead.
+  function handlePointerDown(e: React.PointerEvent) {
+    if (!e.isPrimary || isPinching) return;
+    swipeStart.current = {
+      x: e.clientX,
+      y: e.clientY,
+      time: performance.now(),
+      pointerId: e.pointerId,
+    };
+  }
+
+  function handlePointerUp(e: React.PointerEvent) {
+    const start = swipeStart.current;
+    swipeStart.current = null;
+    if (!start || start.pointerId !== e.pointerId || isPinching) return;
+    const dt = Math.max(1, performance.now() - start.time);
+    const offset = { x: e.clientX - start.x, y: e.clientY - start.y };
+    onSwipeEnd({
+      offset,
+      velocity: { x: (offset.x / dt) * 1000, y: (offset.y / dt) * 1000 },
+    });
+  }
+
+  function handlePointerCancel() {
+    swipeStart.current = null;
+  }
 
   function handleTouchStart(e: React.TouchEvent) {
     if (e.touches.length === 2) {
@@ -120,11 +160,9 @@ function LightboxSlide({
       animate="center"
       exit="exit"
       transition={slideTransition}
-      drag={!isPinching}
-      dragSnapToOrigin
-      dragElastic={0.7}
-      dragTransition={{ bounceStiffness: 500, bounceDamping: 40 }}
-      onDragEnd={onDragEnd}
+      onPointerDown={handlePointerDown}
+      onPointerUp={handlePointerUp}
+      onPointerCancel={handlePointerCancel}
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
@@ -206,12 +244,7 @@ export default function Lightbox({
     return () => window.removeEventListener("keydown", onKey);
   }, [open, onClose, goNext, goPrev]);
 
-  function handleDragEnd(
-    _event: MouseEvent | TouchEvent | PointerEvent,
-    info: PanInfo,
-  ) {
-    const { offset, velocity } = info;
-
+  function handleSwipeEnd({ offset, velocity }: SwipeInfo) {
     // A predominantly vertical swipe (either direction) dismisses the
     // lightbox, matching the swipe-down-to-close pattern from Instagram/
     // Twitter's photo viewers — checked first so a diagonal swipe reads
@@ -324,7 +357,7 @@ export default function Lightbox({
                   src={item.images[photoIndex]}
                   alt={`${item.concept} - Ảnh chân dung Beauty Editorial cỡ đầy đủ, Quân Vic Foto Studio Hà Nội`}
                   direction={direction}
-                  onDragEnd={handleDragEnd}
+                  onSwipeEnd={handleSwipeEnd}
                 />
               </AnimatePresence>
             </div>
