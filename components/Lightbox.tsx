@@ -50,6 +50,89 @@ const slideTransition = {
   opacity: { duration: 0.3, ease: EASE_OUT_EXPO },
 };
 
+// Pinch-zoom state (the scale motion value + gesture tracking) lives here,
+// scoped to one slide instance, instead of on the shared Lightbox component.
+// A motion value shared across all slides stayed bound to every still-
+// mounted "exiting" ghost as well as the current slide, so resetting it on
+// every photo change kept re-triggering activity inside ghosts that had
+// already reached their exit target — AnimatePresence never saw them go
+// fully idle and so never unmounted them, leaking one <img> per navigation.
+function LightboxSlide({
+  src,
+  alt,
+  direction,
+  onDragEnd,
+}: {
+  src: string;
+  alt: string;
+  direction: number;
+  onDragEnd: (
+    event: MouseEvent | TouchEvent | PointerEvent,
+    info: PanInfo,
+  ) => void;
+}) {
+  const [isPinching, setIsPinching] = useState(false);
+  const pinchScale = useMotionValue(1);
+  const pinchStartDistance = useRef(0);
+
+  function handleTouchStart(e: React.TouchEvent) {
+    if (e.touches.length === 2) {
+      setIsPinching(true);
+      pinchStartDistance.current = pinchDistance(e.touches);
+    }
+  }
+
+  function handleTouchMove(e: React.TouchEvent) {
+    if (e.touches.length === 2 && pinchStartDistance.current > 0) {
+      const ratio = pinchDistance(e.touches) / pinchStartDistance.current;
+      pinchScale.set(
+        Math.min(PINCH_MAX_SCALE, Math.max(PINCH_MIN_SCALE, ratio)),
+      );
+    }
+  }
+
+  function handleTouchEnd(e: React.TouchEvent) {
+    if (e.touches.length < 2) {
+      setIsPinching(false);
+      pinchStartDistance.current = 0;
+      animate(pinchScale, 1, { type: "spring", stiffness: 300, damping: 30 });
+    }
+  }
+
+  return (
+    <motion.div
+      custom={direction}
+      variants={slideVariants}
+      initial="enter"
+      animate="center"
+      exit="exit"
+      transition={slideTransition}
+      drag={!isPinching}
+      dragSnapToOrigin
+      dragElastic={0.7}
+      dragTransition={{ bounceStiffness: 500, bounceDamping: 40 }}
+      onDragEnd={onDragEnd}
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
+      onTouchCancel={handleTouchEnd}
+      className="absolute inset-0 cursor-grab touch-none active:cursor-grabbing"
+    >
+      <motion.div style={{ scale: pinchScale }} className="h-full w-full">
+        <Image
+          src={src}
+          alt={alt}
+          fill
+          draggable={false}
+          {...blurProps(src)}
+          sizes="92vw"
+          className="pointer-events-none select-none object-contain"
+        />
+      </motion.div>
+    </motion.div>
+  );
+}
+
 export default function Lightbox({
   items,
   index,
@@ -68,9 +151,6 @@ export default function Lightbox({
   const [photoIndex, setPhotoIndex] = useState(0);
   const [lastIndex, setLastIndex] = useState(index);
   const [enterFromEnd, setEnterFromEnd] = useState(false);
-  const [isPinching, setIsPinching] = useState(false);
-  const pinchScale = useMotionValue(1);
-  const pinchStartDistance = useRef(0);
   if (index !== lastIndex) {
     setLastIndex(index);
     setPhotoIndex(enterFromEnd && item ? item.images.length - 1 : 0);
@@ -112,45 +192,6 @@ export default function Lightbox({
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [open, onClose, goNext, goPrev]);
-
-  // Each photo starts fresh at 1x — an in-progress or lingering pinch
-  // shouldn't carry over when the user swipes to a different photo.
-  useEffect(() => {
-    pinchScale.set(1);
-    pinchStartDistance.current = 0;
-    // eslint-disable-next-line react-hooks/set-state-in-effect -- defensive reset of our own gesture state when the photo changes underneath an (unlikely) still-active pinch, not derived render output
-    setIsPinching(false);
-  }, [photoIndex, item?.slug, pinchScale]);
-
-  // Pinch-to-zoom: scale follows the distance between the two touch
-  // points in real time; lifting either finger snaps straight back to
-  // 1x. This is a momentary "peek" zoom, not a persistent one, so there
-  // is no pan-when-zoomed mode to reconcile with the existing swipe
-  // gestures — swipe/close drag is simply suspended while a second
-  // finger is down.
-  function handleTouchStart(e: React.TouchEvent) {
-    if (e.touches.length === 2) {
-      setIsPinching(true);
-      pinchStartDistance.current = pinchDistance(e.touches);
-    }
-  }
-
-  function handleTouchMove(e: React.TouchEvent) {
-    if (e.touches.length === 2 && pinchStartDistance.current > 0) {
-      const ratio = pinchDistance(e.touches) / pinchStartDistance.current;
-      pinchScale.set(
-        Math.min(PINCH_MAX_SCALE, Math.max(PINCH_MIN_SCALE, ratio)),
-      );
-    }
-  }
-
-  function handleTouchEnd(e: React.TouchEvent) {
-    if (e.touches.length < 2) {
-      setIsPinching(false);
-      pinchStartDistance.current = 0;
-      animate(pinchScale, 1, { type: "spring", stiffness: 300, damping: 30 });
-    }
-  }
 
   function handleDragEnd(
     _event: MouseEvent | TouchEvent | PointerEvent,
@@ -264,41 +305,14 @@ export default function Lightbox({
             onClick={(e) => e.stopPropagation()}
           >
             <div className="relative h-[72dvh] w-full">
-              <AnimatePresence custom={direction} mode="popLayout" initial={false}>
-                <motion.div
+              <AnimatePresence custom={direction} initial={false}>
+                <LightboxSlide
                   key={`${item.slug}-${photoIndex}`}
-                  custom={direction}
-                  variants={slideVariants}
-                  initial="enter"
-                  animate="center"
-                  exit="exit"
-                  transition={slideTransition}
-                  drag={!isPinching}
-                  dragSnapToOrigin
-                  dragElastic={0.7}
-                  dragTransition={{ bounceStiffness: 500, bounceDamping: 40 }}
+                  src={item.images[photoIndex]}
+                  alt={`${item.concept} - Ảnh chân dung Beauty Editorial cỡ đầy đủ, Quân Vic Foto Studio Hà Nội`}
+                  direction={direction}
                   onDragEnd={handleDragEnd}
-                  onTouchStart={handleTouchStart}
-                  onTouchMove={handleTouchMove}
-                  onTouchEnd={handleTouchEnd}
-                  onTouchCancel={handleTouchEnd}
-                  className="absolute inset-0 cursor-grab touch-none active:cursor-grabbing"
-                >
-                  <motion.div
-                    style={{ scale: pinchScale }}
-                    className="h-full w-full"
-                  >
-                    <Image
-                      src={item.images[photoIndex]}
-                      alt={`${item.concept} - Ảnh chân dung Beauty Editorial cỡ đầy đủ, Quân Vic Foto Studio Hà Nội`}
-                      fill
-                      draggable={false}
-                      {...blurProps(item.images[photoIndex])}
-                      sizes="92vw"
-                      className="pointer-events-none select-none object-contain"
-                    />
-                  </motion.div>
-                </motion.div>
+                />
               </AnimatePresence>
             </div>
 
