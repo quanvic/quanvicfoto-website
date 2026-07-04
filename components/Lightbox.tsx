@@ -4,9 +4,9 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import {
   AnimatePresence,
-  animate,
   motion,
   useMotionValue,
+  useSpring,
   type PanInfo,
 } from "framer-motion";
 import type { PortfolioItem } from "@/lib/data";
@@ -72,7 +72,20 @@ function LightboxSlide({
   ) => void;
 }) {
   const [isPinching, setIsPinching] = useState(false);
+  // Two-finger distance is naturally noisy — a human hand can't hold a
+  // perfectly constant spread while translating both fingers to pan, so
+  // the raw ratio jitters by a percent or two on every touchmove. Feeding
+  // that straight into the rendered scale made close-up portraits visibly
+  // tremble whenever the user held two fingers down and moved them
+  // (rather than pinching outward deliberately). Routing it through a
+  // spring smooths that sensor noise out while still tracking a real
+  // pinch gesture responsively.
   const pinchScale = useMotionValue(1);
+  const displayScale = useSpring(pinchScale, {
+    stiffness: 90,
+    damping: 30,
+    mass: 1,
+  });
   const pinchStartDistance = useRef(0);
 
   function handleTouchStart(e: React.TouchEvent) {
@@ -95,7 +108,7 @@ function LightboxSlide({
     if (e.touches.length < 2) {
       setIsPinching(false);
       pinchStartDistance.current = 0;
-      animate(pinchScale, 1, { type: "spring", stiffness: 300, damping: 30 });
+      pinchScale.set(1);
     }
   }
 
@@ -118,7 +131,7 @@ function LightboxSlide({
       onTouchCancel={handleTouchEnd}
       className="absolute inset-0 cursor-grab touch-none active:cursor-grabbing"
     >
-      <motion.div style={{ scale: pinchScale }} className="h-full w-full">
+      <motion.div style={{ scale: displayScale }} className="h-full w-full">
         <Image
           src={src}
           alt={alt}
