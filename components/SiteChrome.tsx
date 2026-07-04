@@ -9,6 +9,7 @@ import CustomCursor from "@/components/CustomCursor";
 import SmoothScroll from "@/components/SmoothScroll";
 import Footer from "@/components/Footer";
 import EditorialFrame from "@/components/EditorialFrame";
+import FilmGrain from "@/components/FilmGrain";
 import ZaloButton from "@/components/ZaloButton";
 import ChatWidget from "@/components/ChatWidget";
 import ImageProtection from "@/components/ImageProtection";
@@ -29,6 +30,7 @@ export default function SiteChrome({
       {loading && <Preloader onDone={() => setLoading(false)} />}
 
       <InAppBrowserRedirect />
+      <FilmGrain />
       <EditorialFrame />
       <CustomCursor />
       <ImageProtection />

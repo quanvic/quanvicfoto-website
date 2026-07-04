@@ -7,6 +7,7 @@ import type { PortfolioItem } from "@/lib/data";
 import { CATEGORY_LABELS, useLanguage } from "@/lib/i18n";
 import { blurProps } from "@/lib/blur-data";
 import Lightbox from "@/components/Lightbox";
+import CornerBrackets from "@/components/CornerBrackets";
 import { trackEvent } from "@/lib/analytics";
 
 const SPAN_CLASSES: Record<PortfolioItem["span"], string> = {
@@ -57,6 +58,13 @@ export default function GalleryGrid({ items }: { items: PortfolioItem[] }) {
               className="object-cover transition-all duration-500 ease-out group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-ink/0 transition-all duration-500 group-hover:bg-ink/35" />
+
+            {/* Same viewfinder motif as the homepage's featured grid —
+                quiet at rest, sharpens and switches to paper on hover so
+                it stays visible once the dark overlay lands. */}
+            <div className="pointer-events-none absolute inset-3 text-ink/25 transition-colors duration-500 group-hover:text-paper/85">
+              <CornerBrackets size={18} thickness={1.25} />
+            </div>
 
             {item.images.length > 1 && (
               <span className="absolute right-3 top-3 flex items-center gap-1 bg-ink/60 px-2 py-1 font-mono text-[10px] uppercase tracking-[0.15em] text-paper backdrop-blur-sm">

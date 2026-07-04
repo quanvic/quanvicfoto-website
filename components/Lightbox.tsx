@@ -11,6 +11,7 @@ import {
 import type { PortfolioItem } from "@/lib/data";
 import { CATEGORY_LABELS, useLanguage } from "@/lib/i18n";
 import { blurProps } from "@/lib/blur-data";
+import CornerBrackets from "@/components/CornerBrackets";
 
 type SwipeInfo = {
   offset: { x: number; y: number };
@@ -360,6 +361,15 @@ export default function Lightbox({
                   onSwipeEnd={handleSwipeEnd}
                 />
               </AnimatePresence>
+
+              {/* Static viewfinder frame around the viewer itself — kept
+                  outside the AnimatePresence above so it's never part of
+                  the slide-mount/unmount cycle that fix targeted earlier. */}
+              <CornerBrackets
+                size={22}
+                thickness={1.5}
+                className="text-paper/40"
+              />
             </div>
 
             {/* Caption fades only (no slide/scale) — letting text travel
