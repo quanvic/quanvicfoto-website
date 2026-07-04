@@ -133,6 +133,15 @@ function LightboxSlide({
     if (e.touches.length === 2) {
       setIsPinching(true);
       pinchStartDistance.current = pinchDistance(e.touches);
+      // The primary finger's own pointerdown already ran (before this
+      // second finger arrived) and recorded a pending swipeStart. Real
+      // pinch releases almost always lift one finger before the other,
+      // which flips `isPinching` back to false as soon as the first one
+      // lifts — so by the time the primary finger's pointerup finally
+      // fires, handlePointerUp's `isPinching` guard would already read
+      // false and fire a spurious swipe using this stale pre-pinch
+      // position. Clearing it here means there's nothing left to fire.
+      swipeStart.current = null;
     }
   }
 
@@ -206,6 +215,11 @@ export default function Lightbox({
   if (index !== lastIndex) {
     setLastIndex(index);
     setPhotoIndex(enterFromEnd && item ? item.images.length - 1 : 0);
+    // Consume-once: without this, spilling into the previous album via
+    // goPrev leaves this stuck `true`, so the *next* time the lightbox is
+    // opened on an unrelated item — e.g. clicking a different thumbnail
+    // directly — it would incorrectly land on that item's last photo too.
+    if (enterFromEnd) setEnterFromEnd(false);
   }
 
   // Prev/next (arrows, swipe, keyboard) step through the current album's
