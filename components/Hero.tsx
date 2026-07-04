@@ -8,6 +8,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { HERO_IMAGE } from "@/lib/data";
 import { useLanguage } from "@/lib/i18n";
 import { blurProps } from "@/lib/blur-data";
+import CornerBrackets from "@/components/CornerBrackets";
 
 export default function Hero() {
   const { t } = useLanguage();
@@ -16,6 +17,7 @@ export default function Hero() {
   const imageWrapRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLDivElement>(null);
   const cueRef = useRef<HTMLDivElement>(null);
+  const bracketsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -45,7 +47,8 @@ export default function Hero() {
           { yPercent: -35, opacity: 0, ease: "none" },
           0,
         )
-        .to(cueRef.current, { opacity: 0, ease: "none" }, 0);
+        .to(cueRef.current, { opacity: 0, ease: "none" }, 0)
+        .to(bracketsRef.current, { opacity: 0, ease: "none" }, 0);
     }, wrapperRef);
 
     return () => ctx.revert();
@@ -110,6 +113,29 @@ export default function Hero() {
           >
             {t.hero.subtitle}
           </motion.p>
+        </div>
+
+        {/* Signature moment: the frame "locks focus" on the subject right
+            after the title has landed — the one deliberate flourish this
+            page spends its boldness on, borrowed from the photographer's
+            own viewfinder rather than a decorative flourish. Split into an
+            outer plain div (GSAP's scroll-scrub fade, same pattern as
+            titleRef/cueRef) and an inner motion.div (Framer's entrance) —
+            putting both animations on one element let GSAP's context
+            capture the pre-entrance opacity (0) as its scrub "start" value
+            at mount, permanently overriding Framer's own fade-in. */}
+        <div
+          ref={bracketsRef}
+          className="pointer-events-none absolute inset-x-[12%] inset-y-[15%] z-10 text-paper/70 md:inset-x-[20%] md:inset-y-[13%]"
+        >
+          <motion.div
+            initial={{ opacity: 0, scale: 1.12 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 2.9, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            className="h-full w-full"
+          >
+            <CornerBrackets size={26} thickness={1.5} />
+          </motion.div>
         </div>
 
         <div

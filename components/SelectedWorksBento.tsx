@@ -7,6 +7,7 @@ import type { PortfolioItem } from "@/lib/data";
 import { CATEGORY_LABELS, useLanguage } from "@/lib/i18n";
 import { blurProps } from "@/lib/blur-data";
 import Lightbox from "@/components/Lightbox";
+import CornerBrackets from "@/components/CornerBrackets";
 
 // Nearly every source photo is a vertical/portrait frame (shot on a GFX
 // 100S), so every cell here stays single-column — a 2-column span forces a
@@ -98,12 +99,29 @@ export default function SelectedWorksBento({
                   transition={{ duration: 0.5, ease: "easeOut" }}
                   className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center gap-2 bg-ink/55 text-center backdrop-blur-[2px]"
                 >
+                  <span className="absolute left-4 top-4 font-mono text-[10px] tracking-[0.2em] text-paper/70">
+                    Nº {String(i + 1).padStart(2, "0")}
+                  </span>
                   <p className="font-serif text-2xl italic tracking-tight text-paper md:text-3xl">
                     {item.concept}
                   </p>
                   <span className="font-mono text-[11px] uppercase tracking-[0.25em] text-paper/80">
                     {CATEGORY_LABELS[item.category]?.[lang] ?? item.category}
                   </span>
+                </motion.div>
+
+                {/* Quiet corner ticks, echoing a contact sheet / mounted
+                    negative — the same viewfinder motif as the Hero's
+                    focus-lock, at rest here rather than animated. */}
+                <motion.div
+                  variants={{
+                    rest: { color: "rgba(0,0,0,0.25)" },
+                    hover: { color: "rgba(255,255,255,0.85)" },
+                  }}
+                  transition={{ duration: 0.35, ease: "easeOut" }}
+                  className="pointer-events-none absolute inset-3"
+                >
+                  <CornerBrackets size={16} thickness={1.25} />
                 </motion.div>
               </motion.div>
             </button>
