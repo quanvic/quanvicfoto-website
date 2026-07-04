@@ -29,7 +29,13 @@ export default function Hero() {
           trigger: wrapperRef.current,
           start: "top top",
           end: "bottom bottom",
-          scrub: 1,
+          // scrub: true (not a numeric lag) — Lenis already smooths the
+          // scroll itself, so adding GSAP's own catch-up delay on top
+          // stacked two independent smoothing systems and showed up as
+          // visible micro-jitter on the scaling hero image, since any
+          // tiny mismatch between the two is amplified on a full-bleed
+          // image transform.
+          scrub: true,
         },
       });
 
@@ -51,7 +57,10 @@ export default function Hero() {
         ref={sectionRef}
         className="sticky top-0 h-[100dvh] w-full overflow-hidden bg-ink"
       >
-        <div ref={imageWrapRef} className="absolute inset-0 scale-[1.18]">
+        <div
+          ref={imageWrapRef}
+          className="absolute inset-0 scale-[1.18] will-change-transform"
+        >
           <Image
             src={HERO_IMAGE}
             alt="Chân dung Beauty Editorial ánh sáng studio chuyên nghiệp tại Hà Nội - Quân Vic Foto"
