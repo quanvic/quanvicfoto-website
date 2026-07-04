@@ -351,7 +351,13 @@ export default function Lightbox({
             className="relative flex h-full w-full max-w-5xl flex-col items-center justify-center gap-4 overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="relative h-[72dvh] w-full">
+            {/* flex-shrink-0 is load-bearing: without it, this fixed-height
+                box would compress to fit whatever's left after the caption
+                below it, so the photo itself rendered visibly smaller on
+                multi-photo albums (whose caption has an extra dot-indicator
+                row) than on single-photo items — the exact "ảnh to ảnh nhỏ"
+                inconsistency reported. */}
+            <div className="relative h-[68dvh] w-full flex-shrink-0">
               <AnimatePresence custom={direction} initial={false}>
                 <LightboxSlide
                   key={`${item.slug}-${photoIndex}`}
@@ -430,7 +436,12 @@ export default function Lightbox({
                     </span>
                   </div>
                   {item.story && (
-                    <p className="font-serif text-sm italic leading-relaxed text-paper/75">
+                    // line-clamp caps how tall this can grow — now that the
+                    // photo above is flex-shrink-0 (a fixed, consistent
+                    // size), an unusually long story no longer has room to
+                    // borrow by shrinking the image, so it must cap itself
+                    // instead of pushing the caption off the bottom edge.
+                    <p className="line-clamp-3 font-serif text-sm italic leading-relaxed text-paper/75">
                       {item.story}
                     </p>
                   )}
